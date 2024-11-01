@@ -1,0 +1,320 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transition: top 0.3s;
+}
+
+.header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.main-menu {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-menu > li {
+    position: relative;
+    margin-right: 20px;
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    display: block;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style-type: none;
+    padding: 0;
+}
+
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    padding: 10px;
+}
+
+.submenu a:hover {
+    background-color: #ddd;
+}
+
+/* Hero Section */
+.hero {
+    margin-top: 60px; /* 헤더 높이에 맞게 조정 */
+    height: 100vh; /* 뷰포트 높이만큼 설정 */
+    opacity: 0;
+    transition: opacity 2s ease-in;
+    background: url('../images/DynamicImage.png') no-repeat center center; /* 경로 수정 */
+    background-size: cover;
+    position: relative;
+    z-index: 1; /* z-index 추가 */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3); /* 오버레이 투명도 조정 */
+    z-index: 2; /* z-index 추가 */
+}
+
+.hero.visible {
+    opacity: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3; /* z-index 증가 */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+/* Filter Section */
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px; /* 필터 섹션의 패딩 */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 20px; /* 상단 여백 */
+}
+
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* 항목 간의 공간 조정 */
+    width: 100%;
+}
+
+.filter-column {
+    flex: 1; /* 각 필터 항목의 비율 조정 */
+    min-width: 150px; /* 최소 너비 */
+}
+
+.filter-label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px; /* 레이블과 버튼 간의 여백 */
+}
+
+.filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* 버튼 간의 간격 */
+}
+
+.filter-options button {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    font-size: 0.85rem; /* 버튼 폰트 크기 */
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.filter-options button:hover {
+    background-color: #e0e0e0;
+}
+
+.colors button {
+    width: 24px; /* 색상 버튼 크기 조정 */
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    padding: 0;
+}
+
+/* Sort Section */
+.sort-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.sort-options {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.sort-dropdown {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Artwork Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.art-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.art-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.art-image {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    border-radius: 0.5rem;
+}
+
+.art-details {
+    padding: 15px;
+    text-align: left;
+}
+
+.art-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.art-artist, .art-size, .art-status {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #6A5ACD;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+}
+
+.page-btn {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.page-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.page-btn.active {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.page-btn:disabled {
+    color: #bbb;
+    cursor: not-allowed;
+}
+
+.ellipsis {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+    width: 100%;
+}
