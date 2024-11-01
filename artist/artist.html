@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>작가 페이지</title>
+    <link rel="stylesheet" href="../artist/artist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <br><br><br><br>
+    <div class="art-rental-landing">
+        <header class="header">
+            <nav>
+                <a href="/">
+                    <img src="../images/logo.png" alt="ADAM Logo" width="100" height="40">
+                </a>
+                <ul class="main-menu">
+                    <li class="has-submenu"><a href="/discover">작품소개</a>
+                        <ul class="submenu">
+                            <li><a href="#">서브메뉴 1</a></li>
+                            <li><a href="#">서브메뉴 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu"><a href="/rental">구매,대여</a>
+                        <ul class="submenu">
+                            <li><a href="#">서브메뉴 1</a></li>
+                            <li><a href="#">서브메뉴 2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../artist/artist.html">작가</a></li>
+                    <li><a href="/curators">마이페이지</a></li>
+                    <li><a href="/login">로그인</a></li>
+                    <li><a href="/signup">회원가입</a></li>
+                </ul>
+            </nav>
+        </header>
+
+    <div class="container">
+        <div class="author-card">
+            <div class="author-profile">
+                <img src="../images/space1.png" alt="작가 프로필" class="profile-img">
+                <h2 class="author-name">이지훈</h2>
+                <button class="like-btn"><i class="fas fa-heart"></i></button>
+            </div>
+            <a href="../artist/artist1.html"> 
+                <img src="../images/space1.png" alt="대표 작품" class="featured-img">
+            </a>
+            <p class="author-description">이 작가는 현대 문학의 선구자로, 독특한 문체와 깊이 있는 주제로 많은 독자들의 사랑을 받고 있습니다.</p>
+        </div>
+        <div class="author-card">
+            <div class="author-profile">
+                <img src="../images/space2.png" alt="작가 프로필" class="profile-img">
+                <h2 class="author-name">정현성</h2>
+                <button class="like-btn"><i class="fas fa-heart"></i></button>
+            </div>
+            <img src="../images/space2.png" alt="대표 작품" class="featured-img">
+            <p class="author-description">베스트셀러 작가로, 심리 스릴러 장르에서 독보적인 위치를 차지하고 있습니다.</p>
+        </div>
+        <div class="author-card">
+            <div class="author-profile">
+                <img src="../images/space3.png" alt="작가 프로필" class="profile-img">
+                <h2 class="author-name">권진호</h2>
+                <button class="like-btn"><i class="fas fa-heart"></i></button>
+            </div>
+            <img src="../images/space3.png" alt="대표 작품" class="featured-img">
+            <p class="author-description">시와 에세이를 통해 독자들의 마음을 따뜻하게 어루만지는 작가입니다.</p>
+        </div>
+        <div class="author-card">
+            <div class="author-profile">
+                <img src="https://via.placeholder.com/150" alt="작가 프로필" class="profile-img">
+                <h2 class="author-name">김민서</h2>
+                <button class="like-btn"><i class="fas fa-heart"></i></button>
+            </div>
+            <img src="https://via.placeholder.com/300x200" alt="대표 작품" class="featured-img">
+            <p class="author-description">이 작가는 현대 문학의 선구자로, 독특한 문체와 깊이 있는 주제로 많은 독자들의 사랑을 받고 있습니다.</p>
+        </div>
+        <div class="author-card">
+            <div class="author-profile">
+                <img src="https://via.placeholder.com/150" alt="작가 프로필" class="profile-img">
+                <h2 class="author-name">이명박</h2>
+                <button class="like-btn"><i class="fas fa-heart"></i></button>
+            </div>
+            <img src="https://via.placeholder.com/300x200" alt="대표 작품" class="featured-img">
+            <p class="author-description">베스트셀러 작가로, 심리 스릴러 장르에서 독보적인 위치를 차지하고 있습니다.</p>
+        </div>
+        <div class="author-card">
+            <div class="author-profile">
+                <img src="https://via.placeholder.com/150" alt="작가 프로필" class="profile-img">
+                <h2 class="author-name">김대중</h2>
+                <button class="like-btn"><i class="fas fa-heart"></i></button>
+            </div>
+            <img src="https://via.placeholder.com/300x200" alt="대표 작품" class="featured-img">
+            <p class="author-description">시와 에세이를 통해 독자들의 마음을 따뜻하게 어루만지는 작가입니다.</p>
+        </div>
+        
+        <!-- 추가 작가 카드를 여기에 복사하여 붙여넣기 -->
+    </div>
+
+    <button id="open-form-btn">작가 페이지 개설하기</button>
+    <div id="create-author-form" class="modal" style="display: none;">
+        <h3>작가 페이지 개설</h3>
+        <label>이름: <input type="text" id="author-name-input"></label><br>
+        <label>프로필 이미지 URL: <input type="text" id="profile-img-input"></label><br>
+        <label>대표 작품 이미지 URL: <input type="text" id="featured-img-input"></label><br>
+        <button id="submit-author-btn">개설 완료</button>
+    </div>
+
+    <script src="../artist/artist.js"></script>
+</body>
+</html>
