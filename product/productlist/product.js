@@ -44,4 +44,3 @@ function toggleFavorite(element) {
         element.innerHTML = '♥';
     }
 }
-
