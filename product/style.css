@@ -83,7 +83,7 @@ body {
     margin-top: 60px; /* 헤더 높이에 맞게 조정 */
     height: 30vh; /* 뷰포트 높이만큼 설정 */
     opacity: 0;
-    transition: opacity 1s ease-in;
+    transition: opacity 0.5s linear;
     background: url('../images/ad.jpg') no-repeat center center; /* 경로 수정 */
     background-size: cover;
     position: relative;
