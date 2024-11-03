@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결제 페이지 - ADAM</title>
+    <link rel="stylesheet" href="styles/payment-confirm.css">
+</head>
+<body>
+    <div class="payment-confirm-page">
+        <header class="header">
+            <nav>
+                <a href="/product/discover.html">
+                    <img src="../images/logo.png" alt="ADAM Logo" width="100" height="40">
+                </a>
+                <ul class="main-menu">
+                    <li class="has-submenu"><a href="/discover">작품소개</a>
+                        <ul class="submenu">
+                            <li><a href="../product/discover.html">작품 리스트</a></li>
+                            <li><a href="#">서브메뉴 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu"><a href="/rental">구매,대여</a>
+                        <ul class="submenu">
+                            <li><a href="../payments/payment.html">3개월 무료대여 안내</a></li>
+                            <li><a href="#">서브메뉴 2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../artist/artist.html">작가</a></li>
+                    <li><a href="/curators">마이페이지</a></li>
+                    <li><a href="/login">로그인</a></li>
+                    <li><a href="/signup">회원가입</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="payment-form">
+                <div class="container">
+                    <h1>결제 정보 입력</h1>
+                    <form id="paymentForm">
+                        <label for="cardNumber">카드 번호:</label>
+                        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+
+                        <label for="expiryDate">유효 기간:</label>
+                        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+
+                        <label for="cvc">CVC:</label>
+                        <input type="text" id="cvc" name="cvc" placeholder="123" required>
+
+                        <label for="cardHolder">카드 소유자 이름:</label>
+                        <input type="text" id="cardHolder" name="cardHolder" placeholder="홍길동" required>
+
+                        <button type="submit" class="confirm-button">결제하기</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 ADAM(아트를담다). All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript 파일 연결 -->
+    <script src="scripts/payment-confirm.js"></script>
+</body>
+</html>
