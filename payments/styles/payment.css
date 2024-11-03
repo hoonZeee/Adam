@@ -1,0 +1,141 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding-top: 80px; /* 헤더 높이만큼 상단 여백 추가 */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.main-menu {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-menu > li {
+    position: relative;
+    margin-right: 20px;
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    display: block;
+}
+
+/* Submenu Styles */
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style-type: none;
+    padding: 0;
+}
+
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    padding: 10px;
+}
+
+.submenu a:hover {
+    background-color: #ddd;
+}
+
+/* 페이지 디자인 */
+.payment-page main {
+    padding: 2rem 0;
+}
+
+.payment-info h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.payment-info p {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.payment-section, .rental-terms {
+    margin-bottom: 2rem;
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.payment-section h2, .rental-terms h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.rental-terms ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.confirm-button {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 2rem auto;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 9999px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.confirm-button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+}
