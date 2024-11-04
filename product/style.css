@@ -78,10 +78,24 @@ body {
     background-color: #ddd;
 }
 
+/* Banner styles */
+.banner {
+    position: fixed;
+    top: 60px; /* Adjust based on your header height */
+    left: 0;
+    right: 0;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    z-index: 999;
+    transition: top 0.3s;
+}
+
 /* Hero Section */
 .hero {
     margin-top: 60px; /* 헤더 높이에 맞게 조정 */
-    height: 30vh; /* 뷰포트 높이만큼 설정 */
+    height: 25vh; /* 뷰포트 높이만큼 설정 */
     opacity: 0;
     transition: opacity 0.5s linear;
     background: url('../images/ad.jpg') no-repeat center center; /* 경로 수정 */
