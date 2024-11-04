@@ -1,6 +1,9 @@
+// server.js
+
 const express = require('express');
 const path = require('path');
 const mysql = require('mysql');
+
 const bodyParser = require('body-parser');
 const session = require('express-session'); // 세션 패키지 추가
 const app = express();
@@ -22,6 +25,20 @@ const db = mysql.createConnection({
     user: 'root',
     password: '0000', // 필요에 따라 변경
     database: 'art'
+
+const bodyParser = require('body-parser'); // body-parser 추가
+const app = express();
+const port = 3000;
+
+app.use(bodyParser.json()); // JSON 형식의 데이터 파싱
+app.use(bodyParser.urlencoded({ extended: true })); // URL-encoded 데이터 파싱
+
+// MySQL 연결 설정
+const db = mysql.createConnection({
+    host: 'localhost', 
+    user: 'root', 
+    password: '1234', 
+    database: 'Users' 
 });
 
 // MySQL 연결
@@ -33,9 +50,15 @@ db.connect((err) => {
 
         // 테이블 생성
         const createTableQuery = `
+
             CREATE TABLE IF NOT EXISTS users(
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 user_name VARCHAR(50) NOT NULL,
+
+            CREATE TABLE IF NOT EXISTS users (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                username VARCHAR(50) NOT NULL,
+                nickname VARCHAR(50) NOT NULL,
                 user_id VARCHAR(50) NOT NULL UNIQUE,
                 password VARCHAR(255) NOT NULL
             );
@@ -51,6 +74,22 @@ db.connect((err) => {
     }
 });
 
+// 사용자 데이터 추가 라우트
+app.post('/process/adduser', (req, res) => {
+    const { name, nickname, userId, password } = req.body;
+
+    const query = `INSERT INTO users (username, nickname, user_id, password) VALUES (?, ?, ?, ?)`;
+    db.query(query, [name, nickname, userId, password], (err, result) => {
+        if (err) {
+            console.error('회원가입 실패:', err);
+            res.json({ success: false, message: '회원가입 실패' });
+        } else {
+            console.log('회원가입 성공:', result);
+            console.log('회원 추가 성공: 사용자명 -', name, ', 닉네임 -', nickname, ', 아이디 -', userId);
+            res.json({ success: true, message: '회원가입 성공' });
+        }
+    });
+});
 // 정적 파일 제공
 app.use(express.static(path.join(__dirname)));
 app.use(express.static(path.join(__dirname, 'Main'))); // Main 폴더의 정적 파일 
@@ -121,4 +160,8 @@ app.get('/', (req, res) => {
 // 서버 실행
 app.listen(port, () => {
     console.log(`서버가 실행 중입니다. http://localhost:${port}`);
+
+// 서버 실행
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
 });
