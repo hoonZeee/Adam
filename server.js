@@ -1,121 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>MiniGamez - 로그인</title>
-    <link rel="stylesheet" href="../dbpublic/login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Permanent+Marker&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container" id="container">
-        <div class="form-wrapper">
-            <img src="/images/idmini.png" alt="Minion" class="minion">
-            <div class="form sign-in">
-                <h1>사용자 로그인</h1>
-                <form id="loginForm" method="post" action="/process/login" onsubmit="handleSubmit(event)">
-                    <input type="hidden" name="redirectUrl" value="">
-                    <div class="input-group">
-                        <i class='bx bxs-user'></i>
-                        <input type="text" placeholder="아이디" name="id" required>
-                    </div>
-                    <div class="input-group">
-                        <i class='bx bxs-lock-alt'></i>
-                        <input type="password" placeholder="패스워드" name="password" id="password" required>
-                        <span class="toggle-password" onclick="togglePassword()"></span>
-                    </div>
-                    <button type="submit">로그인</button>
-                    <audio id="sound" src="/sound/halo.mp3" preload="auto"></audio>
-                    <div id="loginError" style="color: red; margin-top: 10px;"></div>
-                </form>
-                <p style="margin-top: 30px; font-size: 18px;">
-                    <span>비밀번호를 잊으셨나요?</span>
-                    <b onclick="findPassword()" class="pointer">find ID/PASSWORD</b>
-                </p>
-                <p style="font-size: 18px;">
-                    <span>계정이 없으신가요?</span>
-                    <b onclick="redirectToSignup()" class="pointer">sign up</b>
-                </p>
-            </div>
-        </div>
-    </div>
-    <script>
-        let container = document.getElementById('container');
+// server.js
 
-        const toggle = () => {
-            container.classList.toggle('sign-in');
-            container.classList.toggle('sign-up');
-        }
+const express = require('express');
+const path = require('path');
+const mysql = require('mysql');
+const bodyParser = require('body-parser'); // body-parser 추가
+const app = express();
+const port = 3000;
 
-        setTimeout(() => {
-            container.classList.add('sign-in');
-        }, 200);
+app.use(bodyParser.json()); // JSON 형식의 데이터 파싱
+app.use(bodyParser.urlencoded({ extended: true })); // URL-encoded 데이터 파싱
 
-        const togglePassword = () => {
-            const passwordField = document.getElementById('password');
-            const passwordFieldType = passwordField.getAttribute('type');
-            if (passwordFieldType === 'password') {
-                passwordField.setAttribute('type', 'text');
+// MySQL 연결 설정
+const db = mysql.createConnection({
+    host: 'localhost', 
+    user: 'root', 
+    password: '1234', 
+    database: 'Users' 
+});
+
+// MySQL 연결
+db.connect((err) => {
+    if (err) {
+        console.error('MySQL 연결 실패:', err);
+    } else {
+        console.log('MySQL 연결 성공!');
+
+        // 테이블 생성
+        const createTableQuery = `
+            CREATE TABLE IF NOT EXISTS users (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                username VARCHAR(50) NOT NULL,
+                nickname VARCHAR(50) NOT NULL,
+                user_id VARCHAR(50) NOT NULL UNIQUE,
+                password VARCHAR(255) NOT NULL
+            );
+        `;
+        
+        db.query(createTableQuery, (err, result) => {
+            if (err) {
+                console.error('테이블 생성 실패:', err);
             } else {
-                passwordField.setAttribute('type', 'password');
+                console.log('테이블 생성 성공');
             }
-        }
-
-        const redirectToSignup = () => {
-            window.location.href = 'signup.html';
-        }
-
-        const findPassword = () => {
-            window.location.href = 'find.html'; // 이 줄을 수정하여 비밀번호 찾기 페이지로 리다이렉트
-        }
-
-        const playSound = () => {
-            const sound = document.getElementById('sound');
-            if (sound.paused) {
-                sound.currentTime = 0; // 처음부터 재생
-                sound.play().catch(error => {
-                    console.error('Failed to play sound:', error);
-                });
-            }
-        }
-
-        const handleSubmit = (event) => {
-            event.preventDefault();
-            playSound();
-            const form = document.getElementById('loginForm');
-            setTimeout(() => submitForm(), 500); // 약간의 지연 후 폼을 제출하여 소리가 끝날 때까지 기다림
-        }
-
-        const submitForm = () => {
-            const form = document.getElementById('loginForm');
-            const formData = new FormData(form);
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', '/process/login', true);
-            xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    const response = JSON.parse(xhr.responseText);
-                    if (response.success) {
-                        window.location.href = response.redirectUrl;
-                    } else {
-                        displayError(response.error);
-                    }
-                }
-            };
-            const object = {};
-            formData.forEach((value, key) => { object[key] = value });
-            xhr.send(JSON.stringify(object));
-        }
-
-        const displayError = (errorMessage) => {
-            const errorDiv = document.getElementById('loginError');
-            errorDiv.innerText = errorMessage;
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const params = new URLSearchParams(window.location.search);
-            const redirectUrl = params.get('redirectUrl') || '/';
-            document.querySelector('input[name="redirectUrl"]').value = redirectUrl;
         });
-    </script>
-</body>
-</html>
+    }
+});
+
+// 사용자 데이터 추가 라우트
+app.post('/process/adduser', (req, res) => {
+    const { name, nickname, userId, password } = req.body;
+
+    const query = `INSERT INTO users (username, nickname, user_id, password) VALUES (?, ?, ?, ?)`;
+    db.query(query, [name, nickname, userId, password], (err, result) => {
+        if (err) {
+            console.error('회원가입 실패:', err);
+            res.json({ success: false, message: '회원가입 실패' });
+        } else {
+            console.log('회원가입 성공:', result);
+            console.log('회원 추가 성공: 사용자명 -', name, ', 닉네임 -', nickname, ', 아이디 -', userId);
+            res.json({ success: true, message: '회원가입 성공' });
+        }
+    });
+});
+
+// 정적 파일 제공
+app.use(express.static(path.join(__dirname)));
+
+// Main.html 파일을 기본 경로에 연결
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Main', 'Main.html'));
+});
+
+// 서버 실행
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
