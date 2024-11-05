@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const question = item.querySelector('h3');
         const answer = item.querySelector('p');
         answer.style.display = 'none';
-
         question.addEventListener('click', () => {
             answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
         });
@@ -19,6 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
         heroSection.classList.add('visible');
     }, 500);
 });
+
+startSlidingImages({
+    containerSelector: '.feature-grid',
+    slideSpeed: 1,
+    interval: 16
+});
+
 
 // Collapsible header functionality
 let lastScrollTop = 0;
@@ -36,3 +42,29 @@ window.addEventListener('scroll', () => {
     }
     lastScrollTop = scrollTop;
 });
+
+
+
+function startSlidingImages({ containerSelector, slideSpeed = 1, interval = 16 }) {
+    const featureGrid = document.querySelector(containerSelector);
+    const featureItems = document.querySelectorAll(`${containerSelector} .feature-item`);
+
+    // 원본 이미지를 여러 번 복제해서 추가
+    featureItems.forEach(item => {
+        const clone1 = item.cloneNode(true);
+        featureGrid.appendChild(clone1);
+    });
+
+    let scrollAmount = 0;
+
+    setInterval(() => {
+        scrollAmount -= slideSpeed;
+        featureGrid.style.transform = `translateX(${scrollAmount}px)`;
+
+        // 모든 이미지들이 지나갔을 때 초기화하여 자연스러운 순환을 만듦
+        if (Math.abs(scrollAmount) >= featureItems[0].clientWidth * featureItems.length) {
+            scrollAmount = 0; // 원래 위치로 되돌리기
+        }
+    }, interval);
+}
+
