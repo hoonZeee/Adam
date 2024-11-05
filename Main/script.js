@@ -4,9 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     faqItems.forEach(item => {
         const question = item.querySelector('h3');
         const answer = item.querySelector('p');
+
         answer.style.maxHeight = '0';
         answer.style.overflow = 'hidden';
         answer.style.transition = 'max-height 0.3s ease';
+
+        answer.style.display = 'none';
 
         question.addEventListener('click', () => {
             if (answer.style.maxHeight === '0px' || answer.style.maxHeight === '') {
@@ -32,7 +35,18 @@ startSlidingImages({
     interval: 16
 });
 
+
 // Collapsible header functionality with banner check
+
+startSlidingImages({
+    containerSelector: '.feature-grid',
+    slideSpeed: 1,
+    interval: 16
+});
+
+
+// Collapsible header functionality
+
 let lastScrollTop = 0;
 const header = document.querySelector('.header');
 const banner = document.querySelector('.banner');
@@ -51,12 +65,16 @@ window.addEventListener('scroll', () => {
 });
 
 
+
 // Improved sliding image function with requestAnimationFrame
+
 function startSlidingImages({ containerSelector, slideSpeed = 1, interval = 16 }) {
     const featureGrid = document.querySelector(containerSelector);
     const featureItems = document.querySelectorAll(`${containerSelector} .feature-item`);
 
+
     // Clone original images to create continuous loop
+    // 원본 이미지를 여러 번 복제해서 추가
     featureItems.forEach(item => {
         const clone1 = item.cloneNode(true);
         featureGrid.appendChild(clone1);
@@ -108,3 +126,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+    setInterval(() => {
+        scrollAmount -= slideSpeed;
+        featureGrid.style.transform = `translateX(${scrollAmount}px)`;
+
+        // 모든 이미지들이 지나갔을 때 초기화하여 자연스러운 순환을 만듦
+        if (Math.abs(scrollAmount) >= featureItems[0].clientWidth * featureItems.length) {
+            scrollAmount = 0; // 원래 위치로 되돌리기
+        }
+    }, interval);
+}
+
