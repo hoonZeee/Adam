@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>장바구니</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+    <br>
+    <br><br><br>
+    <div class="container">
+        <h1>장바구니</h1>
+    </div>
+<body>
+    <div class="art-rental-landing">
+        <header class="header">
+            <nav>
+                <a href="/">
+                    <img src="/images/logo.png" alt="ADAM Logo" width="105" height="42">
+                </a>
+                <ul class="main-menu">
+                    <li class="has-submenu"><a href="/discover">작품소개</a>
+                        <ul class="submenu">
+                            <li><a href="../product/discover.html">작품 리스트</a></li>
+                            <li><a href="#">서브메뉴 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu"><a href="/rental">구매,대여</a>
+                        <ul class="submenu">
+                            <li><a href="../payments/payment.html">장바구니</a></li>
+                            <li><a href="#">서브메뉴 2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../artist/artist.html">작가</a></li>
+                    <li><a href="/curators">마이페이지</a></li>
+                    <li id="user-info"></li> <!-- 사용자 이름 표시 -->
+                </ul>
+            </nav>
+        </header>
+        <br>
+<div class="container">
+
+    <section id="cart"> 
+        <article class="product">
+            <header>
+                <a class="remove">
+                    <img src="../images/space1.png" alt="">
+
+                    <h3>상품 삭제하기</h3>
+                </a>
+            </header>
+
+            <div class="content">
+
+                <h1>저녁노을</h1>
+
+                이지훈화백 - 잠은 오지 않고 이런저런 생각에 그려본 저녁노을 한점
+
+                <div title="You have selected this product to be shipped in the color yellow." style="top: 0" class="color yellow"></div>
+                <div style="top: 43px" class="type small">XXL</div>
+            </div>
+
+            <footer class="content">
+                <span class="qt-minus">-</span>
+                <span class="qt">2</span>
+                <span class="qt-plus">+</span>
+
+                <h2 class="full-price">
+                    29만원
+                </h2>
+
+                <h2 class="price">
+                    14만원
+                </h2>
+            </footer>
+        </article>
+
+        <article class="product">
+            <header>
+                <a class="remove">
+                    <img src="../images/space2.png" alt="">
+
+                    <h3>상품 삭제하기</h3>
+                </a>
+            </header>
+
+            <div class="content">
+
+                <h1>피카소 따라하기</h1>
+
+                정현성화백 - 피카소가 되고싶은 마음을 표현한 한점
+
+                <div title="You have selected this product to be shipped in the color red." style="top: 0" class="color red"></div>
+                <div title="You have selected this product to be shipped sized Small."  style="top: 43px" class="type small">Small</div>
+            </div>
+
+            <footer class="content">
+                
+                <span class="qt-minus">-</span>
+                <span class="qt">1</span>
+                <span class="qt-plus">+</span>
+
+                <h2 class="full-price">
+                    79만원
+                </h2>
+
+                <h2 class="price">
+                    79만원
+                </h2>
+            </footer>
+        </article>
+
+        <article class="product">
+            <header>
+                <a class="remove">
+                    <img src="../images/space3.png" alt="">
+
+                    <h3>상품 삭제하기</h3>
+                </a>
+            </header>
+
+            <div class="content">
+
+                <h1>초갓집 하나</h1>
+
+                김민서화백 - 시골마을을 유랑하며 그린 한점
+
+                <div title="You have selected this product to be shipped in the color blue." style="top: 0" class="color blue"></div>
+                <div style="top: 43px" class="type small">Large</div>
+            </div>
+
+            <footer class="content">
+                
+                <span class="qt-minus">-</span>
+                <span class="qt">3</span>
+                <span class="qt-plus">+</span>
+
+                <h2 class="full-price">
+                    53만원
+                </h2>
+
+                <h2 class="price">
+                    17만원
+                </h2>
+            </footer>
+        </article>
+
+    </section>
+
+</div>
+
+<footer id="site-footer">
+    <div class="container clearfix">
+
+        <div class="left">
+            <h2 class="subtotal">총액: <span>163</span>만원</h2>
+            <h3 class="tax">사회기부금 (5%): <span>8</span>만원</h3>
+            <h3 class="shipping">배달료: <span>5</span>만원</h3>
+        </div>
+
+        <div class="right">
+            <h1 class="total">총액: <span>177</span>만원</h1>
+            <a class="btn">결제</a>
+        </div>
+
+    </div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="cart.js"></script>
+<script src="../Main/script.js"></script>
+    <script>
+        // 사용자 이름을 표시하기 위해 서버에서 세션 정보를 요청
+        fetch('/session-user')
+            .then(response => response.json())
+            .then(data => {
+                const userInfo = document.getElementById('user-info');
+                if (data.userName) {
+                    userInfo.innerHTML = `<span>${data.userName}</span> <form action="/logout" method="POST" style="display:inline;"><button type="submit">로그아웃</button></form>`;
+                } else {
+                    userInfo.innerHTML = `<a href="../login/login.html">로그인</a> <a href="../login/signup.html">회원가입</a>`;
+                }
+            })
+            .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
+    </script>
