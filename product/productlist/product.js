@@ -44,11 +44,3 @@ function toggleFavorite(element) {
         element.innerHTML = '♥';
     }
 }
-
-//picturehtml <button class="purchase-button">구매하기</button> 클릭시 구매창으로 이동
-
-<script>
-    document.querySelector('.purchase-button').addEventListener('click', function() {
-        window.location.href = '../../purchase/purchase.html';
-    });
-</script>
