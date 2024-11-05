@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADAM(아트를담다) - 그림렌탈 서비스</title>
-    <link rel="stylesheet" href="Main/styles.css">
+    <link rel="stylesheet" href="/Main/styles.css">
 </head>
 <body>
     <div class="art-rental-landing">
         <header class="header">
             <nav>
                 <a href="/">
-                    <img src="images/logo.png" alt="ADAM Logo" width="100" height="40">
+                    <img src="/images/logo.png" alt="ADAM Logo" width="105" height="42">
                 </a>
                 <ul class="main-menu">
                     <li class="has-submenu"><a href="/discover">작품소개</a>
@@ -22,20 +22,21 @@
                     </li>
                     <li class="has-submenu"><a href="/rental">구매,대여</a>
                         <ul class="submenu">
-                            <li><a href="../payments/payment.html">3개월 무료대여 안내</a></li>
-                            <li><a href="#">서브메뉴 2</a></li>
+                            <li><a href="../payments/payment.html">무료체험</a></li>
+                            <li><a href="../cart/cart.html">장바구니</a></li>
                         </ul>
                     </li>
                     <li><a href="../artist/artist.html">작가</a></li>
                     <li><a href="/curators">마이페이지</a></li>
-                    <li><a href="../dbpublic/login.html">로그인</a></li>
-                    <li><a href="../dbpublic/addduser.html">회원가입</a></li>
+                    <li id="user-info"></li> <!-- 사용자 이름 표시 -->
                 </ul>
             </nav>
         </header>
 
+        <br>
+
         <main>
-            <section class="hero" >
+            <section class="hero">
                 <div class="hero-content">
                     <div class="container">
                         <h1>아티스트의 소통의 공간</h1>
@@ -45,25 +46,57 @@
                 </div>
             </section>
 
+
+            <br><br><br>
             <section class="features">
                 <div class="container">
                     <h2>당신의 취향에 꼭 맞는</h2>
                     <div class="feature-grid">
+                        <!-- 원본 이미지들 -->
                         <div class="feature-item">
-                            <img src="images/space1.png" alt="Space 1" width="300" height="200">
+                            <img src="/images/space1.png" alt="Space 1" width="300" height="200">
                             <p>매력적인 공간 1</p>
                         </div>
                         <div class="feature-item">
-                            <img src="images/space2.png" alt="Space 2" width="300" height="200">
+                            <img src="/images/space2.png" alt="Space 2" width="300" height="200">
                             <p>매력적인 공간 2</p>
                         </div>
                         <div class="feature-item">
-                            <img src="images/space3.png" alt="Space 3" width="300" height="200">
+                            <img src="/images/space3.png" alt="Space 3" width="300" height="200">
                             <p>매력적인 공간 3</p>
+                        </div>
+                        <div class="feature-item">
+                            <img src="/images/space4.png" alt="Space 4" width="300" height="200">
+                            <p>매력적인 공간 4</p>
+                        </div>
+                        <div class="feature-item">
+                            <img src="/images/space5.png" alt="Space 5" width="300" height="200">
+                            <p>매력적인 공간 5</p>
+                        </div>
+                        <div class="feature-item">
+                            <img src="/images/space6.png" alt="Space 6" width="300" height="200">
+                            <p>매력적인 공간 6</p>
+                        </div>
+                        <div class="feature-item">
+                            <img src="/images/space7.png" alt="Space 7" width="300" height="200">
+                            <p>매력적인 공간 7</p>
+                        </div>
+                        <div class="feature-item">
+                            <img src="/images/space8.png" alt="Space 8" width="300" height="200">
+                            <p>매력적인 공간 8</p>
+                        </div>
+                        <div class="feature-item">
+                            <img src="/images/space9.png" alt="Space 9" width="300" height="200">
+                            <p>매력적인 공간 9</p>
+                        </div>
+                        <div class="feature-item">
+                            <img src="/images/space10.png" alt="Space 10" width="300" height="200">
+                            <p>매력적인 공간 10</p>
                         </div>
                     </div>
                 </div>
             </section>
+
 
             <section class="pricing">
                 <div class="container">
@@ -115,5 +148,19 @@
         </footer>
     </div>
     <script src="/Main/script.js"></script>
+    <script>
+        // 사용자 이름을 표시하기 위해 서버에서 세션 정보를 요청
+        fetch('/session-user')
+            .then(response => response.json())
+            .then(data => {
+                const userInfo = document.getElementById('user-info');
+                if (data.userName) {
+                    userInfo.innerHTML = `<span>${data.userName}</span> <form action="/logout" method="POST" style="display:inline;"><button type="submit">로그아웃</button></form>`;
+                } else {
+                    userInfo.innerHTML = `<a href="../login/login.html">로그인</a> <a href="../login/signup.html">회원가입</a>`;
+                }
+            })
+            .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
+    </script>
 </body>
 </html>
