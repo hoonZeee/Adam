@@ -1,10 +1,13 @@
 const express = require('express');
 const path = require('path');
 const mysql = require('mysql');
+const session = require('express-session');
+const bodyParser = require('body-parser');
 const app = express();
 
 const port = 3000;
 
+// 세션 설정
 app.use(session({
     secret: 'your_secret_key', // 세션 암호화 키
     resave: false,
@@ -12,6 +15,7 @@ app.use(session({
     cookie: { secure: false } // HTTPS를 사용할 경우 true로 설정
 }));
 
+// JSON 요청 및 URL 인코딩된 요청 파싱
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -19,18 +23,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '1234', // 필요에 따라 변경
+    password: '0000', // 필요에 따라 변경
     database: 'art'
-
-const port = 15012;
-
-// MySQL 연결 설정
-const db = mysql.createConnection({
-    host: 'localhost', 
-    user: 'root', 
-    password: '1234', 
-    database: 'Users' 
-
 });
 
 // MySQL 연결
@@ -40,7 +34,7 @@ db.connect((err) => {
     } else {
         console.log('MySQL 연결 성공!');
         
-        // 임의 테이블 삭제 (테이블이 존재하는 경우)
+        // 기존 테이블 삭제 (테이블이 존재하는 경우)
         db.query('DROP TABLE IF EXISTS example_table', (err, result) => {
             if (err) {
                 console.error('테이블 삭제 실패:', err);
