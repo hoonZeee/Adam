@@ -2,6 +2,26 @@ const express = require('express');
 const path = require('path');
 const mysql = require('mysql');
 const app = express();
+
+const port = 3000;
+
+app.use(session({
+    secret: 'your_secret_key', // 세션 암호화 키
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // HTTPS를 사용할 경우 true로 설정
+}));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// MySQL 연결 설정
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '1234', // 필요에 따라 변경
+    database: 'art'
+
 const port = 15012;
 
 // MySQL 연결 설정
@@ -10,6 +30,7 @@ const db = mysql.createConnection({
     user: 'root', 
     password: '1234', 
     database: 'Users' 
+
 });
 
 // MySQL 연결
