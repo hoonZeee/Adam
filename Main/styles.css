@@ -201,31 +201,31 @@ body {
 
 .submenu-column {
     flex: 1;
-    padding: 0 1rem;
+    padding: 0 0.3rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 274px;
+    margin-left: 300px;
 }
 .submenu-column2 {
     flex: 1;
-    padding: 0 1rem;
+    padding: 0 0.05rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-right: 455px;
+    margin-right: 580px;
     
 }
-.submenu-column a {
+.submenu-column a, .submenu-column2 a{
     display: block;
     text-decoration: none;
     color: #666;
     font-size: 0.9rem;
-    padding: 0.5rem 0;
-    margin-left:72px ;
+    padding: 0.05rem 0;
+    margin-left:52px ;
 }
 
-.submenu-column a:hover {
+.submenu-column a:hover, .submenu-column2 a:hover {
     color: #000;
 }
 
