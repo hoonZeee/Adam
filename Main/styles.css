@@ -46,7 +46,7 @@ body {
 
 .main-menu > li {
     position: relative;
-    margin-right: 20px;
+    margin-right: 33px;
 }
 
 .main-menu a {
@@ -56,11 +56,25 @@ body {
     display: block;
 }
 
+
+.main-menu:hover .submenu {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover 효과 추가 */
+.main-menu:hover .submenu li {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
 .submenu {
     display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(-10px);
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 150px;
+    min-width: 110px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     list-style-type: none;
@@ -72,12 +86,58 @@ body {
 }
 
 .submenu li {
-    padding: 10px;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    list-style: none;
+    border-radius: 4px;
+    margin: 5px 0;
 }
 
 .submenu a:hover {
     background-color: #ddd;
 }
+
+.submenu-container {
+    display: flex;
+    gap: 10px; /* 서브메뉴 간 간격 */
+}
+
+.main-menu .has-submenu {
+    position: relative;
+}
+
+.has-submenu:hover .submenu-container .submenu {
+    display: block;
+}
+
+
+.submenu li:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+/* 로그인 회원가입 버튼 */
+#user-info a {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 8px 15px;
+    margin-left: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    border: 1.2px solid #000000; /* 검정색 테두리 추가 */
+}
+
+
+#user-info a:hover {
+    background-color: #ffffff;
+}
+#user-info {
+    display: inline-block;
+    margin-left: auto;
+}
+
 
 /* Banner styles */
 .banner {
@@ -141,15 +201,60 @@ body {
     margin-bottom: 2rem;
 }
 
-.cta-button {
+/*버튼모양*/
+.custom-btn {
+    width: 150px;
+    height: 50px;
+    padding: 10px 25px;
+    border: 2px solid #000;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
     display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 9999px;
-    text-decoration: none;
-    font-size: 1.1rem;
 }
+/* 5 */
+.btn-5 {
+    background: black;
+    color: #fff;
+    line-height: 50px;
+    padding: 0;
+    border: none;
+  }
+  .btn-5:hover {
+    background: transparent;
+    color: #000;
+     box-shadow:
+     -7px -7px 20px 0px #fff9,
+     -4px -4px 5px 0px #fff9,
+     7px 7px 20px 0px #0002,
+     4px 4px 5px 0px #0001;
+  }
+  .btn-5:before,
+  .btn-5:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #000;
+    transition:400ms ease all;
+  }
+  .btn-5:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .btn-5:hover:before,
+  .btn-5:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+  
 .feature-grid {
     display: flex;
     width: 200%; /* 충분히 넓은 너비 설정 */
@@ -273,110 +378,4 @@ footer {
         font-size: 1rem;
     }
 }
-/* Custom Button Styles */
-button {
-    margin: 20px;
-    outline: none;
-}
 
-.custom-btn {
-    width: 150px;
-    height: 50px;
-    padding: 10px 25px;
-    border: 2px solid #000;
-    font-family: 'Lato', sans-serif;
-    font-weight: 500;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-}
-
-.btn-4 {
-    position: relative;
-    color: #000;
-    z-index: 2;
-    line-height: 40px;
-    padding: 0;
-}
-
-.btn-4:hover {
-    border: none;
-}
-
-.btn-4:before,
-.btn-4:after {
-    position: absolute;
-    content: "";
-    width: 0%;
-    height: 0%;
-    border: 2px solid;
-    z-index: -1;
-    transition: all 0.3s ease;
-}
-
-.btn-4:before {
-    top: 0;
-    left: 0;
-    border-bottom-color: transparent;
-    border-right-color: transparent;
-    border-top-color: #000;
-    border-left-color: #000;
-}
-
-.btn-4:after {
-    bottom: 0;
-    right: 0;
-    border-top-color: transparent;
-    border-left-color: transparent;
-    border-bottom-color: #000;
-    border-right-color: #000;
-}
-
-.btn-4:hover:before,
-.btn-4:hover:after {
-    border-color: #000;
-    height: 100%;
-    width: 100%;
-}
-
-/* 5 */
-.btn-5 {
-    background: black;
-    color: #fff;
-    line-height: 50px;
-    padding: 0;
-    border: none;
-  }
-  .btn-5:hover {
-    background: transparent;
-    color: #000;
-     box-shadow:
-     -7px -7px 20px 0px #fff9,
-     -4px -4px 5px 0px #fff9,
-     7px 7px 20px 0px #0002,
-     4px 4px 5px 0px #0001;
-  }
-  .btn-5:before,
-  .btn-5:after{
-    content:'';
-    position:absolute;
-    top:0;
-    right:0;
-    height:2px;
-    width:0;
-    background: #000;
-    transition:400ms ease all;
-  }
-  .btn-5:after{
-    right:inherit;
-    top:inherit;
-    left:0;
-    bottom:0;
-  }
-  .btn-5:hover:before,
-  .btn-5:hover:after{
-    width:100%;
-    transition:800ms ease all;
-  }

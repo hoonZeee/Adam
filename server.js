@@ -4,7 +4,7 @@ const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const session = require('express-session'); // 세션 패키지 추가
 const app = express();
-const port = 3000;
+const port = 3306;
 
 app.use(session({
     secret: 'your_secret_key', // 세션 암호화 키
