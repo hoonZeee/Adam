@@ -163,12 +163,12 @@ body {
 
 .cta-button {
     display: inline-block;
-    background-color: black;
-    color: white;
-    padding: 0.85rem 1.5rem;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
     border-radius: 9999px;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 /* Filter Section */
@@ -209,12 +209,12 @@ body {
 
 .filter-options button {
     padding: 6px 10px;
-    border: 1px solid black;
+    border: 1px solid #ddd;
     border-radius: 5px;
     cursor: pointer;
-    background-color: whitesmoke;
+    background-color: #f9f9f9;
     font-size: 0.85rem; /* 버튼 폰트 크기 */
-    color: darkslategray;
+    color: #333;
     transition: background-color 0.3s;
 }
 
@@ -369,6 +369,5 @@ footer {
     padding: 2rem 0;
     width: 100%;
 }
-
 
 

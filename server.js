@@ -4,7 +4,7 @@ const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const session = require('express-session'); // 세션 패키지 추가
 const app = express();
-const port = 3306;
+const port = 3000;
 
 app.use(session({
     secret: 'your_secret_key', // 세션 암호화 키
@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '0000', // 필요에 따라 변경
+    password: '1234', // 필요에 따라 변경
     database: 'art'
 });
 

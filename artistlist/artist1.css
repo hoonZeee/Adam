@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #666;
+    margin-top: 0;
+}
+
+.subtitle {
+    color: #999;
+    margin-bottom: 30px;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 0 10px;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav button::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav button.active::after {
+    transform: scaleX(1);
+}
+
+.content {
+    text-align: left;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 새로운 스타일 */
+.content h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    color: #444;
+}
+
+.content p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.qa {
+    margin-bottom: 25px;
+}
+
+.qa h4 {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.qa p {
+    margin-left: 20px;
+}
+
+/*작품 부분*/
+.artwork-container {
+    margin: 40px 0;
+}
+
+.artwork-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.artwork {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.artwork:hover {
+    transform: translateY(-5px);
+}
+
+.artwork-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+.artwork-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.artwork-info {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.artwork-title {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.artwork-description {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* 반응형 디자인을 위한 미디어 쿼리 */
+@media (max-width: 768px) {
+    .artwork {
+        flex-direction: column;
+    }
+
+    .artwork-image {
+        max-width: 100%;
+    }
+}
