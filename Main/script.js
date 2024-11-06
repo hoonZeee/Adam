@@ -68,27 +68,38 @@ function startSlidingImages({ containerSelector, slideSpeed = 1, interval = 16 }
     }, interval);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const mainMenu = document.querySelector('.main-menu');
-    const submenus = document.querySelectorAll('.submenu');
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.header');
+    const submenuContainer = document.querySelector('.submenu-container');
+    let timeout;
 
-    // 메뉴에 마우스를 가져가면 모든 서브메뉴가 보임
-    mainMenu.addEventListener('mouseenter', () => {
-        submenus.forEach(submenu => {
-            submenu.style.display = 'block';
-            submenu.style.opacity = '1';
-            submenu.style.transform = 'translateY(0)';
-        });
+    header.addEventListener('mouseenter', () => {
+        clearTimeout(timeout);
+        submenuContainer.style.display = 'block';
+        setTimeout(() => {
+            submenuContainer.style.opacity = '1';
+        }, 10);
     });
 
-    // 메뉴에서 마우스를 벗어나면 모든 서브메뉴가 사라짐
-    mainMenu.addEventListener('mouseleave', () => {
-        submenus.forEach(submenu => {
-            submenu.style.opacity = '0';
-            submenu.style.transform = 'translateY(-10px)';
+    header.addEventListener('mouseleave', () => {
+        timeout = setTimeout(() => {
+            submenuContainer.style.opacity = '0';
             setTimeout(() => {
-                submenu.style.display = 'none';
-            }, 300); // 애니메이션 시간 후 숨김
-        });
+                submenuContainer.style.display = 'none';
+            }, 300);
+        }, 100);
+    });
+
+    submenuContainer.addEventListener('mouseenter', () => {
+        clearTimeout(timeout);
+    });
+
+    submenuContainer.addEventListener('mouseleave', () => {
+        timeout = setTimeout(() => {
+            submenuContainer.style.opacity = '0';
+            setTimeout(() => {
+                submenuContainer.style.display = 'none';
+            }, 300);
+        }, 100);
     });
 });
