@@ -18,8 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // MySQL 연결 설정
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
+    host: '116.124.191.174',  
+    user: 'ljh_2023826',
     password: 'ljh_2023826', 
     database: 'ljh_2023826'
 });
