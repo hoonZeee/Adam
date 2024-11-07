@@ -103,3 +103,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     });
 });
+
+//마이페이지 로그인시에만 허용
+document.addEventListener('DOMContentLoaded', function() {
+    const mypageLink = document.getElementById('mypage-link');
+
+    mypageLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        
+        // Replace this with actual login status check from the server
+        fetch('/session-user')
+            .then(response => response.json())
+            .then(data => {
+                if (data.userName) {
+                    // Redirect to mypage.html if logged in
+                    window.location.href = '/mypage/mypage.html';
+                } else {
+                    // Redirect to login.html if not logged in
+                    alert("로그인이 필요합니다.");
+                    setTimeout(() => {
+                        window.location.href = '../login/login.html';
+                    }, 10); // 1초 후 이동
+                }
+            })
+            .catch(error => {
+                console.error('Failed to check login status:', error);
+                // Optionally, redirect to login page if an error occurs
+                window.location.href = '../login/login.html';
+            });
+    });
+});

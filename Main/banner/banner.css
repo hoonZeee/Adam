@@ -89,7 +89,7 @@ body {
     display: none;
     opacity: 0;
     transition: opacity 0.3s ease;
-    z-index: 1100;
+    z-index: 999;
 }
 
 .submenu-wrapper {
@@ -101,20 +101,18 @@ body {
 }
 
 .submenu-column {
-    flex: 1;
-    padding: 0 0.3rem;
+    flex: 0.5;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 300px;
+    margin-left: 310px;
 }
 .submenu-column2 {
-    flex: 1;
-    padding: 0 0.05rem;
+    flex: 0.5;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-right: 580px;
+    margin-right: 620px;
     
 }
 .submenu-column a, .submenu-column2 a{
@@ -130,12 +128,7 @@ body {
     color: #000;
 }
 
-/* Submenu hover */
-.header:hover + .submenu-container,
-.submenu-container:hover {
-    display: block;
-    opacity: 1;
-}
+
 /* 로그인 회원가입 버튼 */
 #user-info a {
     display: inline-block;
@@ -156,20 +149,6 @@ body {
 #user-info {
     display: inline-block;
     margin-left: auto;
-}
-/*버튼모양*/
-.custom-btn {
-    width: 150px;
-    height: 50px;
-    padding: 10px 25px;
-    border: 2px solid #000;
-    font-family: 'Lato', sans-serif;
-    font-weight: 500;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
 }
 /*아이콘 카트*/
 .icon-group {
