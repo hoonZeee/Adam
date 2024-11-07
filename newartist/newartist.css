@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.post {
+    padding: 20px;
+}
+
+.artist-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.artwork img {
+    width: 100%;
+    height: auto;
+}
+
+.like-button {
+    margin: 10px 0;
+}
+
+.description-comments {
+    display: flex;
+    border-top: 1px solid #efefef;
+    padding-top: 10px;
+}
+
+.description {
+    flex: 1;
+    padding-right: 10px;
+}
+
+.comments-section {
+    flex: 1;
+    border-left: 1px solid #efefef;
+    padding-left: 10px;
+}
+
+.comments-container {
+    height: 200px;
+    overflow-y: auto;
+}
+
+.comment {
+    margin-bottom: 10px;
+}
+
+.comment-time {
+    font-size: 0.8em;
+    color: #999;
+}
+
+#commentForm {
+    display: flex;
+    margin-top: 10px;
+}
+
+#commentInput {
+    flex: 1;
+    padding: 5px;
+}
+
+button {
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0081d6;
+}
