@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 상세 페이지 - ADAM(아트를담다)</title>
+    <link rel="stylesheet" href="../../product/productlist/style.css">
+    <link rel="stylesheet" href="../../Main/banner/banner.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="/">
+
+                    <img src="/images/logo.png" alt="ADAM Logo" width="110" height="44">
+                </a>
+            </div>
+            <ul class="nav-items main-menu">
+                <li class="nav-item"><a>작가</a></li>
+                <li class="nav-item has-submenu"><a>구매,대여</a></li>
+                <li class="nav-item has-submenu"><a href="../product/discover.html">작품소개</a></li>
+                <li class="nav-item"><a id="mypage-link" href="#">마이페이지</a></li>
+            </ul>
+            <div class="icon-group">
+                <a href="../cart/cart.html" class="icon-btn">
+                    <svg xmlns="../images/cart.jpg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cart-icon">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </a>
+            </div>
+            <div id="user-info" class="nav-utils">
+                <a href="../login/login.html" class="login-btn">로그인</a>
+                <a href="../login/signup.html" class="signup-btn">회원가입</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="submenu-container">
+        <div class="submenu-wrapper">
+            <div class="submenu-column">
+                <a href="../artist/artist.html">작가List</a>
+                
+                <a href="#">신인작가</a>
+            </div>
+            <div class="submenu-column2">
+                <a href="../payments/payment.html">무료체험</a>
+                <a href="../cart/cart.html">장바구니</a>
+            </div>
+           
+        </div>
+    </div>
+
+    <div class="submenu-container">
+        <div class="submenu-wrapper">
+            <div class="submenu-column">
+                <a href="../product/discover.html">작품리스트</a>
+                
+                <a href="#">서브메뉴 2</a>
+            </div>
+            <div class="submenu-column2">
+                <a href="../payments/payment.html">무료체험</a>
+                <a href="../cart/cart.html">장바구니</a>
+            </div>
+           
+        </div>
+    </div>
+    <main class="product-detail container">
+        <div class="product-images">
+            <img src="../../images/space1.png" alt="상품 이미지" class="product-image">
+        </div>
+        <div class="product-info">
+            <h1 class="product-title">매력적인공간 1</h1>
+            <p class="product-description">작가의 작품 설명공간.</p>
+            <div class="product-size">사이즈: 61x72cm (18호)</div>
+            <div class="product-price">가격: 1,200,000원</div>
+
+            <div class="payment-options">
+                <label>
+                    <input type="radio" name="purchase-type" value="rental" checked> 렌탈
+                </label>
+                <label>
+                    <input type="radio" name="purchase-type" value="purchase"> 구매
+                </label>
+            </div>
+
+            <div class="button-container">
+                <button class="rent-button">렌탈하기</button>
+
+                <button class="purchase-button" onclick="location.href='../../purchase/purchase.html'">구매하기</button>
+
+                <div class="heart-icon" onclick="toggleFavorite(this)">♡</div> <!-- 찜하기 기능 -->
+            </div>
+        </div>
+    </main>
+
+    <section class="view-in-room">
+        <h2>작품 감상하기</h2>
+        <img src="../../images/space1.png" alt="작품 감상 예시" class="room-image">
+        <p>작품이 실제 환경에서 어떻게 보이는지 확인해 보세요.</p>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ADAM(아트를담다). All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

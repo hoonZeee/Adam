@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover - ADAM(아트를담다)</title>
+    <link rel="stylesheet" href="../product/style.css">
+    <link rel="stylesheet" href="../Main/banner/banner.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="ADAM Logo" width="110" height="44">
+                </a>
+            </div>
+            <ul class="nav-items main-menu">
+                <li class="nav-item"><a>작가</a></li>
+                <li class="nav-item has-submenu"><a>구매,대여</a></li>
+                <li class="nav-item has-submenu"><a href="../product/discover.html">작품 보기</a></li>
+                <li class="nav-item"><a id="mypage-link" href="#">마이페이지</a></li>
+            </ul>
+            <div class="icon-group">
+                <a href="../cart/cart.html" class="icon-btn">
+                    <img src="../images/cart.jpg" alt="Cart Icon" width="24" height="24">
+                </a>
+            </div>
+            <div id="user-info" class="nav-utils">
+                <a href="../login/login.html" class="login-btn">로그인</a>
+                <a href="../login/signup.html" class="signup-btn">회원가입</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="submenu-container">
+        <div class="submenu-wrapper">
+            <div class="submenu-column">
+                <a href="../artist/artist.html">작가List</a>
+                <a href="#">신인작가</a>
+            </div>
+            <div class="submenu-column2">
+                <a href="../payments/payment.html">무료체험</a>
+                <a href="../cart/cart.html">장바구니</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="discover-content container">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="container"></div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-container">
+            <div class="filter-row">
+                <div class="filter-column">
+                    <div class="filter-label">테마</div>
+                    <div class="filter-options">
+                        <button>그림</button>
+                        <button>가구</button>
+                        <button>화분</button>
+                        <button>어항</button>
+                        <button>기타</button>
+                    </div>
+                </div>
+
+                <div class="filter-column">
+                    <div class="filter-label">색상</div>
+                    <div class="filter-options colors">
+                        <button style="background-color: #ff0000;"></button>
+                        <button style="background-color: #0000ff;"></button>
+                        <button style="background-color: #008000;"></button>
+                        <button style="background-color: #ffcc00;"></button>
+                        <button style="background-color: #d2b48c;"></button>
+                        <button style="background-color: #d3d3d3;"></button>
+                        <button style="background-color: #000000;"></button>
+                        <button style="background-image: linear-gradient(90deg, #ff0000, #ffcc00, #008000, #0000ff, #8b00ff);"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-row">
+                <div class="filter-column">
+                    <div class="filter-label">사이즈</div>
+                    <div class="filter-options">
+                        <button>XS <span class="small-text">(구매용)</span></button>
+                        <button>S <span class="small-text">(월 10만원~)</span></button>
+                        <button>M <span class="small-text">(월 15만원~)</span></button>
+                        <button>L <span class="small-text">(월 20만원~)</span></button>
+                        <button>XL <span class="small-text">(월 25만원~)</span></button>
+                    </div>
+                </div>
+                <div class="filter-column">
+                    <div class="filter-label">구매 및 렌탈 가격</div>
+                    <div class="filter-options">
+                        <button>~30만원</button>
+                        <button>30만 ~ 50만원</button>
+                        <button>50만 ~ 100만원</button>
+                        <button>100만 ~ 200만원</button>
+                        <button>200만 ~ 300만원</button>
+                        <button>300만 ~ 500만원</button>
+                        <button>500만 ~ 1000만원</button>
+                        <button>1000만원~</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sort Section -->
+        <div class="sort-container">
+            <span>n점의 작품 검색됨</span>
+            <div class="sort-options">
+                <label><input type="checkbox" name="rent"> 렌탈 가능</label>
+                <label><input type="checkbox" name="purchase"> 구매 가능</label>
+                <select class="sort-dropdown">
+                    <option value="newest">최신등록순</option>
+                    <option value="smallest">작은호수순</option>
+                    <option value="lowest-price">낮은가격순</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Artwork Gallery -->
+        <section class="gallery">
+            <div class="art-item">
+                <a href="../product/productlist/product1.html">
+                    <img src="../images/name1_1.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">동그라미</h3>
+                    <p class="art-artist">rei</p>
+                    <p class="art-size">61x72cm(M)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/product2.html">
+                    <img src="../images/name1_2.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">오키나와</h3>
+                    <p class="art-artist">rei</p>
+                    <p class="art-size">61x72cm(M)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/product3.html"">
+                    <img src="../images/name1_3.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">달이 빛나는 장소</h3>
+                    <p class="art-artist">rei</p>
+                    <p class="art-size">61x72cm(M)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name2_1.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">구름과 초록</h3>
+                    <p class="art-artist">easyhoon</p>
+                    <p class="art-size">61x72cm(M)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name2_2.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">편안한 마음</h3>
+                    <p class="art-artist">easyhoon</p>
+                    <p class="art-size">61x72cm(M)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name2_3.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">나의 심상 세계</h3>
+                    <p class="art-artist">easyhoon</p>
+                    <p class="art-size">61x72cm(M)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name3_1.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">푸른 바다</h3>
+                    <p class="art-artist">jinco</p>
+                    <p class="art-size">61x72cm(M)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name3_2.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">요동치듯 잔잔한</h3>
+                    <p class="art-artist">jinco</p>
+                    <p class="art-size">61x72cm(M)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name3_3.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">도시의 푸른주황</h3>
+                    <p class="art-artist">jinco</p>
+                    <p class="art-size">61x72cm(M)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name4_1.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">나무문</h3>
+                    <p class="art-artist">hyeon</p>
+                    <p class="art-size">61x72cm(M)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name4_2.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">yellow world</h3>
+                    <p class="art-artist">hyeon</p>
+                    <p class="art-size">61x72cm(M)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name4_3.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">밤의 구름</h3>
+                    <p class="art-artist">hyeon</p>
+                    <p class="art-size">61x72cm(M)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name4_3.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">밤의 구름</h3>
+                    <p class="art-artist">hyeon</p>
+                    <p class="art-size">61x72cm(M)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name5_1.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">자기의 도자기</h3>
+                    <p class="art-artist">seomin</p>
+                    <p class="art-size">도자기(S)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/구매
+                    </div>
+                </div>
+            </div>          
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name5_2.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">첫작품</h3>
+                    <p class="art-artist">seomin</p>
+                    <p class="art-size">도자기(S)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/구매
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name5_3.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">백옥자</h3>
+                    <p class="art-artist">seomin</p>
+                    <p class="art-size">도자기(S)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/구매
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name6_1.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">균형의 밸런스</h3>
+                    <p class="art-artist">karina</p>
+                    <p class="art-size">어항(S)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name6_2.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">수초어항 컬렉션1</h3>
+                    <p class="art-artist">karina</p>
+                    <p class="art-size">어항(L)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name6_3.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">수초어항 컬렉션2</h3>
+                    <p class="art-artist">karina</p>
+                    <p class="art-size">어항(L)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name7_1.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">담다 1</h3>
+                    <p class="art-artist">V</p>
+                    <p class="art-size">화분(L)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈불가/구매용
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name7_2.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">담다 2</h3>
+                    <p class="art-artist">V</p>
+                    <p class="art-size">화분(L)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈불가/구매용
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name7_3.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">담다 3</h3>
+                    <p class="art-artist">V</p>
+                    <p class="art-size">화분(L)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈불가/구매용
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name8_1.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">흐르는 흑색</h3>
+                    <p class="art-artist">kook</p>
+                    <p class="art-size">61x72cm(L)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name8_2.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">떠다니는 초록</h3>
+                    <p class="art-artist">kook</p>
+                    <p class="art-size">61x72cm(L)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name8_3.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">정적인 파랑</h3>
+                    <p class="art-artist">kook</p>
+                    <p class="art-size">61x72cm(L)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name9_1.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">정적인 파랑</h3>
+                    <p class="art-artist">ready</p>
+                    <p class="art-size">61x72cm(L)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name9_2.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">정적인 파랑</h3>
+                    <p class="art-artist">ready</p>
+                    <p class="art-size">61x72cm(L)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+            <div class="art-item">
+                <a href="../product/productlist/picture1.html">
+                    <img src="../images/name9_3.jpg" alt="전시 준비중" class="art-image">
+                </a>
+                <div class="art-details">
+                    <h3 class="art-title">정적인 파랑</h3>
+                    <p class="art-artist">ready</p>
+                    <p class="art-size">61x72cm(L)</p>
+                    <div class="art-status">
+                        <span class="status-dot"></span> 렌탈/전시중
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="page-btn" disabled>&lt;</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <span class="ellipsis">...</span>
+            <button class="page-btn">&gt;</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ADAM(아트를담다). All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../product/script.js"></script>
+    <script src="../Main/script.js"></script>
+</body>
+</html>
+
