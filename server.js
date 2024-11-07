@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
-const mysql = require('mysql2');
+const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const session = require('express-session'); // 세션 패키지 추가
 const app = express();
-const port = 15012;
+const port = 3000;
 
 app.use(session({
     secret: 'your_secret_key', // 세션 암호화 키
@@ -18,10 +18,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // MySQL 연결 설정
 const db = mysql.createConnection({
-    host: '116.124.191.174',  
-    user: 'ljh_2023826',
-    password: 'ljh_2023826', 
-    database: 'ljh_2023826'
+    host: 'localhost',  
+    user: 'root',
+    password: '0000', 
+    database: 'art'
 });
 
 // MySQL 연결
