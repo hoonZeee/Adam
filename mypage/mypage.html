@@ -3,130 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Page - ADAM</title>
-    
-    <!-- 공통 스타일 및 외부 라이브러리 -->
-    <link rel="stylesheet" href="/Main/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Chart.js 라이브러리 -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>마이 페이지</title>
+    <link rel="stylesheet" href="../mypage/mypage.css">
 </head>
-
 <body>
-    
-    <!-- 상단 고정 헤더 -->
-    <header class="header">
-        <nav>
-            <a href="/"><img src="../images/logo.png" alt="ADAM Logo" width="100" height="40"></a>
-            <ul class="main-menu">
-                <li><a href="/discover">작품소개</a></li>
-                <li><a href="/rental">구매, 대여</a></li>
-                <li><a href="../artist/artist.html">작가</a></li>
-                <li><a href="../mypage/mypage.html">마이페이지</a></li>
-                <li id="user-info">
-                    <button class="logout-btn" onclick="logout()">로그아웃</button>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-
-</div>
-  <div class="main-content">
-    <aside class="user-info">
-        
-        <!-- 프로필 사진 및 수정 가능한 정보 -->
-        <section class="profile-section">
-            <img id="profile-img" src="profile.jpg" alt="프로필 사진" class="profile-img">
-            <h2>
-                <span id="username">사용자 이름</span>
-            </h2>
-            
-            <p><span id="user-id">ID: user123</span></p>
-            <p><span id="user-contact">연락처: 010-1234-5678</span></p>
-            <p><span id="user-email">이메일: user@example.com</span></p>
-            <button class="edit-profile-btn" onclick="openEditProfileModal()">수정</button>
-        </section>
-        
-        <!-- 모달 창 -->
-        <div id="edit-profile-modal" class="modal" style="display:none;">
-            <div class="modal-content">
-                <span class="close" onclick="closeEditProfileModal()">&times;</span>
-                <h2>프로필 수정</h2>
-                
-                <form id="edit-profile-form" onsubmit="saveProfile(event)">
-                    <label for="modal-username">이름</label>
-                    <input type="text" id="modal-username" name="username" required>
-                    
-                    <label for="modal-user-contact">연락처</label>
-                    <input type="text" id="modal-user-contact" name="contact" required>
-                    
-                    <label for="modal-user-email">이메일</label>
-                    <input type="email" id="modal-user-email" name="email" required>
-                    
-                    <label for="modal-profile-img">프로필 사진</label>
-                    <input type="file" id="modal-profile-img-input" accept="image/*" onchange="previewProfileImage(event)">
-                    <img id="modal-profile-img-preview" src="profile.jpg" >
-                    
-                    <button type="button" onclick="saveProfile()">저장</button>
-                </form>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="user-info">
+                <img src="../images/name1_1.jpg" class="avatar" alt="프로필 이미지">
+                <div class="user-details">
+                    <h2>이지훈</h2>
+                    <p>dlwlgns7540@naver.com</p>
+                    <p>01097897540</p>
+                </div>
             </div>
-        </div>
-    </aside>
-    
-             <!-- 그래프 -->
-        <section class="expense-graph">
-            <div id="period-text" style="font-size: 18px; text-align: center; margin-top: 80px ;margin-bottom: 10px;"></div>
-            <div class="button-group">
-                <button id="daily-btn" onclick="showDaily()">일별</button>
-                <button id="weekly-btn" onclick="showWeekly()">주간</button>
-                <button id="monthly-btn" onclick="showMonthly()">월간</button>
-            </div>
-            <canvas id="expenseChart"></canvas>
-        </div>
-        
-
-
-             <!-- 사이드바 -->
-            <aside class="sidebar">
-                <h2>마이페이지</h2>
-                <ul class="sidebar-menu">
-                    <li><button class="menu-btn active" onclick="showTab('notifications')">알림</button></li>
-                    <li><button class="menu-btn" onclick="showTab('artworks')">대여/구매/판매 내역</button></li>
-                    <li><button class="menu-btn" onclick="showTab('calendar')">대여 기간 확인</button></li>
-                    <li><button class="menu-btn" onclick="showTab('account')">개인정보 관리</button></li>
+            <nav>
+                <ul>
+                    <li><a href="#"><span class="icon">🔒</span>내 정보</a></li>
+                    <li><a href="#"><span class="icon">💳</span>멤버쉽</a></li>
+                    <li><a href="#"><span class="icon">📄</span>공지사항</a></li>
                 </ul>
-            </aside>
-        </div>
-        
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <h1>마이 페이지</h1>
+                <div class="point-info">
+                    <span>현재 포인트</span>
+                    <span id="currentPoints">5,000 포인트</span>
+                    <button id="chargeButton">포인트충전</button>
+                </div>
+            </header>
 
+            <div class="chart-container">
+                <h3>월별 사용 현황</h3>
+                <canvas id="monthlyChart"></canvas>
+            </div>
 
-            <section class="content-section">
-                <div id="notifications" class="tab-content active">
-                    <h3>알림</h3>
-                    <p>구매, 대여, 찜한 작품에 대한 알림을 여기에 표시합니다.</p>
-                </div>
-                <div id="artworks" class="tab-content">
-                    <h3>대여/구매/판매 내역</h3>
-                    <p>대여, 구매, 판매 및 찜한 작품 목록을 표시합니다.</p>
-                </div>
-                <div id="calendar" class="tab-content">
-                    <h3>대여 기간 확인</h3>
-                    <p>대여 기간을 달력으로 표시합니다.</p>
-                </div>
-                <div id="account" class="tab-content">
-                    <h3>개인정보 관리</h3>
-                    <p>아이디, 비밀번호, 닉네임 등을 관리할 수 있는 설정입니다.</p>
-                </div>
-            </section>
-        </div>
+            <div class="usage-history">
+                <h3>포인트 사용내역</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>날짜</th>
+                            <th>사용 서비스</th>
+                            <th>사용 내역</th>
+                            <th>잔여 포인트</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2022-12-01 16:37:06</td>
+                            <td>워터마크 제작</td>
+                            <td class="positive">+5,000</td>
+                            <td>5,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
     </div>
-
-    <script src="/Main/script.js"></script>
-    <script src="script.js"></script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../mypage/mypage.js"></script>
 </body>
 </html>
