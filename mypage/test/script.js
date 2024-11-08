@@ -50,6 +50,23 @@ function updateGraph(type) {
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1
             }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display : false //범례 표시 비활성화
+                }
+            },
+            layout: {
+                padding: {
+                    top: -10 // 상단 여백 줄이기
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
         }
     });
 }
@@ -65,6 +82,26 @@ function showTab(tabId) {
     const buttons = document.querySelectorAll('.menu-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
     document.querySelector(`button[onclick="showTab('${tabId}')"]`).classList.add('active');
+}
+
+// 탭 전환 대신 스크롤 기능
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    window.scrollTo({
+        top: section.offsetTop - 20, // 섹션 바로 위로 스크롤
+        behavior: 'smooth' // 부드러운 스크롤 애니메이션
+    });
+
+    // 탭 전환 (스크롤 후)
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.classList.remove('active')); // 기존 활성 탭 비활성화
+
+    const activeTab = document.getElementById(sectionId);
+    activeTab.classList.add('active'); // 해당 섹션을 활성화
+    
+    const buttons = document.querySelectorAll('.menu-btn');   // 활성화된 버튼 스타일 적용
+    buttons.forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`button[onclick="scrollToSection('${sectionId}')"]`).classList.add('active');
 }
 
 // 페이지 로드 시 기본적으로 주간 지출로 초기화
@@ -128,7 +165,7 @@ function openEditProfileModal() {
     document.getElementById('edit-profile-modal').style.display = 'block';
 
     // 현재 프로필 정보로 초기화
-    document.getElementById('modal-username').value = document.getElementById('user-name').innerText;
+    document.getElementById('modal-username').value = document.getElementById('username').innerText;
     document.getElementById('modal-user-contact').value = document.getElementById('user-contact').innerText.replace('연락처: ', '');
     document.getElementById('modal-user-email').value = document.getElementById('user-email').innerText.replace('이메일: ', '');
 }
@@ -141,7 +178,7 @@ function closeEditProfileModal() {
 // 로그아웃 함수
 function logout() {
     // 로그아웃 후 로그인 페이지로 이동
-    window.location.href = '../main.html';
+    window.location.href = '/main.html';
 }
 
 // Collapsible header 스크롤 이벤트

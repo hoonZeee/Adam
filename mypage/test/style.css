@@ -1,0 +1,287 @@
+/* 기본 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #F5F9FA;
+}
+
+/* 모달 창 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    padding-top: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    max-width: 80%;
+    margin: auto;
+    position: relative;
+}
+
+.close-btn, .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+}
+
+.close-btn:hover, .close:hover {
+    color: #f44336;
+}
+
+/* 원형 프로필 이미지 미리보기 */
+#modal-profile-img-preview,
+#profile-img,
+.profile-photo-section img,
+.profile-section img.profile-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* 프로필 사진 변경 버튼 */
+.profile-photo-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-photo-section button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* 사용자 프로필 수정 입력폼 */
+#edit-profile-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* 지출 내역 선택 버튼 그룹 */
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.button-group button {
+    margin: 0 3px;
+    padding: 5px 10px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: 2px solid #01939A;
+    cursor: pointer;
+    font-size: 10px;
+    border-radius: 5px;
+}
+
+.button-group button:hover {
+    background-color: #45a049;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+    border-color: #01939A;
+}
+
+
+/* 그래프 영역 */
+.expense-graph {
+    margin-top: 100px;
+    width: 70%; /* 그래프 섹션의 너비 */
+    padding: 10px 20px;
+    max-width: 800px;
+    max-height: 500px;
+    background-color: #f9f9f9; /* 배경색 추가 */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position : relative;
+}
+
+/* 메인 컨텐츠 레이아웃 */
+.main-content,
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* 사용자 정보 섹션 */
+.user-info {
+    margin-top: 100px;
+    width: 30%; /* 프로필 섹션의 너비 */
+    padding: 20px;
+    max-height: 400px;
+    min-height: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+
+    text-align: center;
+}
+
+/* 프로필과 그래프 컨테이너 */
+.profile-and-graph-container {
+    display: flex;
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    align-items: flex-start; /* 프로필과 그래프의 상단을 맞춤 */
+    gap: 100px; /* 프로필과 그래프 사이의 간격 */
+    width: 80%; /* 전체 너비 사용 */
+    padding: 20px;
+}
+
+.edit-profile-btn {
+    background: none;
+    border: none;
+    font-size: 0.9em;
+    color: #4CAF50;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* 고정 섹션 */
+.fixed-section {
+    width: 75%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 탭 스타일 */
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: none;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px 0;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* 페이지 전체 여백 */
+.page-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 사이드바 */
+/* 컨테이너 레이아웃 */
+.side-container {
+    display: flex;
+    justify-content: flex-start;
+    min-height: 100vh;
+    gap: 80px; /* 사이드바와 내용사이의 간격 */
+
+}
+
+.sidebar {
+    position: sticky;
+    top : 100px;
+    margin-top: 20px;
+    width: 300px;
+    padding: 20px;
+    max-height: 800px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+.sidebar h2 {
+    background-color: #4e7bd1;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: #f1f1f1;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.menu-btn:hover, .menu-btn.active {
+    background-color: #e0e0e0;
+}
+
+/* 오른쪽 콘텐츠 섹션 */
+.content-section {
+    width: 75%;
+    background-color: #fff;
+    padding: 10px 20px;
+    max-width: 800px;
+    min-width: 800px;
+    height: 200vh; /* 고정 높이 */
+    overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 기간 텍스트 스타일 */
+#period-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 로그아웃 버튼 스타일 */
+.logout-btn {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 8px 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9em;
+}

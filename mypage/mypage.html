@@ -3,129 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Page - ADAM</title>
-    
+    <title>마이 페이지</title>
+    <link rel="stylesheet" href="../mypage/mypage.css">
     <!-- 공통 스타일 및 외부 라이브러리 -->
-    <link rel="stylesheet" href="/Main/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Chart.js 라이브러리 -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../Main/banner/banner.css">
 </head>
-
 <body>
-    
     <!-- 상단 고정 헤더 -->
     <header class="header">
-        <nav>
-            <a href="/"><img src="../images/logo.png" alt="ADAM Logo" width="100" height="40"></a>
-            <ul class="main-menu">
-                <li><a href="/discover">작품소개</a></li>
-                <li><a href="/rental">구매, 대여</a></li>
-                <li><a href="../artist/artist.html">작가</a></li>
-                <li><a href="../mypage/mypage.html">마이페이지</a></li>
-                <li id="user-info">
-                    <button class="logout-btn" onclick="logout()">로그아웃</button>
+        <nav class="main-nav">
+            <div class = "logo">
+                <a href = "/">
+
+                    <img src="/images/logo.png" alt="ADAM Logo" width="110" height="44">
+                </a>
+            </div>
+            <ul class="nav-items main-menu">
+                <li class="nav-item"><a href="../artist/artist.html">작가</a></li>
+                <li class="nav-item has-submenu"><a>구매,대여</a></li>
+                <li class="nav-item has-submenu"><a href="../product/discover.html">작품 보기</a></li>
+                <li class="nav-item"><a id="mypage-link" href="../mypage/mypage.html">마이페이지</a></li>
+            </ul>
+            <div class="icon-group">
+                <a href="../cart/cart.html" class="icon-btn">
+                    <svg xmlns="../images/cart.jpg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cart-icon">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </a>
+            </div>
+            <ul>
+                <li id="user-info" class="nav-utils">
+                <!-- 로그아웃 버튼이 로그인 상태에서만 보이도록 설정 -->
                 </li>
             </ul>
+
+
         </nav>
-    </header>
-
-
-</div>
-  <div class="main-content">
-    <aside class="user-info">
-        
-        <!-- 프로필 사진 및 수정 가능한 정보 -->
-        <section class="profile-section">
-            <img id="profile-img" src="profile.jpg" alt="프로필 사진" class="profile-img">
-            <h2>
-                <span id="username">사용자 이름</span>
-            </h2>
-            
-            <p><span id="user-id">ID: user123</span></p>
-            <p><span id="user-contact">연락처: 010-1234-5678</span></p>
-            <p><span id="user-email">이메일: user@example.com</span></p>
-            <button class="edit-profile-btn" onclick="openEditProfileModal()">수정</button>
-        </section>
-        
-        <!-- 모달 창 -->
-        <div id="edit-profile-modal" class="modal" style="display:none;">
-            <div class="modal-content">
-                <span class="close" onclick="closeEditProfileModal()">&times;</span>
-                <h2>프로필 수정</h2>
-                
-                <form id="edit-profile-form" onsubmit="saveProfile(event)">
-                    <label for="modal-username">이름</label>
-                    <input type="text" id="modal-username" name="username" required>
+    </header>    
+    <div class="container">
+        <aside class="sidebar">
+            <div class="user-info">
+                <img id = "profile-img" src="../images/name1_1.jpg" class="profile-img" alt="프로필 이미지">
+                <div class="user-details">
+                    <h2 id="username">김민서</h2>
+                    <p id="user-email">kms4899a@naver.com</p>
+                    <p id="user-contact">01063464899</p>
+                    <button class="edit-profile-btn" onclick="openEditProfileModal()" aria-label="프로필 수정">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 20h9"></path>
+                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                        </svg>
+                    </button>
                     
-                    <label for="modal-user-contact">연락처</label>
-                    <input type="text" id="modal-user-contact" name="contact" required>
-                    
-                    <label for="modal-user-email">이메일</label>
-                    <input type="email" id="modal-user-email" name="email" required>
-                    
-                    <label for="modal-profile-img">프로필 사진</label>
-                    <input type="file" id="modal-profile-img-input" accept="image/*" onchange="previewProfileImage(event)">
-                    <img id="modal-profile-img-preview" src="profile.jpg" >
-                    
-                    <button type="button" onclick="saveProfile()">저장</button>
-                </form>
+                </div>
             </div>
-        </div>
-    </aside>
-    
-             <!-- 그래프 -->
-        <section class="expense-graph">
-            <div id="period-text" style="font-size: 18px; text-align: center; margin-top: 80px ;margin-bottom: 10px;"></div>
-            <div class="button-group">
-                <button id="daily-btn" onclick="showDaily()">일별</button>
-                <button id="weekly-btn" onclick="showWeekly()">주간</button>
-                <button id="monthly-btn" onclick="showMonthly()">월간</button>
-            </div>
-            <canvas id="expenseChart"></canvas>
-        </div>
-        
-
-
-             <!-- 사이드바 -->
-            <aside class="sidebar">
-                <h2>마이페이지</h2>
-                <ul class="sidebar-menu">
-                    <li><button class="menu-btn active" onclick="showTab('notifications')">알림</button></li>
-                    <li><button class="menu-btn" onclick="showTab('artworks')">대여/구매/판매 내역</button></li>
-                    <li><button class="menu-btn" onclick="showTab('calendar')">대여 기간 확인</button></li>
-                    <li><button class="menu-btn" onclick="showTab('account')">개인정보 관리</button></li>
+            <nav>
+                <ul>
+                    <li><a href="#"><span class="icon">🔒</span>알림</a></li>
+                    <li><a href="#"><span class="icon">💳</span>대여/구매/판매 내역</a></li>
+                    <li><a href="#"><span class="icon">📄</span>대여 기간 확인</a></li>
+                    <li><a href="#"><span class="icon">📄</span>개인 정보 관리</a></li>
                 </ul>
-            </aside>
-        </div>
-        
+            </nav>
+             <!-- 모달 창 -->
+             <div id="edit-profile-modal" class="modal" style="display:none;">
+                <div class="modal-content">
+                    <span class="close" onclick="closeEditProfileModal()">&times;</span>
+                    <h2>프로필 수정</h2>
+                    
+                    <form id="edit-profile-form" onsubmit="saveProfile(event)">
+                        <label for="modal-username">이름</label>
+                        <input type="text" id="modal-username" name="username" required>
+                        
+                        <label for="modal-user-contact">연락처</label>
+                        <input type="text" id="modal-user-contact" name="contact" required>
+                        
+                        <label for="modal-user-email">이메일</label>
+                        <input type="email" id="modal-user-email" name="email" required>
+                        
+                        <label for="modal-profile-img">프로필 사진</label>
+                        <input type="file" id="modal-profile-img-input" accept="image/*" onchange="handleProfileImage(event)">
+                        <img id="modal-profile-img-preview" src="" >
+                        
+                        <button type="submit">저장</button>
 
+                    </form>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header>
+                <h1>마이 페이지</h1>
+                <div class="point-info">
+                    <span>현재 포인트</span>
+                    <span id="currentPoints">5,000 포인트</span>
+                    <button id="chargeButton">포인트충전</button>
+                </div>
+            </header>
 
-            <section class="content-section">
-                <div id="notifications" class="tab-content active">
-                    <h3>알림</h3>
-                    <p>구매, 대여, 찜한 작품에 대한 알림을 여기에 표시합니다.</p>
-                </div>
-                <div id="artworks" class="tab-content">
-                    <h3>대여/구매/판매 내역</h3>
-                    <p>대여, 구매, 판매 및 찜한 작품 목록을 표시합니다.</p>
-                </div>
-                <div id="calendar" class="tab-content">
-                    <h3>대여 기간 확인</h3>
-                    <p>대여 기간을 달력으로 표시합니다.</p>
-                </div>
-                <div id="account" class="tab-content">
-                    <h3>개인정보 관리</h3>
-                    <p>아이디, 비밀번호, 닉네임 등을 관리할 수 있는 설정입니다.</p>
-                </div>
-            </section>
-        </div>
+            <div class="chart-container">
+                <h3>월별 사용 현황</h3>
+                <canvas id="monthlyChart"></canvas>
+            </div>
+
+            <div class="usage-history">
+                <h3>포인트 사용내역</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>날짜</th>
+                            <th>사용 서비스</th>
+                            <th>사용 내역</th>
+                            <th>잔여 포인트</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2022-12-01 16:37:06</td>
+                            <td>워터마크 제작</td>
+                            <td class="positive">+5,000</td>
+                            <td>5,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../mypage/mypage.js"></script>
+<script>
+    // 사용자 이름을 표시하기 위해 서버에서 세션 정보를 요청
+    fetch('/session-user')
+        .then(response => response.json())
+        .then(data => {
+            const userInfo = document.getElementById('user-info');
+            if (data.userName) {
+                userInfo.innerHTML = `<span>${data.userName}</span> <form action="/logout" method="POST" style="display:inline;"><button type="submit">로그아웃</button></form>`;
+            }else {
+                // 로그인하지 않은 경우에는 아무 것도 표시하지 않거나, 로그인 버튼을 표시
+                userInfo.innerHTML = '';  // 로그인하지 않은 경우
+            }
+        })
+        .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
 
-    <script src="/Main/script.js"></script>
-    <script src="script.js"></script>
+</script>
+
 
 
 </body>
