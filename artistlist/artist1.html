@@ -4,13 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>작가 페이지 - 이지훈</title>
+    <link rel="stylesheet" href="../Main/banner/banner.css">
     <link rel="stylesheet" href="../artistlist/artist1.css">
 </head>
 <body>
+    <header class="header">
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="/">
+
+                    <img src="/images/logo.png" alt="ADAM Logo" width="110" height="44">
+                </a>
+            </div>
+            <ul class="nav-items main-menu">
+                <li class="nav-item"><a>작가</a></li>
+                <li class="nav-item has-submenu"><a>구매,대여</a></li>
+                <li class="nav-item has-submenu"><a href="../product/discover.html">작품보기</a></li>
+                <li class="nav-item"><a id="mypage-link" href="#">마이페이지</a></li>
+            </ul>
+            <div class="icon-group">
+                <a href="../cart/cart.html" class="icon-btn">
+                    <svg xmlns="../images/cart.jpg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cart-icon">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </a>
+            </div>
+            <div id="user-info" class="nav-utils">
+                <a href="../login/login.html" class="login-btn">로그인</a>
+                <a href="../login/signup.html" class="signup-btn">회원가입</a>
+            </div>
+        </nav>
+    </header>
+
+    <br><br><br>
     
     <div class="container">
-        <h1>이지훈</h1>
-        <h2>Jihoon Lee</h2>
+        <h1>레이</h1>
+        <h2>Rei</h2>
         <p class="subtitle">University of the Arts London</p>
 
         <nav class="nav">
@@ -23,22 +55,44 @@
 
         <div id="works" class="content">
             <div class="artwork-container">
-                <a href="purchase.html" class="artwork-link">
+                <a href="../product/productlist/product1.html" class="artwork-link">
                     <div class="artwork">
                         <div class="artwork-image">
-                            <img src="../images/space1.png" alt="작품 이미지">
+                            <img src="../images/name1_1.jpg" alt="작품 이미지">
                         </div>
                         <div class="artwork-info">
-                            <h3 class="artwork-title">성적</h3>
-                            <p class="artwork-description">작가의 내면 깊숙이 자리한 순간들을 섬세하게 담아낸 작품으로, 
-                                성적표가 처음 손에 들어왔을 때의 복합적인 감정들을 추상적으로 표현합니다. 
-                                기쁨, 좌절, 그리고 새로운 시작에 대한 기대가 뒤섞인 순간을 시각적으로 그려내며, 
-                                관람자에게 각자의 기억을 떠올리게 만드는 힘을 지닌 작품입니다.</p>
+                            <h3 class="artwork-title">동그라미</h3>
+                            <p class="artwork-description">틀에 맞춰진 장르와 재료에서 벗어난 다양한 작업을 시도한다. 주로 흔들리는 것, 느린 것, 움직이는 것, 둥근 것, 유연한 것, 완벽하지 않은 것, 남겨진 것, 장난스러운 것들에 마음이 이끌린다는 작가에게 그 어떠한 것도 모두 그림의 도구가 된다. 아이를 키우는 작가가 쉽게 접하는 유아용 크레파스, 어린이용 도화지, 안 쓰는 화장품 등이 화면 표현의 일부가 되고, 직사각형 캔버스를 비정형의 나무 패널이 대신하며 작가의 이야기가 펼쳐진다. 일상과 내면의 서사를 자유롭고 진솔하게 담아낸 화면에는 선과 면이 연대하여 선명한 색채가 조화를 이루고 타인을 위로하고 공감하는 긍정적인 에너지를 전한다..</p>
                         </div>
                     </div>
                 </a>
             </div>
-            <!-- 추가 작품들은 위의 구조를 복사하여 추가할 수 있습니다 -->
+            <div class="artwork-container">
+                <a href="../product/productlist/product2.html" class="artwork-link">
+                    <div class="artwork">
+                        <div class="artwork-image">
+                            <img src="../images/name1_2.jpg" alt="작품 이미지">
+                        </div>
+                        <div class="artwork-info">
+                            <h3 class="artwork-title">오키나와</h3>
+                            <p class="artwork-description">틀에 맞춰진 장르와 재료에서 벗어난 다양한 작업을 시도한다. 주로 흔들리는 것, 느린 것, 움직이는 것, 둥근 것, 유연한 것, 완벽하지 않은 것, 남겨진 것, 장난스러운 것들에 마음이 이끌린다는 작가에게 그 어떠한 것도 모두 그림의 도구가 된다. 아이를 키우는 작가가 쉽게 접하는 유아용 크레파스, 어린이용 도화지, 안 쓰는 화장품 등이 화면 표현의 일부가 되고, 직사각형 캔버스를 비정형의 나무 패널이 대신하며 작가의 이야기가 펼쳐진다. 일상과 내면의 서사를 자유롭고 진솔하게 담아낸 화면에는 선과 면이 연대하여 선명한 색채가 조화를 이루고 타인을 위로하고 공감하는 긍정적인 에너지를 전한다..</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="artwork-container">
+                <a href="../product/productlist/picture3.html" class="artwork-link">
+                    <div class="artwork">
+                        <div class="artwork-image">
+                            <img src="../images/name1_3.jpg" alt="작품 이미지">
+                        </div>
+                        <div class="artwork-info">
+                            <h3 class="artwork-title">달이빛나는장소</h3>
+                            <p class="artwork-description">틀에 맞춰진 장르와 재료에서 벗어난 다양한 작업을 시도한다. 주로 흔들리는 것, 느린 것, 움직이는 것, 둥근 것, 유연한 것, 완벽하지 않은 것, 남겨진 것, 장난스러운 것들에 마음이 이끌린다는 작가에게 그 어떠한 것도 모두 그림의 도구가 된다. 아이를 키우는 작가가 쉽게 접하는 유아용 크레파스, 어린이용 도화지, 안 쓰는 화장품 등이 화면 표현의 일부가 되고, 직사각형 캔버스를 비정형의 나무 패널이 대신하며 작가의 이야기가 펼쳐진다. 일상과 내면의 서사를 자유롭고 진솔하게 담아낸 화면에는 선과 면이 연대하여 선명한 색채가 조화를 이루고 타인을 위로하고 공감하는 긍정적인 에너지를 전한다..</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
 
 
@@ -105,5 +159,20 @@
     </div>
 
     <script src="../artistlist/artist1.js"></script>
+    <script src="/Main/script.js"></script>
+    <script>
+        // 사용자 이름을 표시하기 위해 서버에서 세션 정보를 요청
+        fetch('/session-user')
+            .then(response => response.json())
+            .then(data => {
+                const userInfo = document.getElementById('user-info');
+                if (data.userName) {
+                    userInfo.innerHTML = `<span>${data.userName}</span> <form action="/logout" method="POST" style="display:inline;"><button type="submit">로그아웃</button></form>`;
+                } else {
+                    userInfo.innerHTML = `<a href="../login/login.html">로그인</a> <a href="../login/signup.html">회원가입</a>`;
+                }
+            })
+            .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
+    </script>
 </body>
 </html>
