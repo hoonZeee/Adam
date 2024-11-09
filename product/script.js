@@ -13,20 +13,20 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', () => {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         if (scrollTop > lastScrollTop) {
-            header.style.top = '-60px'; 
+            header.style.top = '-60px';
             if (banner) {
                 banner.style.top = '0';
             }
         } else {
             header.style.top = '0';
             if (banner) {
-                banner.style.top = '60px'; 
+                banner.style.top = '60px';
             }
         }
         lastScrollTop = scrollTop;
     });
 
-    // 하트 클릭 시 찜하기 기능
+    // Heart icon functionality
     const heartIcons = document.querySelectorAll('.heart-icon');
     heartIcons.forEach(icon => {
         icon.addEventListener('click', () => {
@@ -34,37 +34,57 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 슬라이더 기능 추가
-    const slider = document.querySelector('.hero-content .slider'); // hero 안의 slider 선택
-    const slideLis = slider.querySelectorAll('li');
-    const moveButton = document.querySelector('.hero-content .arrow');
-    
-    let currentIdx = 0; // 현재 슬라이드 인덱스
-    const liWidth = slideLis[0].clientWidth; // 각 슬라이드의 너비
-    const totalSlides = slideLis.length; // 총 슬라이드 수
+    // Slider functionality
+    const slider = document.querySelector('.hero-content .slider');
+    if (slider) {
+        const slideLis = slider.querySelectorAll('li');
+        const moveButton = document.querySelector('.hero-content .arrow');
+        
+        let currentIdx = 0;
+        const liWidth = slideLis[0].clientWidth;
+        const totalSlides = slideLis.length;
 
-    moveButton.addEventListener('click', function(event) {
-        event.preventDefault(); // 기본 링크 동작 방지
-        if (event.target.classList.contains('next')) {
-            if (currentIdx < totalSlides - 1) {
-                currentIdx++;
-                slider.style.transform = `translateX(${-liWidth * currentIdx}px)`; // 슬라이드 이동
+        moveButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            if (event.target.classList.contains('next')) {
+                if (currentIdx < totalSlides - 1) {
+                    currentIdx++;
+                    slider.style.transform = `translateX(${-liWidth * currentIdx}px)`;
+                }
+            } else if (event.target.classList.contains('prev')) {
+                if (currentIdx > 0) {
+                    currentIdx--;
+                    slider.style.transform = `translateX(${-liWidth * currentIdx}px)`;
+                }
             }
-        } else if (event.target.classList.contains('prev')) {
-            if (currentIdx > 0) {
-                currentIdx--;
-                slider.style.transform = `translateX(${-liWidth * currentIdx}px)`; // 슬라이드 이동
+        });
+    }
+
+    // Fetch session information and update user info
+    fetch('/session-user')
+        .then(response => response.json())
+        .then(data => {
+            const userInfo = document.getElementById('user-info');
+            if (data.userName) {
+                userInfo.innerHTML = `<span>${data.userName}</span> <form action="/logout" method="POST" style="display:inline;"><button type="submit">로그아웃</button></form>`;
+            } else {
+                userInfo.innerHTML = `<a href="../login/login.html">로그인</a> <a href="../login/signup.html">회원가입</a>`;
             }
-        }
-    });
+        })
+        .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
 });
 
-// 하트 아이콘의 찜하기 기능을 토글하는 함수
 function toggleFavorite(element) {
-    const isFavorited = element.classList.toggle('favorited');
-    if (isFavorited) {
-        element.innerHTML = '♡'; 
-    } else {
-        element.innerHTML = '♥';
+    console.log("하트 클릭됨"); // 클릭 이벤트 확인용 로그
+    const img = element.querySelector('img');
+
+    if (!img) {
+        console.error("이미지 요소를 찾을 수 없습니다.");
+        return;
     }
+
+    const isFavorited = element.classList.toggle('favorited');
+    img.src = isFavorited ? '../images/heartfill.jpg' : '../images/heartempty.jpg';
+    console.log(`하트 아이콘 상태: ${isFavorited ? '채워짐' : '비어있음'}`);
 }
+

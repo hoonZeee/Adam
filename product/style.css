@@ -81,7 +81,7 @@ body {
 /* Banner styles */
 .banner {
     position: fixed;
-    top: 60px; /* Adjust based on your header height */
+    top: 60px;
     left: 0;
     right: 0;
     background-color: #007bff;
@@ -94,14 +94,14 @@ body {
 
 /* Hero Section */
 .hero {
-    margin-top: 60px; /* 헤더 높이에 맞게 조정 */
-    height: 25vh; /* 뷰포트 높이만큼 설정 */
+    margin-top: 60px;
+    height: 25vh;
     opacity: 0;
     transition: opacity 0.5s linear;
-    background: url('../images/ad.jpg') no-repeat center center; /* 경로 수정 */
+    background: url('../images/ad.jpg') no-repeat center center;
     background-size: cover;
     position: relative;
-    z-index: 1; /* z-index 추가 */
+    z-index: 1;
 }
 
 .hero::before {
@@ -111,8 +111,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.1); /* 오버레이 투명도 조정 */
-    z-index: 2; /* z-index 추가 */
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 2;
 }
 
 .hero.visible {
@@ -121,7 +121,7 @@ body {
 
 .hero-content {
     position: relative;
-    z-index: 3; /* z-index 증가 */
+    z-index: 3;
     height: 100%;
     display: flex;
     align-items: center;
@@ -129,82 +129,41 @@ body {
     text-align: center;
     color: white;
 }
-/* 슬라이드 관련 스타일 */
-.slider {
-    position: relative; 
-    overflow: hidden; 
-    display: flex; 
-    transition: transform 0.5s ease; 
-}
-
-.slider li {
-    min-width: 100%; 
-    transition: opacity 0.5s ease; 
-}
-
-.arrow {
-    position: absolute; 
-    top: 50%; 
-    width: 100%; 
-    display: flex; 
-    justify-content: space-between; 
-    transform: translateY(-50%);
-}
-
-.arrow a {
-    background: rgba(255, 255, 255, 0.5); 
-    border-radius: 50%; 
-    padding: 10px; 
-    text-decoration: none; 
-    color: #000;
-    font-size: 18px;
-}
-
-
-.cta-button {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 9999px;
-    text-decoration: none;
-    font-size: 1.1rem;
-}
 
 /* Filter Section */
 .filter-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 15px; /* 필터 섹션의 패딩 */
+    padding: 15px;
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 8px;
-    margin-top: 20px; /* 상단 여백 */
+    margin-top: 20px;
 }
 
 .filter-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* 항목 간의 공간 조정 */
+    justify-content: space-between;
     width: 100%;
 }
 
 .filter-column {
-    flex: 1; /* 각 필터 항목의 비율 조정 */
-    min-width: 150px; /* 최소 너비 */
+    flex: 1;
+    min-width: 150px;
 }
 
 .filter-label {
     font-weight: bold;
     color: #333;
-    margin-bottom: 8px; /* 레이블과 버튼 간의 여백 */
+    margin-bottom: 8px;
 }
 
 .filter-options {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px; /* 버튼 간의 간격 */
+    gap: 8px;
 }
 
 .filter-options button {
@@ -213,7 +172,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     background-color: #f9f9f9;
-    font-size: 0.85rem; /* 버튼 폰트 크기 */
+    font-size: 0.85rem;
     color: #333;
     transition: background-color 0.3s;
 }
@@ -223,7 +182,7 @@ body {
 }
 
 .colors button {
-    width: 24px; /* 색상 버튼 크기 조정 */
+    width: 24px;
     height: 24px;
     border-radius: 50%;
     border: 1px solid #ddd;
@@ -269,7 +228,7 @@ body {
     overflow: hidden;
     text-align: center;
     transition: box-shadow 0.3s ease;
-    position: relative; /* 하트 아이콘을 절대적으로 배치하기 위해 상대적으로 설정 */
+    position: relative;
 }
 
 .art-item:hover {
@@ -308,19 +267,16 @@ body {
     margin-right: 5px;
 }
 
-/* Heart icon styles */
-.heart-icon {
-    position: absolute; /* 위치를 절대값으로 설정 */
-    bottom: 10px; /* 아래에서의 위치 */
-    right: 10px; /* 오른쪽에서의 위치 */
-    font-size: 24px; /* 하트 아이콘 크기 조정 */
-    color: #6A5ACD; /* 기본 하트 색상 */
-    cursor: pointer; /* 커서 변경 */
-    transition: color 0.3s ease; /* 색상 변경에 애니메이션 추가 */
+/* Heart Icon Styles */
+.heart-icon img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.heart-icon.favorited {
-    color: red; /* 찜하기 활성화 시 하트 색상 변경 */
+.heart-icon.favorited img {
+    transform: scale(1.1);
 }
 
 /* Pagination */
@@ -369,5 +325,3 @@ footer {
     padding: 2rem 0;
     width: 100%;
 }
-
-
