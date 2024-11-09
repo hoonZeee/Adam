@@ -10,6 +10,7 @@ body {
     font-family: 'Noto Sans KR', sans-serif;
     line-height: 1.6;
     color: #333;
+    overflow-x: hidden; /* 페이지 전체에서 좌우 스크롤 막기 */
 }
 
 .header {
