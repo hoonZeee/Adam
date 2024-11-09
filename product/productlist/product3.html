@@ -17,12 +17,13 @@
                 </a>
             </div>
             <ul class="nav-items main-menu">
-                <li class="nav-item"><a>작가</a></li>
+                <li class="nav-item"><a href="../artist/artist.html">작가</a></li>
                 <li class="nav-item has-submenu"><a>구매,대여</a></li>
-                <li class="nav-item has-submenu"><a href="../../product/discover.html">작품 보기</a></li>
+                <li class="nav-item has-submenu"><a href="../product/discover.html">작품보기</a></li>
                 <li class="nav-item"><a id="mypage-link" href="#">마이페이지</a></li>
             </ul>
             <div class="icon-group">
+
                 <a href="../cart/cart.html" class="icon-btn">
                     <svg xmlns="../images/cart.jpg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cart-icon">
                         <circle cx="9" cy="21" r="1"></circle>
@@ -43,7 +44,7 @@
             <div class="submenu-column">
                 <a href="../artist/artist.html">작가List</a>
                 
-                <a href="#">신인작가</a>
+                <a href="../newartist/newartist.html">신인작가</a>
             </div>
             <div class="submenu-column2">
                 <a href="../payments/payment.html">무료체험</a>
@@ -148,5 +149,27 @@
             <p>&copy; 2024 ADAM(아트를담다). All rights reserved.</p>
         </div>
     </footer>
+    <script src="../../Main/script.js"></script>
+    <script>
+        fetch('/session-user')
+            .then(response => response.json())
+            .then(data => {
+                const userInfo = document.getElementById('user-info');
+                if (data.userName) {
+                    userInfo.innerHTML = `
+                        <div class="user-info-container">
+                            <span class="username">${data.userName}</span>
+                            <form action="/logout" method="POST" class="logout-form">
+                                <button type="submit">로그아웃</button>
+                            </form>
+                        </div>`;
+                } else {
+                    userInfo.innerHTML = `
+                        <a href="../login/login.html">로그인</a> 
+                        <a href="../login/signup.html">회원가입</a>`;
+                }
+            })
+            .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
+    </script>
 </body>
 </html>

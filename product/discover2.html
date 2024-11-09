@@ -199,18 +199,26 @@
     <script src="../product/script.js"></script>
     <script src="../Main/script.js"></script>
     <script>
-        // 사용자 이름을 표시하기 위해 서버에서 세션 정보를 요청
         fetch('/session-user')
             .then(response => response.json())
             .then(data => {
                 const userInfo = document.getElementById('user-info');
                 if (data.userName) {
-                    userInfo.innerHTML = `<span>${data.userName}</span> <form action="/logout" method="POST" style="display:inline;"><button type="submit">로그아웃</button></form>`;
+                    userInfo.innerHTML = `
+                        <div class="user-info-container">
+                            <span class="username">${data.userName}</span>
+                            <form action="/logout" method="POST" class="logout-form">
+                                <button type="submit">로그아웃</button>
+                            </form>
+                        </div>`;
                 } else {
-                    userInfo.innerHTML = `<a href="../login/login.html">로그인</a> <a href="../login/signup.html">회원가입</a>`;
+                    userInfo.innerHTML = `
+                        <a href="../login/login.html">로그인</a> 
+                        <a href="../login/signup.html">회원가입</a>`;
                 }
             })
             .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
     </script>
+    
 </body>
 </html>
