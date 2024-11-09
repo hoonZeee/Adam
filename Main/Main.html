@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADAM(아트를담다) - 그림렌탈 서비스</title>
-    <link rel="stylesheet" href="/Main/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
@@ -12,7 +12,7 @@
             <div class="logo">
                 <a href="/">
 
-                    <img src="/images/logo.png" alt="ADAM Logo" width="110" height="44">
+                    <img src="../images/logo.png" alt="ADAM Logo" width="110" height="44">
                 </a>
             </div>
             <ul class="nav-items main-menu">
@@ -73,43 +73,43 @@
                 <div class="feature-grid">
                     <!-- 원본 이미지들 -->
                     <div class="feature-item">
-                        <img src="/images/name1_1.jpg" alt="Space 1" width="300" height="200">
+                        <img src="../images/name1_1.jpg" alt="Space 1" width="300" height="200">
                         <p>동그라미</p>
                     </div>
                     <div class="feature-item">
-                        <img src="/images/name1_2.jpg" alt="Space 2" width="300" height="200">
+                        <img src="../images/name1_2.jpg" alt="Space 2" width="300" height="200">
                         <p>오키나와</p>
                     </div>
                     <div class="feature-item">
-                        <img src="/images/name1_3.jpg" alt="Space 3" width="300" height="200">
+                        <img src="../images/name1_3.jpg" alt="Space 3" width="300" height="200">
                         <p>달이 빛나는 장소</p>
                     </div>
                     <div class="feature-item">
-                        <img src="/images/name2_1.jpg" alt="Space 4" width="300" height="200">
+                        <img src="../images/name2_1.jpg" alt="Space 4" width="300" height="200">
                         <p>구름과 초록</p>
                     </div>
                     <div class="feature-item">
-                        <img src="/images/name2_2.jpg" alt="Space 5" width="300" height="200">
+                        <img src="../images/name2_2.jpg" alt="Space 5" width="300" height="200">
                         <p>편안한 마음</p>
                     </div>
                     <div class="feature-item">
-                        <img src="/images/name2_3.jpg" alt="Space 6" width="300" height="200">
+                        <img src="../images/name2_3.jpg" alt="Space 6" width="300" height="200">
                         <p>나의 심상세계</p>
                     </div>
                     <div class="feature-item">
-                        <img src="/images/name3_1.jpg" alt="Space 7" width="300" height="200">
+                        <img src="../images/name3_1.jpg" alt="Space 7" width="300" height="200">
                         <p>푸른바다</p>
                     </div>
                     <div class="feature-item">
-                        <img src="/images/name3_2.jpg" alt="Space 8" width="300" height="200">
+                        <img src="../images/name3_2.jpg" alt="Space 8" width="300" height="200">
                         <p>요동치듯 잔잔한</p>
                     </div>
                     <div class="feature-item">
-                        <img src="/images/name3_3.jpg" alt="Space 9" width="300" height="200">
+                        <img src="../images/name3_3.jpg" alt="Space 9" width="300" height="200">
                         <p>도시의 푸른주황</p>
                     </div>
                     <div class="feature-item">
-                        <img src="/images/name4_1.jpg" alt="Space 10" width="300" height="200">
+                        <img src="../images/name4_1.jpg" alt="Space 10" width="300" height="200">
                         <p>나무문</p>
                     </div>
                 </div>
@@ -166,17 +166,24 @@
         </div>
     </footer>
 </div>
-<script src="/Main/script.js"></script>
+<script src="script.js"></script>
 <script>
-    // 사용자 이름을 표시하기 위해 서버에서 세션 정보를 요청
     fetch('/session-user')
         .then(response => response.json())
         .then(data => {
             const userInfo = document.getElementById('user-info');
             if (data.userName) {
-                userInfo.innerHTML = `<span>${data.userName}</span> <form action="/logout" method="POST" style="display:inline;"><button type="submit">로그아웃</button></form>`;
+                userInfo.innerHTML = `
+                    <div class="user-info-container">
+                        <span class="username">${data.userName}</span>
+                        <form action="/logout" method="POST" class="logout-form">
+                            <button type="submit">로그아웃</button>
+                        </form>
+                    </div>`;
             } else {
-                userInfo.innerHTML = `<a href="../login/login.html">로그인</a> <a href="../login/signup.html">회원가입</a>`;
+                userInfo.innerHTML = `
+                    <a href="../login/login.html">로그인</a> 
+                    <a href="../login/signup.html">회원가입</a>`;
             }
         })
         .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));

@@ -1,5 +1,3 @@
-/* Reset and base styles */
-
 * {
     margin: 0;
     padding: 0;
@@ -98,17 +96,19 @@ body {
     padding: 2rem;
     display: flex;
     justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow-x: auto;
 }
 
 .submenu-column {
-    flex: 0.5;
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-left: 310px;
 }
 .submenu-column2 {
-    flex: 0.5;
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -119,9 +119,10 @@ body {
     display: block;
     text-decoration: none;
     color: #666;
-    font-size: 0.9rem;
+    font-size:0.9rem;
     padding: 0.05rem 0;
     margin-left:52px ;
+    white-space: nowrap;
 }
 
 .submenu-column a:hover, .submenu-column2 a:hover {
@@ -150,6 +151,59 @@ body {
     display: inline-block;
     margin-left: auto;
 }
+.username {
+  padding: 8px;
+}
+
+/*로그아웃 변경사항*/
+/* Wrapper for username and logout button */
+.user-info-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Hide logout button initially */
+.logout-form {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 6px;
+    width: 120px; /* Make sure the button has a fixed width for consistency */
+}
+
+/* Show logout button when hovering over username */
+.user-info-container:hover .logout-form {
+    display: block;
+}
+
+/* Styled logout button */
+.logout-form button {
+    background:#ffffff; /* Light gradient background */
+    color: #858585;
+    border: 1px solid #ccc;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Hover effect for logout button */
+.logout-form button:hover {
+    background: linear-gradient(135deg, #d1d1d1, #b5b5b5); /* Darker gradient on hover */
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Optional: Click effect for logout button */
+.logout-form button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
 /*아이콘 카트*/
 .icon-group {
     display: flex;
@@ -165,6 +219,7 @@ body {
     align-items: center;
     transition: color 0.3s ease;
 }
+
 /* Responsive design */
 @media (max-width: 768px) {
     .header ul {
@@ -177,5 +232,8 @@ body {
 
     .hero p {
         font-size: 1rem;
+    }
+    .submenu-container {
+        display: none !important; /* 작은 화면에서는 서브메뉴가 표시되지 않도록 설정 */
     }
 }

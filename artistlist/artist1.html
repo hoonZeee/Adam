@@ -13,11 +13,11 @@
             <div class="logo">
                 <a href="/">
 
-                    <img src="/images/logo.png" alt="ADAM Logo" width="110" height="44">
+                    <img src="../images/logo.png" alt="ADAM Logo" width="110" height="44">
                 </a>
             </div>
             <ul class="nav-items main-menu">
-                <li class="nav-item"><a>작가</a></li>
+                <li class="nav-item"><a href="../artist/artist.html">작가</a></li>
                 <li class="nav-item has-submenu"><a>구매,대여</a></li>
                 <li class="nav-item has-submenu"><a href="../product/discover.html">작품보기</a></li>
                 <li class="nav-item"><a id="mypage-link" href="#">마이페이지</a></li>
@@ -37,6 +37,21 @@
             </div>
         </nav>
     </header>
+
+    <div class="submenu-container">
+        <div class="submenu-wrapper">
+            <div class="submenu-column">
+                <a href="../artist/artist.html">작가List</a>
+                
+                <a href="../newartist/newartist.html">신인작가</a>
+            </div>
+            <div class="submenu-column2">
+                <a href="../payments/payment.html">무료체험</a>
+                <a href="../cart/cart.html">장바구니</a>
+            </div>
+           
+        </div>
+    </div>
 
     <br><br><br>
     
@@ -159,17 +174,24 @@
     </div>
 
     <script src="../artistlist/artist1.js"></script>
-    <script src="/Main/script.js"></script>
+    <script src="../Main/script.js"></script>
     <script>
-        // 사용자 이름을 표시하기 위해 서버에서 세션 정보를 요청
         fetch('/session-user')
             .then(response => response.json())
             .then(data => {
                 const userInfo = document.getElementById('user-info');
                 if (data.userName) {
-                    userInfo.innerHTML = `<span>${data.userName}</span> <form action="/logout" method="POST" style="display:inline;"><button type="submit">로그아웃</button></form>`;
+                    userInfo.innerHTML = `
+                        <div class="user-info-container">
+                            <span class="username">${data.userName}</span>
+                            <form action="/logout" method="POST" class="logout-form">
+                                <button type="submit">로그아웃</button>
+                            </form>
+                        </div>`;
                 } else {
-                    userInfo.innerHTML = `<a href="../login/login.html">로그인</a> <a href="../login/signup.html">회원가입</a>`;
+                    userInfo.innerHTML = `
+                        <a href="../login/login.html">로그인</a> 
+                        <a href="../login/signup.html">회원가입</a>`;
                 }
             })
             .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
