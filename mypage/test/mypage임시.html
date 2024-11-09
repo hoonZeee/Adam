@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page - ADAM</title>
+    
+    <!-- 공통 스타일 및 외부 라이브러리 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Main/banner/banner.css">
+    
+    <!-- Chart.js 라이브러리 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    
+    <!-- 상단 고정 헤더 -->
+    <header class="header">
+        <nav class="main-nav">
+            <div class = "logo">
+                <a href = "/">
+
+                    <img src="/images/logo.png" alt="ADAM Logo" width="110" height="44">
+                </a>
+            </div>
+            <ul class="nav-items main-menu">
+                <li class="nav-item"><a href="../artist/artist.html">작가</a></li>
+                <li class="nav-item has-submenu"><a>구매,대여</a></li>
+                <li class="nav-item has-submenu"><a href="../product/discover.html">작품 보기</a></li>
+                <li class="nav-item"><a id="mypage-link" href="../mypage/mypage.html">마이페이지</a></li>
+            </ul>
+            <div class="icon-group">
+                <a href="../cart/cart.html" class="icon-btn">
+                    <svg xmlns="../images/cart.jpg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cart-icon">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </a>
+            </div>
+            <li id="user-info">
+                <a href="../Main/Main.html" class="logout-btn">로그아웃</a>
+            </li>
+
+        </nav>
+    </header>
+
+
+</div>
+  <div class="main-content">
+    <div class = "profile-and-graph-container">
+        <aside class="user-info">
+        
+            <!-- 프로필 사진 및 수정 가능한 정보 -->
+            <section class="profile-section">
+                <img id="profile-img" src="profile.jpg" alt="프로필 사진" class="profile-img">
+                <h2>
+                    <span id="username">사용자 이름</span>
+                </h2>
+                
+                <p><span id="user-id">ID: user123</span></p>
+                <p><span id="user-contact">연락처: 010-1234-5678</span></p>
+                <p><span id="user-email">이메일: user@example.com</span></p>
+                <button class="edit-profile-btn" onclick="openEditProfileModal()">수정</button>
+            </section>
+            
+            <!-- 모달 창 -->
+            <div id="edit-profile-modal" class="modal" style="display:none;">
+                <div class="modal-content">
+                    <span class="close" onclick="closeEditProfileModal()">&times;</span>
+                    <h2>프로필 수정</h2>
+                    
+                    <form id="edit-profile-form" onsubmit="saveProfile(event)">
+                        <label for="modal-username">이름</label>
+                        <input type="text" id="modal-username" name="username" required>
+                        
+                        <label for="modal-user-contact">연락처</label>
+                        <input type="text" id="modal-user-contact" name="contact" required>
+                        
+                        <label for="modal-user-email">이메일</label>
+                        <input type="email" id="modal-user-email" name="email" required>
+                        
+                        <label for="modal-profile-img">프로필 사진</label>
+                        <input type="file" id="modal-profile-img-input" accept="image/*" onchange="previewProfileImage(event)">
+                        <img id="modal-profile-img-preview" src="profile.jpg" >
+                        
+                        <button type="button" onclick="saveProfile()">저장</button>
+                    </form>
+                </div>
+            </div>
+        </aside>
+         <!-- 그래프 -->
+        <div class="expense-graph">
+            <div id="period-text" style="font-size: 15px; text-align: center ;margin-bottom: 10px;"></div>
+            <div class="button-group">
+                <button id="daily-btn" onclick="showDaily()">일별</button>
+                <button id="weekly-btn" onclick="showWeekly()">주간</button>
+                <button id="monthly-btn" onclick="showMonthly()">월간</button>
+            </div>
+            <canvas id="expenseChart" width="600" height="300"></canvas>
+        </div>
+    </div>
+
+    
+    
+
+        <div class="side-container">
+
+             <!-- 사이드바 -->
+            <aside class="sidebar">
+                <h2>마이페이지</h2>
+                <ul class="sidebar-menu">
+                    <li><button class="menu-btn active" onclick="scrollToSection('notifications')">알림</button></li>
+                    <li><button class="menu-btn" onclick="scrollToSection('artworks')">대여/구매/판매 내역</button></li>
+                    <li><button class="menu-btn" onclick="scrollToSection('calendar')">대여 기간 확인</button></li>
+                    <li><button class="menu-btn" onclick="scrollToSection('account')">개인정보 관리</button></li>
+                </ul>
+            </aside>        
+
+            <section class="content-section">
+                <div id="notifications" class="tab-content active">
+                    <h3>알림</h3>
+                    <p>구매, 대여, 찜한 작품에 대한 알림을 여기에 표시합니다.</p>
+                </div>
+                <div id="artworks" class="tab-content">
+                    <h3>대여/구매/판매 내역</h3>
+                    <p>대여, 구매, 판매 및 찜한 작품 목록을 표시합니다.</p>
+                </div>
+                <div id="calendar" class="tab-content">
+                    <h3>대여 기간 확인</h3>
+                    <p>대여 기간을 달력으로 표시합니다.</p>
+                </div>
+                <div id="account" class="tab-content">
+                    <h3>개인정보 관리</h3>
+                    <p>아이디, 비밀번호, 닉네임 등을 관리할 수 있는 설정입니다.</p>
+                </div>
+            </section>
+        </div>
+
+
+    <script src="/Main/script.js"></script>
+    <script src="script.js"></script>
+
+
+</body>
+</html>

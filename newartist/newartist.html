@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신인작가 페이지</title>
+    <link rel="stylesheet" href="../newartist/newartist.css">
+    <link rel="stylesheet" href="../Main/banner/banner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="../Main/Main.html">
+            <img src="../images/logo.png" alt="Adam Logo" width="110" height="44">
+        </a>
+        <br>
+        <nav class="sidebar-nav">
+            <a href="../artist/artist.html"><span>작가</span></a>
+            <a href="../product/discover.html"><span>구매대여</span></a>
+            <a href="../cart/cart.html"><span>장바구니</span></a>
+            <a href="../mypage/mypage.html"><span>마이페이지</span></a>
+            <a href="#" id="writePostBtn" style="color: blue;"><span>글쓰기</span></a>
+        </nav>
+        <div id="user-info"></div>
+    </div>
+
+    <!-- 글쓰기 팝업 모달 -->
+    <div id="writePostModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <form id="writePostForm">
+                <label for="artworkImage">작품 이미지:</label>
+                <input type="file" id="artworkImage" name="artworkImage" accept="image/*" required><br><br>
+
+                <label for="description">작품 설명:</label>
+                <textarea id="description" name="description" rows="4" required></textarea><br><br>
+
+                <button type="submit">게시</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="postsContainer"><br></div>
+
+    <script src="../newartist/newartist.js"></script>
+    <script>
+        // 사용자 이름을 표시하기 위해 서버에서 세션 정보를 요청
+        fetch('/session-user')
+            .then(response => response.json())
+            .then(data => {
+                const userInfo = document.getElementById('user-info');
+                if (data.userName) {
+                    userInfo.innerHTML = `<span>${data.userName}</span> <form action="/logout" method="POST" style="display:inline;"><button type="submit">로그아웃</button></form>`;
+                } else {
+                    userInfo.innerHTML = `<a href="../login/login.html">로그인</a> <a href="../login/signup.html">회원가입</a>`;
+                }
+            })
+            .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
+    </script>
+</body>
+</html>

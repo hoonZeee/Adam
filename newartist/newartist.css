@@ -1,0 +1,199 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 20px;
+    background-image: url('../images/DynamicImage.png'); /* 배경 이미지 경로 설정 */
+    background-attachment: fixed; /* 배경 이미지 고정 */
+    background-size: cover; /* 화면을 가득 채우도록 설정 */
+    background-position: center; /* 중앙에 배치 */
+    background-repeat: no-repeat; /* 배경 이미지 반복 방지 */
+}
+
+.sidebar {
+    width: 150px;
+    height: 100vh;
+    background-color: white;
+    border-right: 1px solid #e0e0e0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar-logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar-nav a:hover {
+    color: #000000;
+}
+#user-info {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+#user-info button {
+    background: none;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.post {
+    padding: 20px;
+    margin-bottom: 20px; /* 게시글 간 간격 */
+}
+.post-info {
+    display: flex; /* 두 요소를 가로로 배치 */
+    align-items: center; /* 세로 중앙 정렬 */
+    gap: 10px; /* 요소 간의 간격 */
+}
+
+.artist-name {
+    font-weight: bold;
+}
+
+.post-date {
+    font-weight: normal; /* 글씨 굵기를 줄일 수 있습니다. 필요시 제거 */
+    font-size: 0.9em; /* 글씨 크기를 줄임 */
+}
+
+.artwork img {
+    width: 100%;
+    height: auto;
+}
+.like-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #ff4757;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-left: auto; /* 버튼을 오른쪽으로 배치 */
+    position: relative; /* 부모 요소 안에서만 위치 조정 */
+    z-index: 10; /* 버튼을 최상단에 표시 */
+}
+
+.like-btn:hover {
+    transform: scale(1.2); /* 호버 시 버튼 확대 효과 */
+    background: none; /* 호버 시에도 배경색 변경 없음 */
+}
+
+
+
+
+.description-comments {
+    display: flex;
+    border-top: 1px solid #efefef;
+    padding-top: 10px;
+}
+
+.description {
+    flex: 1;
+    padding-right: 10px;
+}
+
+.comments-section {
+    flex: 1;
+    border-left: 1px solid #efefef;
+    padding-left: 10px;
+}
+
+.comments-container {
+    height: 200px;
+    overflow-y: auto;
+}
+
+.comment {
+    margin-bottom: 10px;
+}
+
+.comment-time {
+    font-size: 0.8em;
+    color: #999;
+}
+
+#commentForm {
+    display: flex;
+    margin-top: 10px;
+}
+
+#commentInput {
+    flex: 1;
+    padding: 5px;
+}
+
+button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0081d6;
+}

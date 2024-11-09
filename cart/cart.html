@@ -9,7 +9,7 @@
     <br>
     <br><br><br>
     <div class="container">
-        <h1>장바구니</h1>
+        <h1 class="jemoc">장바구니</h1>
     </div>
 <body>
     <div class="art-rental-landing">
@@ -18,13 +18,13 @@
                 <div class="logo">
                     <a href="/">
     
-                        <img src="/images/logo.png" alt="ADAM Logo" width="110" height="44">
+                        <img src="../images/logo.png" alt="ADAM Logo" width="110" height="44">
                     </a>
                 </div>
                 <ul class="nav-items main-menu">
-                    <li class="nav-item"><a>작가</a></li>
+                    <li class="nav-item"><a href="../artist/artist.html">작가</a></li>
                     <li class="nav-item has-submenu"><a>구매,대여</a></li>
-                    <li class="nav-item has-submenu"><a href="../product/discover.html">작품소개</a></li>
+                    <li class="nav-item has-submenu"><a href="../product/discover.html">작품보기</a></li>
                     <li class="nav-item"><a id="mypage-link" href="#">마이페이지</a></li>
                 </ul>
                 <div class="icon-group">
@@ -48,22 +48,7 @@
                 <div class="submenu-column">
                     <a href="../artist/artist.html">작가List</a>
                     
-                    <a href="#">신인작가</a>
-                </div>
-                <div class="submenu-column2">
-                    <a href="../payments/payment.html">무료체험</a>
-                    <a href="../cart/cart.html">장바구니</a>
-                </div>
-               
-            </div>
-        </div>
-    
-        <div class="submenu-container">
-            <div class="submenu-wrapper">
-                <div class="submenu-column">
-                    <a href="../product/discover.html">작품리스트</a>
-                    
-                    <a href="#">서브메뉴 2</a>
+                    <a href="../newartist/newartist.html">신인작가</a>
                 </div>
                 <div class="submenu-column2">
                     <a href="../payments/payment.html">무료체험</a>
@@ -180,6 +165,42 @@
             </footer>
         </article>
 
+        <article class="product">
+            <header>
+                <a class="remove">
+                    <img src="../images/space6.png" alt="">
+
+                    <h3>상품 삭제하기</h3>
+                </a>
+            </header>
+
+            <div class="content">
+
+                <h1>도시</h1>
+
+                김길동화백 - 높은 산에서 도시를 내려다보며 그린 그린 한점
+
+                <div title="You have selected this product to be shipped in the color blue." style="top: 0" class="color blue"></div>
+                <div style="top: 43px" class="type small">Large</div>
+            </div>
+
+            <footer class="content">
+                
+                <span class="qt-minus">-</span>
+                <span class="qt">3</span>
+                <span class="qt-plus">+</span>
+
+                <h2 class="full-price">
+                    36만원
+                </h2>
+
+                <h2 class="price">
+                    12만원
+                </h2>
+            </footer>
+        </article>
+
+
     </section>
 
 </div>
@@ -200,44 +221,32 @@
 
     </div>
 </footer>
+<footer>
+    <div class="container2">
+        <p>&copy; 2024 ADAM(아트를담다). All rights reserved.</p>
+    </div>
+</footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- 장바구니 페이지 하단에 추가할 스크롤 섹션 -->
-<section class="scroll-section">
-    <h1>
-      <span>SCROLL</span>
-      <span>FOR</span>
-      <span>MORE</span>
-    </h1>
-  </section>
-  <section></section> <!-- 빈 섹션으로 추가 애니메이션을 위한 공간 -->
 <script src="cart.js"></script>
 <script src="../Main/script.js"></script>
-    <script>
-        // 사용자 이름을 표시하기 위해 서버에서 세션 정보를 요청
-        fetch('/session-user')
-            .then(response => response.json())
-            .then(data => {
-                const userInfo = document.getElementById('user-info');
-                if (data.userName) {
-                    userInfo.innerHTML = `<span>${data.userName}</span> <form action="/logout" method="POST" style="display:inline;"><button type="submit">로그아웃</button></form>`;
-                } else {
-                    userInfo.innerHTML = `<a href="../login/login.html">로그인</a> <a href="../login/signup.html">회원가입</a>`;
-                }
-            })
-            .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
-    </script>
-    <script src="../Main/script.js"></script>
-    <script>
-        // 사용자 이름을 표시하기 위해 서버에서 세션 정보를 요청
-        fetch('/session-user')
-            .then(response => response.json())
-            .then(data => {
-                const userInfo = document.getElementById('user-info');
-                if (data.userName) {
-                    userInfo.innerHTML = `<span>${data.userName}</span> <form action="/logout" method="POST" style="display:inline;"><button type="submit">로그아웃</button></form>`;
-                } else {
-                    userInfo.innerHTML = `<a href="../login/login.html">로그인</a> <a href="../login/signup.html">회원가입</a>`;
-                }
-            })
-            .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
-    </script>
+<script>
+    fetch('/session-user')
+        .then(response => response.json())
+        .then(data => {
+            const userInfo = document.getElementById('user-info');
+            if (data.userName) {
+                userInfo.innerHTML = `
+                    <div class="user-info-container">
+                        <span class="username">${data.userName}</span>
+                        <form action="/logout" method="POST" class="logout-form">
+                            <button type="submit">로그아웃</button>
+                        </form>
+                    </div>`;
+            } else {
+                userInfo.innerHTML = `
+                    <a href="../login/login.html">로그인</a> 
+                    <a href="../login/signup.html">회원가입</a>`;
+            }
+        })
+        .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
+</script>
