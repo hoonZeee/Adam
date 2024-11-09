@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover - ADAM(아트를담다)</title>
+    <link rel="stylesheet" href="../product/style.css">
+    <link rel="stylesheet" href="../Main/banner/banner.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="/">
+
+                    <img src="/images/logo.png" alt="ADAM Logo" width="110" height="44">
+                </a>
+            </div>
+            <ul class="nav-items main-menu">
+                <li class="nav-item has-submenu"><a>작품소개</a></li>
+                <li class="nav-item has-submenu"><a>구매,대여</a></li>
+                <li class="nav-item"><a href="../artist/artist.html">작가</a></li>
+                <li class="nav-item"><a href="/curators">마이페이지</a></li>
+            </ul>
+            <div class="icon-group">
+                <a href="../cart/cart.html" class="icon-btn">
+                    <svg xmlns="../images/cart.jpg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cart-icon">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </a>
+            </div>
+            <div id="user-info" class="nav-utils">
+                <a href="../login/login.html" class="login-btn">로그인</a>
+                <a href="../login/signup.html" class="signup-btn">회원가입</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="submenu-container">
+        <div class="submenu-wrapper">
+            <div class="submenu-column">
+                <a href="../product/discover.html">작품리스트</a>
+                
+                <a href="#">서브메뉴 2</a>
+            </div>
+            <div class="submenu-column2">
+                <a href="../payments/payment.html">무료체험</a>
+                <a href="../cart/cart.html">장바구니</a>
+            </div>
+           
+        </div>
+    </div>
+
+    <!-- Main  -->
+    <main class="discover-content container">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="container">
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-container">
+            <div class="filter-row">
+                <div class="filter-column">
+                    <div class="filter-label">테마</div>
+                    <div class="filter-options">
+                        <button>그림</button>
+                        <button>가구</button>
+                        <button>화분</button>
+                        <button>기타</button>
+                    </div>
+                </div>
+
+                <div class="filter-column">
+                    <div class="filter-label">색상</div>
+                    <div class="filter-options colors">
+                        <button style="background-color: #ff0000;"></button>
+                        <button style="background-color: #0000ff;"></button>
+                        <button style="background-color: #008000;"></button>
+                        <button style="background-color: #ffcc00;"></button>
+                        <button style="background-color: #d2b48c;"></button>
+                        <button style="background-color: #d3d3d3;"></button>
+                        <button style="background-color: #000000;"></button>
+                        <button style="background-image: linear-gradient(90deg, #ff0000, #ffcc00, #008000, #0000ff, #8b00ff);"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-row">
+                <div class="filter-column">
+                    <div class="filter-label">사이즈</div>
+                    <div class="filter-options">
+                        <button>XS <span class="small-text">(구매용)</span></button>
+                        <button>S <span class="small-text">(월 4만원)</span></button>
+                        <button>M <span class="small-text">(월 5만원)</span></button>
+                        <button>L <span class="small-text">(월 6만원)</span></button>
+                        <button>XL <span class="small-text">(월 7만원)</span></button>
+                    </div>
+                </div>
+                <div class="filter-column">
+                    <div class="filter-label">구매 및 렌탈 가격</div>
+                    <div class="filter-options">
+                        <button>~30만원</button>
+                        <button>30만 ~ 50만원</button>
+                        <button>50만 ~ 100만원</button>
+                        <button>100만 ~ 200만원</button>
+                        <button>200만 ~ 300만원</button>
+                        <button>300만 ~ 500만원</button>
+                        <button>500만 ~ 1000만원</button>
+                        <button>1000만원~</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sort Section -->
+        <div class="sort-container">
+            <span>n점의 작품 검색됨</span>
+            <div class="sort-options">
+                <label><input type="checkbox" name="rent"> 렌탈 가능</label>
+                <label><input type="checkbox" name="purchase"> 구매 가능</label>
+                <select class="sort-dropdown">
+                    <option value="newest">최신등록순</option>
+                    <option value="smallest">작은호수순</option>
+                    <option value="lowest-price">낮은가격순</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Artwork Gallery -->
+        <section class="gallery">
+            <section class="gallery">
+                <div class="art-item">
+                    <a href="../product/productlist/picture1.html"> <!-- 링크 추가 -->
+                        <img src="../images/space1.png" alt="전시 준비중" class="art-image">
+                    </a>
+                    <div class="art-details">
+                        <h3 class="art-title">매력적인공간 1</h3>
+                        <p class="art-artist">작가</p>
+                        <p class="art-size">61x72cm (18호)</p>
+                        <div class="art-status">
+                            <span class="status-dot"></span> 렌탈/전시중
+                        </div>
+                    </div>
+                    <div class="heart-icon" onclick="toggleFavorite(this)">♡</div>
+                </div>                            
+                <div class="art-item">
+                    <a href="../product/productlist/picture2.html"> <!-- 링크 추가 -->
+                        <img src="../images/space2.png" alt="전시 준비중" class="art-image">
+                    </a>
+                    <div class="art-details">
+                        <h3 class="art-title">매력적인공간 2</h3>
+                        <p class="art-artist">작가</p>
+                        <p class="art-size">61x72cm (18호)</p>
+                        <div class="art-status">
+                            <span class="status-dot"></span> 렌탈/전시중
+                        </div>
+                    </div>
+                    <div class="heart-icon" onclick="toggleFavorite(this)">♡</div>
+                </div>
+                
+                <div class="art-item" onclick="location.href='../product/productlist/picture3.html';">
+                    <img src="../images/space3.png" alt="전시 준비중" class="art-image">
+                    <div class="art-details">
+                        <h3 class="art-title">매력적인공간 3</h3>
+                        <p class="art-artist">작가</p>
+                        <p class="art-size">61x72cm (20호)</p>
+                        <div class="art-status">
+                            <span class="status-dot"></span> 렌탈/전시중
+                        </div>
+                    </div>
+                    <div class="heart-icon" onclick="toggleFavorite(this)">♡</div>
+                </div>         
+            </section>
+        </section>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="page-btn" disabled>&lt;</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <span class="ellipsis">...</span>
+            <button class="page-btn">&gt;</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ADAM(아트를담다). All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../product/script.js"></script>
+    <script src="../Main/script.js"></script>
+    <script>
+        fetch('/session-user')
+            .then(response => response.json())
+            .then(data => {
+                const userInfo = document.getElementById('user-info');
+                if (data.userName) {
+                    userInfo.innerHTML = `
+                        <div class="user-info-container">
+                            <span class="username">${data.userName}</span>
+                            <form action="/logout" method="POST" class="logout-form">
+                                <button type="submit">로그아웃</button>
+                            </form>
+                        </div>`;
+                } else {
+                    userInfo.innerHTML = `
+                        <a href="../login/login.html">로그인</a> 
+                        <a href="../login/signup.html">회원가입</a>`;
+                }
+            })
+            .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
+    </script>
+    
+</body>
+</html>
