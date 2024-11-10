@@ -1,4 +1,5 @@
 # Project Update
+###  npm install mysql,express,express-session,multer
 ---
 ### 2024년 11월 1일(21:53) 이지훈
 1. 서버 구축 및 메인 페이지 구현
