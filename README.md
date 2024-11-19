@@ -98,3 +98,4 @@
   - 데이터베이스 모델링
   - db연동 기능 구현
   - server.js db구축
+  - Get-ExecutionPolicy 정책확인 - RemoteSigned 으로 변경되어야함,Set-ExecutionPolicy RemoteSigned -Scope CurrentUser 설정 , Set-ExecutionPolicy Restricted -Scope CurrentUser 설정복원
