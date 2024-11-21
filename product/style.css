@@ -325,3 +325,47 @@ footer {
     padding: 2rem 0;
     width: 100%;
 }
+
+/* AI 질문 블록 스타일 */
+.ai-question-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.question-container {
+    display: flex;
+    gap: 10px;
+}
+
+#ai-question-input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#ai-question-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+#ai-question-button:hover {
+    background-color: #0056b3;
+}
+
+#ai-answer-output {
+    margin-top: 20px;
+    padding: 10px;
+    width: 90%;
+    max-width: 600px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: left;
+}
