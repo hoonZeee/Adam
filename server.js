@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session'); // 세션 패키지 추가
 const multer = require('multer'); // 이미지 업로드를 위한 multer
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use(session({
     secret: 'your_secret_key', // 세션 암호화 키
@@ -280,17 +280,23 @@ app.get('/', (req, res) => {
 
 // 4. AI 작품 추천 라우트 추가
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-//api 키 붙여넣기 하는곳
+//const API_KEY = '여기입력';
 
 app.post('/api/recommend', async (req, res) => {
     const { query } = req.body;
 
-    const prompt = `
-    다음 해시태그를 기반으로 유사한 작품을 추천해주세요: ${query}.
-    작품 목록: "Sunset Bliss", "Ocean Breeze", "Urban Night", "Floral Dream"
-    `;
-
     try {
+        // 파일 읽기
+        const fileContent = await fs.promises.readFile('./product/discover.html', 'utf8');
+
+
+        // 파일 내용을 prompt에 포함
+        const prompt = `
+        다음 해시태그를 기반으로 유사한 작품을 추천해주세요: ${query}.
+        작품 목록:
+        ${fileContent}
+        `;
+
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
             method: 'POST',
             headers: {
