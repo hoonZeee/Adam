@@ -143,6 +143,7 @@ body {
 
 #site-header, #site-footer {
     background: #fff;
+    border-top: 1px solid #ccc;
 }
 
 #site-header {
@@ -235,9 +236,9 @@ a:hover {
 /* Updated product styles */
 .product {
     border: 1px solid #eee;
-    margin: 15px;
+    margin: 19px;
     width: 100%;
-    height: 390px;
+    height: 350px;
     position: relative;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -245,6 +246,11 @@ a:hover {
     margin-top: 0%;
 }
 
+.product:hover {
+    transform: translateZ(10px) scale(1.03);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 
 .product img {
     width: 100%;
@@ -308,7 +314,7 @@ a:hover {
 
 .product .content {
     box-sizing: border-box;
-    height: 140px;
+    height: 100px;
     padding: 0 20px;
     width: 100%;
 }
@@ -317,7 +323,7 @@ a:hover {
     color: #90871f;
     font-size: 25px;
     font-weight: 300;
-    margin: 17px 0 20px 0;
+    margin: 10px 0 10px 0;
 }
 
 .product footer.content {

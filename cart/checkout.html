@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>장바구니</title>
+    <link rel="stylesheet" href="../Main/banner/banner.css">
+    <link rel="stylesheet" href="https://og-data.s3.amazonaws.com/CACHE2/css/output.0182ddde3c57.css">
+    <link rel="stylesheet" href="https://og-data.s3.amazonaws.com/CACHE2/css/output.f345cc3d4079.css">
+</head>  
+
+<div class="container">
+    <h1 class="jemoc"></h1>
+</div>
+<body>
+<div class="art-rental-landing">
+    <header class="header">
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="/">
+
+                    <img src="../images/logo.png" alt="ADAM Logo" width="110" height="44">
+                </a>
+            </div>
+            <ul class="nav-items main-menu">
+                <li class="nav-item"><a href="../artist/artist.html">작가</a></li>
+                <li class="nav-item has-submenu"><a>구매,대여</a></li>
+                <li class="nav-item has-submenu"><a href="../product/discover.html">작품보기</a></li>
+                <li class="nav-item"><a id="mypage-link" href="#">마이페이지</a></li>
+            </ul>
+            <div class="icon-group">
+                <a href="/cart/rentalcart.html" class="icon-btn">
+                    <svg xmlns="../images/cart.jpg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cart-icon">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </a>
+            </div>
+            <div id="user-info" class="nav-utils">
+                <a href="../login/login.html" class="login-btn">로그인</a>
+                <a href="../login/signup.html" class="signup-btn">회원가입</a>
+            </div>
+        </nav>
+    </header>
+
+       <div id="contents">
+    <section class="pageHead" id="checkout_head">
+     <div class="pageHead-bar">
+     </div>
+     <h2 class="pageHead-title">
+      주문결제
+     </h2>
+     <div class="pageHead-description">
+      Checkout
+     </div>
+     <div id="checkoutSteps">
+      <span class="checkoutStep">
+       1. 카트
+      </span>
+      <span class="checkoutStep checkoutStep-bold">
+       2. 주문결제
+      </span>
+      <span class="checkoutStep">
+       3. 주문완료
+      </span>
+     </div>
+    </section>
+    <section class="cf" id="checkout_body">
+     <section id="checkout_value">
+      <section id="billing_info">
+       <div class="sect-header">
+        <h3>
+         주문자 정보
+        </h3>
+        <span>
+         계약서에 기재될 정보입니다. (입력 내용은 회원 정보에 반영됩니다.)
+        </span>
+        <div class="mbtn_more active">
+         <input class="active" id="billing_more_btn" type="button"/>
+         <span class="active-hide-text">
+          <span id="billing_name_dsp">
+           권진호
+          </span>
+         </span>
+        </div>
+       </div>
+       <div class="sect-info active certified" id="checkout-profile">
+        <div class="sect-body cf">
+         <div class="sect-body-th">
+          주문자명
+         </div>
+         <div class="sect-body-td">
+          <div class="checkout-profile-box">
+           <input id="checkout-input-billing_name" name="billing_name" type="hidden" value="권진호"/>
+           <span>
+            권진호
+           </span>
+          </div>
+         </div>
+        </div>
+        <div class="sect-body cf">
+         <div class="sect-body-th">
+          주소
+         </div>
+         <div class="sect-body-td">
+          <input class="address1" id="billing_address1" name="billing_address1" placeholder="기본 주소" type="text" value=""/>
+          <input class="address-btn" id="billing_address_btn" type="button" value="주소 찾기"/>
+          <br/>
+          <input class="address2" id="billing_address2" name="billing_address2" placeholder="상세 주소" type="text" value="">
+          </input>
+         </div>
+        </div>
+        <div class="sect-body cf">
+         <div class="sect-body-th">
+          휴대폰
+         </div>
+         <div class="sect-body-td">
+          <div class="checkout-profile-box">
+           <input id="checkout-input-billing_phone1" name="billing_phone1" type="hidden" value="010-5564-8920"/>
+           <span>
+            010-5564-8920
+           </span>
+           <input id="checkout-profile-recertifyButton" type="button" value="변경"/>
+          </div>
+         </div>
+        </div>
+        <div class="sect-body cf">
+         <div class="sect-body-th">
+          유선전화
+         </div>
+         <div class="sect-body-td">
+          <div class="phone-select">
+           <select name="billing_phone21">
+            <option value="">
+             (선택)
+            </option>
+            <option value="02">
+             02
+            </option>
+            <option value="031">
+             031
+            </option>
+            <option value="032">
+             032
+            </option>
+            <option value="033">
+             033
+            </option>
+            <option value="041">
+             041
+            </option>
+            <option value="042">
+             042
+            </option>
+            <option value="043">
+             043
+            </option>
+            <option value="044">
+             044
+            </option>
+            <option value="051">
+             051
+            </option>
+            <option value="052">
+             052
+            </option>
+            <option value="053">
+             053
+            </option>
+            <option value="054">
+             054
+            </option>
+            <option value="055">
+             055
+            </option>
+            <option value="061">
+             061
+            </option>
+            <option value="062">
+             062
+            </option>
+            <option value="063">
+             063
+            </option>
+            <option value="064">
+             064
+            </option>
+            <option value="070">
+             070
+            </option>
+           </select>
+          </div>
+          <div class="phone-bar">
+           -
+          </div>
+          <input class="phone-number" maxlength="4" name="billing_phone22" type="tel" value=""/>
+          <div class="phone-bar">
+           -
+          </div>
+          <input class="phone-number" maxlength="4" name="billing_phone23" type="tel" value=""/>
+         </div>
+        </div>
+        <div class="sect-body cf">
+         <div class="sect-body-th">
+          이메일
+         </div>
+         <div class="sect-body-td">
+          <div class="checkout-profile-box">
+           <input id="checkout-input-billing_email" name="billing_email" type="hidden" value="tjsghkwlsgh@naver.com"/>
+           <span>
+            tjsghkwlsgh@naver.com
+           </span>
+          </div>
+         </div>
+        </div>
+        <div class="sect-body cf" id="payMethod">
+            <div class="sect-body-th">
+             결제방식
+            </div>
+            <div class="sect-body-td">
+             <span class="method">
+              <input checked="checked" class="checkbox_payment" id="payMethod_Billing" name="pay_method" type="radio" value="card"/>
+              <label for="payMethod_Billing">
+               신용카드
+              </label>
+             </span>
+             <p class="paymethod-desc">
+              정기결제를 위해서는 앱카드 사용이 아닌 신용카드 번호를 직접 기입해야 합니다.
+             </p>
+             <span class="method">
+              <input class="checkbox_payment" id="payMethod_Npay" name="pay_method" type="radio" value="naverpay"/>
+              <label for="payMethod_Npay">
+               네이버페이
+              </label>
+             </span>
+             <p class="paymethod-desc">
+              네이버페이 결제는 3,000만 원 이하만 가능합니다.
+             </p>
+            </div>
+           </div>
+       </div>
+      </section>
+      <section class="transit">
+       <div class="cf">
+        <h3>
+         출장 안내
+        </h3>
+        <p>
+         출장 및 설치는 평균 5~8 영업일 소요됩니다.
+         <br/>
+         일정 조율을 위해 담당자가 전화 연락을 드립니다.
+        </p>
+       </div>
+      </section>
+      <section id="shipping_info">
+       <div class="sect-header">
+        <h3>
+         수취인 정보
+        </h3>
+        <span>
+         작품이 실제 설치될 곳의 정보입니다.
+        </span>
+        <div class="mbtn_more active">
+         <input class="active" id="shipping_more_btn" type="button"/>
+         <span class="active-hide-text">
+          <span id="shipping_name_dsp">
+          </span>
+         </span>
+        </div>
+       </div>
+       <div class="sect-info active">
+        <div class="sect-body cf">
+         <div class="sect-body-th mpaste">
+         </div>
+         <div class="sect-body-td">
+          <input id="shipping-copy_button" type="button" value="주문자 정보와 동일"/>
+         </div>
+        </div>
+        <div class="sect-info-body cf">
+         <div class="sect-body cf">
+          <div class="sect-body-th">
+           수취인명
+          </div>
+          <div class="sect-body-td">
+           <input id="shipping_name" name="shipping_name" placeholder="이름" type="text"/>
+          </div>
+         </div>
+         <div class="sect-body cf">
+          <div class="sect-body-th">
+           주소
+          </div>
+          <div class="sect-body-td">
+           <input class="address1" id="shipping_address1" name="shipping_address1" placeholder="기본 주소" type="text"/>
+           <input class="address-btn" id="shipping_address_btn" type="button" value="주소 찾기"/>
+           <br/>
+           <input class="address2" id="shipping_address2" name="shipping_address2" placeholder="상세 주소" type="text"/>
+          </div>
+         </div>
+         <div class="sect-body cf">
+          <div class="sect-body-th">
+           휴대폰
+          </div>
+          <div class="sect-body-td">
+           <div class="phone-select">
+            <select name="shipping_phone11">
+             <option value="">
+              (선택)
+             </option>
+             <option value="010">
+              010
+             </option>
+            </select>
+           </div>
+           <div class="phone-bar">
+            -
+           </div>
+           <input class="phone-number" maxlength="4" name="shipping_phone12" type="tel"/>
+           <div class="phone-bar">
+            -
+           </div>
+           <input class="phone-number" maxlength="4" name="shipping_phone13" type="tel"/>
+          </div>
+         </div>
+         <div class="sect-body cf">
+          <div class="sect-body-th">
+           유선전화
+          </div>
+          <div class="sect-body-td">
+           <div class="phone-select">
+            <select name="shipping_phone21">
+             <option value="">
+              (선택)
+             </option>
+             <option value="02">
+              02
+             </option>
+             <option value="031">
+              031
+             </option>
+             <option value="032">
+              032
+             </option>
+             <option value="033">
+              033
+             </option>
+             <option value="041">
+              041
+             </option>
+             <option value="042">
+              042
+             </option>
+             <option value="043">
+              043
+             </option>
+             <option value="044">
+              044
+             </option>
+             <option value="051">
+              051
+             </option>
+             <option value="052">
+              052
+             </option>
+             <option value="053">
+              053
+             </option>
+             <option value="054">
+              054
+             </option>
+             <option value="055">
+              055
+             </option>
+             <option value="061">
+              061
+             </option>
+             <option value="062">
+              062
+             </option>
+             <option value="063">
+              063
+             </option>
+             <option value="064">
+              064
+             </option>
+             <option value="070">
+              070
+             </option>
+            </select>
+           </div>
+           <div class="phone-bar">
+            -
+           </div>
+           <input class="phone-number" maxlength="4" name="shipping_phone22" type="tel"/>
+           <div class="phone-bar">
+            -
+           </div>
+           <input class="phone-number" maxlength="4" name="shipping_phone23" type="tel"/>
+          </div>
+         </div>
+         <div class="sect-copy-address-mask">
+         </div>
+        </div>
+        <div class="sect-body cf">
+         <div class="sect-body-th">
+          메시지
+         </div>
+         <div class="sect-body-td">
+          <textarea id="shipping_message" name="message" placeholder="통화 가능한 시간과 설치 가능 시간, 공간의 특이사항 등을 남겨주시면 좋습니다. (예: 통화는 오전 중 가능하고, 설치는 오후가 좋습니다.)" rows="4"></textarea>
+         </div>
+        </div>
+       </div>
+      </section>
+      <section id="install">
+       <div class="sect-header">
+        <h3>
+         설치
+        </h3>
+        <div class="mbtn_more active">
+         <input class="active" id="receive_more_btn" type="button"/>
+        </div>
+       </div>
+       <div class="sect-info active">
+        <div class="sect-body active cf">
+         <div class="sect-body-th">
+          설치 방법
+         </div>
+         <div class="sect-body-td">
+          <div id="abc1">
+           <img src="https://og-data.s3.amazonaws.com/static/pages/img/service/checkout/checkout_install.png"/>
+           <p style="line-height: 1.5;">
+            * 선택하신 방법에 맞춰 자재가 준비되며 설치비도 달라집니다.
+            <br/>
+            * 오픈갤러리 자재로만 작품 설치가 가능합니다.
+           </p>
+           <div id="abc1-1">
+            <div class="abc-a">
+             <input id="abc-a-1" name="install_method" type="radio" value="1"/>
+             <label for="abc-a-1">
+              <span class="abc-a-h">
+               못 설치
+              </span>
+              <span class="abc-a-b">
+               - 2만원 (60호 이하 작품 1점) (첫 렌탈 이벤트 작품은 무료)
+               <br/>
+               - 작품 크기 및 무게, 못 개수, 벽면 강도에 따라 추가 비용
+              </span>
+             </label>
+            </div>
+            <div class="abc-a">
+             <input id="abc-a-2" name="install_method" type="radio" value="2"/>
+             <label for="abc-a-2">
+              <span class="abc-a-h">
+               신규 레일 및 와이어 설치
+              </span>
+              <span class="abc-a-b">
+               - 레일 1m당 5만원~ (크거나 무거운 일부 작품은 레일 설치 불가)
+               <br/>
+               - 작품 무게, 벽면 강도에 따라 추가 비용 발생
+              </span>
+             </label>
+            </div>
+            <div class="abc-a">
+             <input id="abc-a-3" name="install_method" type="radio" value="3"/>
+             <label for="abc-a-3">
+              <span class="abc-a-h">
+               레일 설치되어 있음
+              </span>
+              <span class="abc-a-b">
+               * 벽면이나 천장에 이미 레일이 설치되어 있는 경우에만 선택 부탁드립니다.
+               <br/>
+               - 와이어 있음: 안전장치 추가 1만원 (와이어 풀림 방지를 위한 슬리브 작업)
+               <br/>
+               - 와이어 없음: 와이어 1줄당 1~2만원
+              </span>
+             </label>
+            </div>
+            <div class="abc-a">
+             <input id="abc-a-4" name="install_method" type="radio" value="4"/>
+             <label for="abc-a-4">
+              <span class="abc-a-h">
+               현장 상담 이후 결정
+              </span>
+              <span class="abc-a-b">
+               - 전문 컨설턴트와 현장에서 적합한 설치방법 상담받기
+               <br/>
+               ※ 신규 레일 설치 시, 별도 비용
+               <br/>
+               ※ 설치방법은 현장에서 상담 후 결정 / 변경 - 후청구 가능
+              </span>
+             </label>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </section>
+      <section class="transit">
+       <div class="cf">
+        <h3>
+         설치비
+        </h3>
+        <p>
+         현장에서 고객님 확인 후 최종 결정되며, 설치 완료 후 결제하신 카드로 자동 결제 됩니다.
+        </p>
+       </div>
+      </section>
+     </section>
+     <section id="checkout_list">
+      <section id="artworks">
+       <h3>
+        주문 작품 정보
+        <span>
+         /
+         <span>
+          1
+         </span>
+         점
+        </span>
+       </h3>
+       <div class="mbtn_more martwork active">
+        <input class="active" id="artworks_more_btn" type="button"/>
+        <span class="active-hide-text">
+         총 1점
+        </span>
+       </div>
+       <div class="sect-list active">
+        <div class="checkout-artwork-list">
+         <div class="checkout-item">
+          <div class="checkout-img">
+           <img src="https://og-data.s3.amazonaws.com/media/artworks/h_fixed/A1166/A1166-0001.jpg">
+           </img>
+          </div>
+          <ul class="checkout-text">
+           <li class="code">
+            A1166-0001
+           </li>
+           <li class="title">
+            동경
+           </li>
+           <li class="sub">
+            김보선 / 45x91cm (변형 20호)
+           </li>
+           <li class="value">
+            ￦ 69,000/
+            <span>
+             월
+            </span>
+           </li>
+          </ul>
+         </div>
+        </div>
+        <div class="checkout-billing-value cf">
+         <ul class="checkout-billing-title">
+          <li>
+           작품 수
+          </li>
+          <li>
+           렌탈기간
+          </li>
+          <li>
+           렌탈요금
+          </li>
+          <li class="cart-popup" onclick="opg.fn.noticePopup('https://og-data.s3.amazonaws.com/static/pages/img/service/cart/shipping-fee%401.5x.png');">
+           출장비
+           <div class="icon-info-18dp">
+           </div>
+          </li>
+          <li class="cart-popup" onclick="opg.fn.noticePopup('https://og-data.s3.amazonaws.com/static/pages/img/service/cart/installation-expenses%401.5x.png');">
+           설치비
+           <div class="icon-info-18dp">
+           </div>
+          </li>
+         </ul>
+         <ul class="checkout-billing-info">
+          <li>
+           1점
+          </li>
+          <li>
+           3개월 (90일)
+          </li>
+          <li>
+           <span class="checkout-billing-small">
+            (매월 자동결제)
+           </span>
+           69,000원 / 월
+          </li>
+          <li>
+           <span id="artworks-shippingFee-rental">
+           </span>
+          </li>
+          <li>
+           설치 방식에 따라 청구
+          </li>
+         </ul>
+        </div>
+        <div class="checkout-artmoney-value cf">
+         <ul>
+          <li>
+           아트머니 사용
+          </li>
+          <li>
+           <span id="artworks-useArtmoney">
+            0
+           </span>
+           원
+          </li>
+         </ul>
+        </div>
+        <ul class="checkout-billing-total cf">
+         <li>
+          총 결제금액
+         </li>
+         <li>
+          <span id="artworks-totalPrice">
+           69,000
+          </span>
+          원
+         </li>
+        </ul>
+       </div>
+      </section>
+      <section id="payment">
+       <div class="sect-header">
+        <h3>
+        
+        </h3>
+        <div class="mbtn_more active">
+         <input class="active" id="payment_more_btn" type="button"/>
+         <span class="active-hide-text">
+          총
+          <span id="payment-header-totalPrice">
+           69,000
+          </span>
+          원
+         </span>
+        </div>
+       </div>
+       <div class="sect-body cf">
+        <div class="sect-body-th">
+         아트머니
+        </div>
+        <div class="sect-body-td">
+         <input id="payment-useArtmoney_input" name="artmoney" placeholder="0" type="text"/>
+         <span>
+          원
+         </span>
+         <input id="payment-useAllArtmoney_button" type="button" value="모두 사용"/>
+         <span id="Remaining_amount">
+          <span class="mvisible">
+           [
+          </span>
+          잔여
+          <span class="mhidden">
+           아트머니
+          </span>
+          <span id="payment-remainingArtmoney">
+           0
+          </span>
+          원
+          <span class="mvisible">
+           ]
+          </span>
+         </span>
+        </div>
+       </div>
+       <div class="sect-body cf" id="receipt">
+        <div class="sect-body-th">
+         현금영수증
+        </div>
+        <div class="sect-body-td">
+         <span class="method">
+          <input class="checkbox_payment" id="income_deduction" name="cash_receipt" type="radio" value="1"/>
+          <label for="income_deduction">
+           소득공제
+          </label>
+         </span>
+         <span class="method">
+          <input class="checkbox_payment" id="expense_evidence" name="cash_receipt" type="radio" value="2"/>
+          <label for="expense_evidence">
+           지출증빙
+          </label>
+         </span>
+         <span class="method">
+          <input checked="checked" class="checkbox_payment" id="not_receipt" name="cash_receipt" type="radio" value="0"/>
+          <label for="not_receipt">
+           신청 안 함
+          </label>
+         </span>
+        </div>
+        <div class="sect-body-td artmoney-sub" id="artmoney-sub-incomeDeduction">
+         <span>
+          휴대폰번호
+         </span>
+         <input maxlength="3" name="artmoney_phone1" type="tel"/>
+         <div class="phone-bar">
+          -
+         </div>
+         <input maxlength="4" name="artmoney_phone2" type="tel"/>
+         <div class="phone-bar">
+          -
+         </div>
+         <input maxlength="4" name="artmoney_phone3" type="tel"/>
+        </div>
+        <div class="sect-body-td artmoney-sub" id="artmoney-sub-expenseEvidence">
+         <span>
+          사업자등록번호
+         </span>
+         <input maxlength="3" name="artmoney_crn1" type="text"/>
+         <div class="phone-bar">
+          -
+         </div>
+         <input maxlength="2" name="artmoney_crn2" type="text"/>
+         <div class="phone-bar">
+          -
+         </div>
+         <input maxlength="5" name="artmoney_crn3" type="text"/>
+        </div>
+       </div>
+       <div class="sect-body cf" id="payMethod">
+        <div class="sect-body-th">
+         결제방식
+        </div>
+        <div class="sect-body-td">
+         <span class="method">
+          <input checked="checked" class="checkbox_payment" id="payMethod_Billing" name="pay_method" type="radio" value="card"/>
+          <label for="payMethod_Billing">
+           신용카드
+          </label>
+         </span>
+         <p class="paymethod-desc">
+          정기결제를 위해서는 앱카드 사용이 아닌 신용카드 번호를 직접 기입해야 합니다.
+         </p>
+         <span class="method">
+          <input class="checkbox_payment" id="payMethod_Npay" name="pay_method" type="radio" value="naverpay"/>
+          <label for="payMethod_Npay">
+           네이버페이
+          </label>
+         </span>
+         <p class="paymethod-desc">
+          네이버페이 결제는 3,000만 원 이하만 가능합니다.
+         </p>
+        </div>
+       </div>
+       <div class="sect-body cf">
+        <div style="display: flex; align-items: center">
+         <div class="sect-body-th mpaytotal">
+          결제금액
+         </div>
+         <div class="sect-body-td mprice">
+          <div class="payment-totalPrice-wrap">
+           <span id="payment-totalPrice">
+            69,000
+           </span>
+           원
+          </div>
+          <p class="paymethod-desc mhidden">
+           렌탈료는 해당 작품의 렌탈 기간 동안 등록해주신 카드로 매달 정기결제됩니다.
+          </p>
+         </div>
+        </div>
+        <p class="paymethod-desc mvisible">
+         렌탈료는 해당 작품의 렌탈 기간 동안 등록해주신 카드로 매달 정기결제됩니다.
+        </p>
+       </div>
+      </section>
+      <div id="checkout_submitRow">
+       <input id="input_tst" name="tst" type="hidden" value="1732503719.495274"/>
+       <input class="next_step" id="go_checkout" type="button" value="결제하기"/>
+      </div>
+      <section class="active" id="checkout_policy">
+       <div class="sect-header">
+        <h3>
+         약관동의
+        </h3>
+       </div>
+       <div class="sect-body">
+        <p>
+         주문 동의 및  서비스 이용 약관, 개인정보 수집 및 이용,
+                            개인정보 제3자 제공/위탁에 모두 동의하십니까?
+        </p>
+        <div class="policy-checkbox">
+         <input class="policy-check" id="policy_checkbox_all" type="checkbox"/>
+         <label for="policy_checkbox_all">
+          <span>
+           전체 동의
+          </span>
+         </label>
+         <input class="active" id="policy_more_btn" type="button"/>
+        </div>
+       </div>
+       <ul class="policy-checkbox-toggle">
+        <li>
+         <div class="policy-checkbox">
+          <input class="policy-check sub" id="policy_checkbox_0" name="policysub" type="checkbox"/>
+          <label for="policy_checkbox_0">
+           <span>
+            주문 동의
+           </span>
+          </label>
+          <p class="policy-check-more-text">
+           주문 작품 정보와 결제금액, 출장 정보를 확인하였으며,
+                                    주문에 동의하시겠습니까?
+          </p>
+          <p id="ggg">
+           * 결제 이후 단순 변심으로 인한 작품 변경/취소 시 위약금 발생
+           <br/>
+           - 작품 변경 : 3만원 / 취소 (설치 전) : 5만원 / 취소 (설치 후 7일 이내) : 7만원
+          </p>
+         </div>
+        </li>
+        <li>
+         <div class="policy-checkbox">
+          <input class="policy-check sub" id="policy_checkbox_1" name="policysub" type="checkbox"/>
+          <label for="policy_checkbox_1">
+           <span>
+            서비스 이용약관 동의
+           </span>
+          </label>
+          <a class="policy-check-more" href="/rental_agreement/" target="_blank">
+           전체보기
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="policy-checkbox">
+          <input class="policy-check sub" id="policy_checkbox_2" name="policysub" type="checkbox"/>
+          <label for="policy_checkbox_2">
+           <span>
+            개인정보 수집 및 이용 동의
+           </span>
+          </label>
+          <a class="policy-check-more" href="/rental_agreement/" target="_blank">
+           전체보기
+          </a>
+         </div>
+        </li>
+        <li>
+         <div class="policy-checkbox">
+          <input class="policy-check sub" id="policy_checkbox_3" name="policysub" type="checkbox"/>
+          <label for="policy_checkbox_3">
+           <span>
+            개인정보 제3자 제공/위탁 동의
+           </span>
+          </label>
+          <a class="policy-check-more" href="/rental_agreement/" target="_blank">
+           전체보기
+          </a>
+         </div>
+        </li>
+       </ul>
+      </section>
+     </section>
+    </section>
+   </div>
+   <footer id="footer">
+    <div class="cf" id="footer-block">
+     <div class="footer-link">
+      <a href="/about/" onclick="gaFooterAction('footer_company_190208');">
+       <span>
+        회사소개
+       </span>
+      </a>
+      <a href="/contactus/" onclick="gaFooterAction('footer_cooperate_190208');">
+       <span>
+        제휴문의
+       </span>
+      </a>
+      <a href="/artist-registry/" onclick="gaFooterAction('footer_artist_register_190208');">
+       <span>
+        작가공모 지원
+       </span>
+      </a>
+      <a href="/inquire-certificate/">
+       <span>
+        진품보증서 조회
+       </span>
+      </a>
+     </div>
+     <div class="footer-contact">
+      <div class="footer-num">
+       <a href="tel:1668-1056" onclick="gaFooterAction('footer_contact_tel1668-1056');">
+        대표번호 1668-1056
+       </a>
+       <span class="footer-date">
+        평일
+       </span>
+       <span class="footer-on">
+        9:00 - 18:00
+       </span>
+      </div>
+      <div class="footer-contact-sns">
+       <div class="footer-cell-foot" id="footer-contact-items">
+        <a class="footer-contact-icon" href="https://pf.kakao.com/_xdWtxbl" id="footer-contact-kakaotalk" onclick="gaFooterAction('footer_icon_kakao_190208');" target="_blank">
+        </a>
+        <a class="footer-contact-icon" href="https://www.instagram.com/opengallery.co.kr/" id="footer-contact-instagram" onclick="gaFooterAction('footer_icon_insta_190208');" target="_blank">
+        </a>
+        <a class="footer-contact-icon" href="https://post.naver.com/open_gallery" id="footer-contact-naverpost" onclick="gaFooterAction('footer_icon_naverpost_190208');" target="_blank">
+        </a>
+       </div>
+      </div>
+     </div>
+     <div id="footer-company-info">
+      상호명 : 오픈갤러리
+      <span class="footer-bar">
+       I
+      </span>
+      대표 : 박의규
+      <span class="footer-bar footer-none3">
+       I
+      </span>
+      <br class="footer-visible">
+       사업자등록번호 : 206-86-83224
+       <span class="footer-bar footer-none">
+        I
+       </span>
+       <span class="footer-bar footer-visible">
+        I
+       </span>
+       <br class="footer-none2 footer-none3">
+        호스팅 제공자 : AWS
+        <span class="footer-bar footer-none2 footer-none3">
+         I
+        </span>
+        <br class="footer-none">
+         <br class="footer-visible">
+          통신판매신고번호 : 제2019-서울성동-01759호
+          <br class="footer-none2">
+           <span class="footer-bar footer-none">
+            I
+           </span>
+           주소 : 서울 성동구 성수동1가 656-75 헤이그라운드 서울숲점 8층
+           <br>
+            E-mail: contact@opengallery.co.kr
+            <span class="footer-bar footer-none3">
+             I
+            </span>
+            <br class="footer-visible">
+             <span class="footer-inc">
+              © OPEN GALLERY, Inc.
+             </span>
+             <br class="footer-none2">
+              <div class="footer-policy">
+               <a href="/terms_and_policy/">
+                <span>
+                 이용약관
+                </span>
+               </a>
+               <a href="/terms_and_policy/">
+                <span class="white">
+                 개인정보처리방침
+                </span>
+               </a>
+               <a href="/faq/">
+                <span>
+                 FAQ
+                </span>
+               </a>
+              </div>
+             </br>
+            </br>
+           </br>
+          </br>
+         </br>
+        </br>
+       </br>
+      </br>
+     </div>
+    </div>
+    <div id="footer-awards">
+     <div class="owl-carousel" id="footer-awards-inner">
+      <div class="footer-award-item award01">
+      </div>
+      <div class="footer-award-item award02">
+      </div>
+      <div class="footer-award-item award03">
+      </div>
+      <div class="footer-award-item award04">
+      </div>
+      <div class="footer-award-item award05">
+      </div>
+      <div class="footer-award-item award06">
+      </div>
+      <div class="footer-award-item award07">
+      </div>
+      <div class="footer-award-item award08">
+      </div>
+      <div class="footer-award-item award09">
+      </div>
+      <div class="footer-award-item award10">
+      </div>
+      <div class="footer-award-item award11">
+      </div>
+      <div class="footer-award-item award12">
+      </div>
+      <div class="footer-award-item award13">
+      </div>
+      <div class="footer-award-item award14">
+      </div>
+     </div>
+    </div>
+   </footer>
+   <div id="recentArtworksPopup">
+   </div>
+   <div id="basePage-recentArtworks" onclick="gaClickRecentViewed('layer_recently');">
+   </div>
+   </a>
+   <div id="basePage-up">
+   </div>
+  </div>
+  <script src="https://og-data.s3.amazonaws.com/static/common/js/jquery-1.12.4.min.js">
+  </script>
+  <script src="https://og-data.s3.amazonaws.com/CACHE2/js/output.305063b03c50.js">
+  </script>
+  <!-- Facebook Pixel Code -->
+  <script>
+   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+            n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+            document);
+
+            fbq('init', '396355217200403', {
+                em: 'tjsghkwlsgh@naver.com',
+                ge: 'm',
+                db: '20000320'
+            });
+            fbq('track', 'PageView', null, { eventID: '1732507278598-6mjc' });
+  </script>
+  <noscript>
+   <img height="1" src="https://www.facebook.com/tr?id=396355217200403&amp;ev=PageView&amp;noscript=1" style="display: none;" width="1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+  <!-- AppsFlyer in-app event tracking start -->
+  <script>
+   if ((deviceType === 1 || deviceType === 2) && window.ReactNativeWebView && window.ReactNativeWebView.postMessage) {
+                    appEventPush = function (container) {
+                        var key, obj, eventName, eventValues,
+                            result = {};
+
+                        if (typeof container !== 'object' || container === null) {
+                            return;
+                        }
+
+                        for (key in container) {
+                            if (container.hasOwnProperty(key) && (key === 'appsflyer' || key === 'firebase')) {
+                                obj = container[key];
+
+                                if (typeof obj !== 'object' || obj === null || !obj.hasOwnProperty('eventName')) {
+                                    break;
+                                }
+
+                                eventName = obj.eventName;
+                                if (typeof eventName !== 'string' || eventName === '') {
+                                    return;
+                                }
+
+                                eventValues = Object.assign({
+                                    url: (location.pathname + location.search).substring(0, 100)
+                                }, obj);
+                                delete eventValues.eventName;
+
+                                result[key] = {
+                                    eventName: eventName,
+                                    eventValues: eventValues,
+                                    userId: ogUserKey || null
+                                };
+                            }
+                        }
+
+                        if (Object.keys(result).length !== 0) {
+                            window.ReactNativeWebView.postMessage(JSON.stringify(result));
+                        }
+                    };
+                } else {
+                    appEventPush = function () {};
+                }
+            
+            appEventPush({
+                appsflyer: {
+                    eventName: 'af_page_view'
+                }
+            });
+  </script>
+  <!-- AppsFlyer in-app event tracking end -->
+  <script>
+   function gaHeaderAction(label) {
+                dataLayer.push({ event: 'header_action', eventLabel: label });
+            }
+
+            function gaFooterAction(label) {
+                dataLayer.push({ event: 'footer_action', eventLabel: label });
+            }
+
+            function gaClickRecentViewed(label, artworkCode) {
+                dataLayer.push({ event: 'click_in_RecentlyView', eventLabel: label, artworkCode: artworkCode });
+            }
+
+            function gaEventAction(label, eventRequestId) {
+                if (eventRequestId) {
+                    dataLayer.push({ event: 'event_action_with_id', eventLabel: label, eventRequestId: eventRequestId });
+                }
+                else {
+                    dataLayer.push({ event: 'event_action', eventLabel: label });
+                }
+            }
+
+            function gaEventLanding(label) {
+                dataLayer.push({ event: 'event_landing', eventLabel: label });
+            }
+  </script>
+  <script id="json_artwork_list" type="application/json">
+   [{"code": "A1166-0001", "title": "\ub3d9\uacbd", "purchase_price": 2000000, "rental_price": 69000}]
+  </script>
+  <script src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js">
+  </script>
+  
+  <script src="https://og-data.s3.amazonaws.com/CACHE2/js/output.74101c73b1e4.js">
+  </script>
+  <!-- Naver Analytics -->
+  <script>
+   let wcsPageViewInitiated = false;
+            const _nasa = {};
+
+            function naverConversion(type, amount) {
+                if (!window.wcs) return;
+
+                // 1: 구매완료, 2: 회원가입, 3: 장바구니 담기, 4: 신청/예약, 5: 기타}
+                type = [1, 2, 3, 4].indexOf(type) > -1 ? type : 5;
+                amount = amount || 0;
+
+                _nasa.cnv = wcs.cnv(String(type), String(amount));
+
+                if (wcsPageViewInitiated) {
+                    wcs.inflow();
+                    wcs_do(_nasa);
+                }
+            }
+
+            window.wcs_add = window.wcs_add || {};
+            wcs_add.wa = 's_4c869ed9ab7b';
+
+            $(document).ready(function () {
+                if (!window.wcs) return;
+
+                wcs.inflow();
+                wcs_do(_nasa);
+                wcsPageViewInitiated = true;
+            });
+  </script>
+  <!-- End Naver Analytics -->
+  <script>
+   $(document).ready(function () {
+                
+                
+            });
+  </script>
+  <!-- Beusably Tracking Code for https://www.opengallery.co.kr -->
+  <script>
+   (function (w, d, a) {
+                    w.__beusablerumclient__ = {
+                        load: function (src) {
+                            var b = d.createElement('script');
+                            b.src = src;
+                            b.async = true;
+                            b.type = 'text/javascript';
+                            d.getElementsByTagName('head')[0].appendChild(b);
+                        }
+                    };
+                    w.__beusablerumclient__.load(a + '?url=' + encodeURIComponent(d.URL));
+                })(window, document, '//rum.beusable.net/load/b190103e130231u268');
+  </script>
+  <!-- END || Beusably Tracking Code for https://www.opengallery.co.kr-->
+  <!-- Daum Kakao Analytics -->
+  <!-- End Daum Kakao Analytics -->
+  <script src="../Main/script.js"></script>
+  <script>
+      fetch('/session-user')
+          .then(response => response.json())
+          .then(data => {
+              const userInfo = document.getElementById('user-info');
+              if (data.userName) {
+                  userInfo.innerHTML = `
+                      <div class="user-info-container">
+                          <span class="username">${data.userName}</span>
+                          <form action="/logout" method="POST" class="logout-form">
+                              <button type="submit">로그아웃</button>
+                          </form>
+                      </div>`;
+              } else {
+                  userInfo.innerHTML = `
+                      <a href="../login/login.html">로그인</a> 
+                      <a href="../login/signup.html">회원가입</a>`;
+              }
+          })
+          .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
+  </script>
+ </body>
+</html>
