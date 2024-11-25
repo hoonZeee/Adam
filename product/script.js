@@ -72,7 +72,44 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
         .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
+
+    
+// AI 질문 블록 기능 추가
+    const aiQuestionButton = document.getElementById('ai-question-button');
+    const aiQuestionInput = document.getElementById('ai-question-input');
+    const aiAnswerOutput = document.getElementById('ai-answer-output');
+
+    aiQuestionButton.addEventListener('click', async () => {
+        const question = aiQuestionInput.value.trim();
+        if (!question) {
+            alert("질문을 입력해주세요.");
+            return;
+        }
+
+        try {
+            const response = await fetch('/api/recommend', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ query: question }),
+            });
+
+            const data = await response.json();
+            console.log('API 응답 데이터:', data); // 디버깅용 콘솔 로그
+
+            if (data.success) {
+                aiAnswerOutput.textContent = `답변: ${data.recommendations}`;
+            } else {
+                aiAnswerOutput.textContent = "추천 결과를 가져올 수 없습니다.";
+            }
+        } catch (error) {
+            console.error('API 요청 중 오류 발생:', error);
+            aiAnswerOutput.textContent = "오류가 발생했습니다. 다시 시도해주세요.";
+        }
+    });
 });
+
 
 function toggleFavorite(element) {
     console.log("하트 클릭됨"); // 클릭 이벤트 확인용 로그

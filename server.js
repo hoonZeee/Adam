@@ -1,12 +1,13 @@
 const express = require('express');
 const path = require('path');
-const mysql = require('mysql2');
+const mysql = require('mysql');
+
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const session = require('express-session'); // 세션 패키지 추가
 const multer = require('multer'); // 이미지 업로드를 위한 multer
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use(session({
     secret: 'your_secret_key', // 세션 암호화 키
@@ -20,9 +21,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // MySQL 연결 설정
 const db = mysql.createConnection({
-    host: '127.0.0.1',
+    host: 'localhost',
     user: 'root',
-    password: '0000', // 필요에 따라 변경
+    password: '1234', // 필요에 따라 변경
     database: 'art'
 });
 
@@ -119,7 +120,6 @@ db.connect((err) => {
             console.log('Product 테이블 생성 성공');
         }
     });
-
     const insertInitialDataQuery = `
         INSERT INTO Product (
             product_id,
@@ -328,6 +328,60 @@ app.get('/session-user', (req, res) => {
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'Main', 'Main.html'));
 });
+
+
+// 4. AI 작품 추천 라우트 추가
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+//const API_KEY = '여기입력';
+
+app.post('/api/recommend', async (req, res) => {
+    const { query } = req.body;
+
+    try {
+        // 파일 읽기
+        const fileContent = await fs.promises.readFile('./product/discover.html', 'utf8');
+
+
+        // 파일 내용을 prompt에 포함
+        const prompt = `
+        다음 해시태그를 기반으로 유사한 작품을 추천해주세요: ${query}.
+        작품 목록:
+        ${fileContent}
+        `;
+
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${API_KEY}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                model: 'gpt-3.5-turbo',
+                messages: [
+                    { role: 'system', content: 'You are a helpful assistant.' },
+                    { role: 'user', content: prompt },
+                ],
+            }),
+        });
+    
+        const data = await response.json();
+        console.log('API 응답 데이터:', data); // 디버깅용
+    
+        // 응답 데이터 검증
+        if (!data.choices || data.choices.length === 0) {
+            console.error('API 응답에 choices 데이터가 없습니다:', data);
+            return res.json({ success: false, message: '추천 결과가 없습니다.' });
+        }
+    
+        const recommendations = data.choices[0].message.content;
+        res.json({ success: true, recommendations });
+    } catch (error) {
+        console.error('OpenAI API 요청 실패:', error);
+        res.json({ success: false, message: 'API 요청 실패: ' + error.message });
+    }
+    
+});
+
 
 // 게시물 데이터 제공 라우트
 app.get('/posts', (req, res) => {
