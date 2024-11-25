@@ -1,4 +1,5 @@
 # Project Update
+
 ###  npm install mysql,express,express-session,multer,node-fetch
 ---
 ### 2024년 11월 1일(21:53) 이지훈
@@ -100,10 +101,12 @@
   - server.js db구축
   - Get-ExecutionPolicy 정책확인 - RemoteSigned 으로 변경되어야함,Set-ExecutionPolicy RemoteSigned -Scope CurrentUser 설정 , Set-ExecutionPolicy Restricted -Scope CurrentUser 설정복원
 
+
 ### 2024년 11월 20일(00:50) 이지훈
 1. **서버, 작품 소개 페이지 **
   - 해시태그 기반 ai 작품 추천 서비스 구현
   - server.js, discvoer.html,css,js
   - npm install node.fetch
   - api key 보안 문제 유의.
+
 

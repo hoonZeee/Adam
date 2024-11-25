@@ -1,0 +1,52 @@
+.history-nav {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.history-tab {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.history-tab.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.history-section {
+    display: none;
+}
+
+.history-section:not(.hidden) {
+    display: block;
+}
+
+#transaction-history {
+    margin-top: 20px;
+}
+
+#transaction-history table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#transaction-history th, #transaction-history td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#transaction-history th {
+    background-color: #f4f4f4;
+}
+
+.history-image {
+    width: 50px;
+    height: auto;
+}

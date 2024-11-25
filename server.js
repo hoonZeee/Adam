@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mysql = require('mysql');
+
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const session = require('express-session'); // 세션 패키지 추가
@@ -97,26 +98,6 @@ db.connect((err) => {
         }
     });
 
-    // 추가 테이블: cart
-    const createCartTable = `
-        CREATE TABLE IF NOT EXISTS cart (
-            product_id VARCHAR(30) NOT NULL,
-            cart_name VARCHAR(20),
-            price INT,
-            amount INT,
-            PRIMARY KEY (product_id)
-        );
-    `;
-
-    db.query(createCartTable, (err, result) => {
-        if (err) {
-            console.error('cart 테이블 생성 실패:', err);
-        } else {
-            console.log('cart 테이블 생성 성공');
-        }
-    });
-
-    // 추가 테이블: Product
     const createProductTable = `
         CREATE TABLE IF NOT EXISTS Product (
             product_id VARCHAR(25) NOT NULL,
@@ -128,15 +109,86 @@ db.connect((err) => {
             tema VARCHAR(20),
             color VARCHAR(20),
             size VARCHAR(20),
+            image_url VARCHAR(255), 
             PRIMARY KEY (product_id)
         );
     `;
-
     db.query(createProductTable, (err, result) => {
         if (err) {
             console.error('Product 테이블 생성 실패:', err);
         } else {
             console.log('Product 테이블 생성 성공');
+        }
+    });
+    const insertInitialDataQuery = `
+        INSERT INTO Product (
+            product_id,
+            product_name,
+            product_price,
+            description,
+            product_artist,
+            \`condition\`,
+            tema,
+            color,
+            size,
+            image_url
+        ) VALUES
+        ('product2', '오키나와', 50000, NULL, NULL, 상, NULL, NULL, NULL, '../../images/name1_2.jpg'),
+        ('product1', '동그라미', 50000, NULL, NULL, 상, NULL, NULL, NULL, '../../images/name1_1.jpg')
+        ON DUPLICATE KEY UPDATE
+            product_name = VALUES(product_name),
+            product_price = VALUES(product_price),
+            image_url = VALUES(image_url);
+    `;
+
+    db.query(insertInitialDataQuery, (err) => {
+        if (err) {
+            console.error('Error inserting initial data into Product table:', err);
+            return;
+        }
+        console.log('Initial data inserted into Product table.');
+    });
+
+    // 렌탈 카트 테이블
+    const createRentalTable = `
+        CREATE TABLE IF NOT EXISTS rentalcart (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            product_id VARCHAR(30) NOT NULL,
+            product_name VARCHAR(50),
+            price INT,
+            amount INT,
+            image_url VARCHAR(255), -- New column for storing image URLs
+            user_id VARCHAR(50),
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (user_id) REFERENCES users(user_id)
+        );
+    `;
+    db.query(createRentalTable, (err, result) => {
+        if (err) {
+            console.error('rental 테이블 생성 실패:', err);
+        } else {
+            console.log('rental 테이블 생성 성공');
+        }
+    });
+    // 구매 카트 테이블
+    const createPurchaseTable =`
+        CREATE TABLE IF NOT EXISTS purchasecart (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            product_id VARCHAR(30) NOT NULL,
+            product_name VARCHAR(50),
+            price INT,
+            amount INT,
+            image_url VARCHAR(255),
+            user_id VARCHAR(50), -- 사용자 구분을 위한 ID
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (user_id) REFERENCES users(user_id)
+        );
+    `;
+    db.query(createPurchaseTable, (err, result) => {
+        if (err) {
+            console.error('Purchase 테이블 생성 실패:', err);
+        } else {
+            console.log('Purchase 테이블 생성 성공');
         }
     });
 
@@ -341,6 +393,339 @@ app.get('/posts', (req, res) => {
         } else {
             res.json({ success: true, data: results });
         }
+    });
+});
+
+//상품불러오기
+app.get('/product/:id', (req, res) => {
+    const productId = req.params.id;
+
+    const query = `
+        SELECT product_id, product_name, product_price, description, image_url
+        FROM Product
+        WHERE product_id = ?
+    `;
+
+    db.query(query, [productId], (err, results) => {
+        if (err) {
+            console.error('Error fetching product:', err);
+            return res.status(500).send('Internal Server Error');
+        }
+
+        if (results.length === 0) {
+            return res.status(404).send('Product not found');
+        }
+
+        // Serve the product details as JSON or render a product details page
+        const product = results[0];
+        res.send(`
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>${product.product_name}</title>
+            </head>
+            <body>
+                <h1>${product.product_name}</h1>
+                <img src="${product.image_url}" alt="${product.product_name}" />
+                <p>${product.description}</p>
+                <p>Price: ￦${product.product_price}</p>
+            </body>
+            </html>
+        `);
+    });
+});
+
+app.post('/add-to-rentalcart', (req, res) => {
+    const { product_id, product_name, price, amount, image_url } = req.body;
+
+    const user_id = req.session.user_id;
+
+    if (!user_id) {
+        return res.status(400).json({ success: false, message: 'User not logged in.' });
+    }
+
+    const query = `
+        INSERT INTO rentalcart (product_id, product_name, price, amount, image_url, user_id)
+        VALUES (?, ?, ?, ?, ?, ?)
+        ON DUPLICATE KEY UPDATE amount = amount + VALUES(amount);
+    `;
+
+    db.query(query, [product_id, product_name, price, amount, image_url, user_id], (err) => {
+        if (err) {
+            console.error('Database error:', err);
+            return res.status(500).json({ success: false, message: 'Database error.' });
+        }
+        res.json({ success: true });
+    });
+});
+app.get('/rental-cart', (req, res) => {
+    const user_id = req.session.user_id;
+
+    if (!user_id) {
+        return res.status(401).json({ success: false, message: 'User not logged in.' });
+    }
+
+    const query = `
+        SELECT product_id, product_name, price, image_url
+        FROM rentalcart
+        WHERE user_id = ?
+    `;
+
+    db.query(query, [user_id], (err, results) => {
+        if (err) {
+            console.error('Error fetching rental cart data:', err);
+            return res.status(500).json({ success: false, message: 'Database error' });
+        }
+
+        // Calculate total count and rental cost
+        const totalArtworkCount = results.length;
+        const totalRentalCost = results.reduce((sum, item) => sum + item.price, 0);
+
+        res.json({ success: true, data: results, totalArtworkCount, totalRentalCost });
+    });
+});
+
+app.post('/add-to-purchasecart', (req, res) => {
+    const { product_id, product_name, price, amount, image_url } = req.body;
+
+    if (!req.session.user_id) {
+        return res.status(400).json({ success: false, message: 'User not logged in.' });
+    }
+
+    const query = `
+        INSERT INTO purchasecart (product_id, product_name, price, amount, image_url, user_id)
+        VALUES (?, ?, ?, ?, ?, ?)
+        ON DUPLICATE KEY UPDATE amount = amount + VALUES(amount);
+    `;
+
+    db.query(
+        query,
+        [product_id, product_name, price, amount, image_url, req.session.user_id],
+        (err) => {
+            if (err) {
+                console.error('Database error:', err); // Debug log
+                return res.status(500).json({ success: false, message: 'Database error.' });
+            }
+            res.json({ success: true });
+        }
+    );
+});
+app.get('/purchase-cart', (req, res) => {
+    const user_id = req.session.user_id;
+
+    if (!user_id) {
+        return res.status(401).json({ success: false, message: '사용자가 로그인하지 않았습니다.' });
+    }
+
+    const query = `
+        SELECT product_id, product_name, price, amount, image_url
+        FROM purchasecart
+        WHERE user_id = ?
+    `;
+
+    db.query(query, [user_id], (err, results) => {
+        if (err) {
+            console.error('Purchase cart 데이터 가져오기 실패:', err);
+            return res.status(500).json({ success: false, message: '데이터베이스 오류' });
+        }
+
+        console.log('Purchase cart data:', results); // Debug log
+        res.json({ success: true, data: results });
+    });
+});
+app.post('/remove-from-cart', (req, res) => {
+    const { product_id } = req.body;
+    const user_id = req.session.user_id;
+
+    if (!user_id) {
+        return res.status(401).json({ success: false, message: '사용자가 로그인하지 않았습니다.' });
+    }
+
+    const query = `
+        DELETE FROM rentalcart
+        WHERE product_id = ? AND user_id = ?
+    `;
+
+    db.query(query, [product_id, user_id], (err, result) => {
+        if (err) {
+            console.error('카트에서 삭제 중 오류:', err);
+            return res.status(500).json({ success: false, message: 'Database error' });
+        }
+        res.json({ success: true, message: '삭제 완료' });
+    });
+});
+app.post('/remove-from-purchasecart', (req, res) => {
+    const { product_id } = req.body;
+
+    if (!req.session.user_id) {
+        return res.status(400).json({ success: false, message: '사용자가 로그인하지 않았습니다.' });
+    }
+
+    const query = `
+        DELETE FROM purchasecart
+        WHERE product_id = ? AND user_id = ?
+    `;
+
+    db.query(query, [product_id, req.session.user_id], (err, result) => {
+        if (err) {
+            console.error('상품 삭제 중 오류 발생:', err);
+            return res.status(500).json({ success: false, message: '데이터베이스 오류' });
+        }
+
+        if (result.affectedRows > 0) {
+            res.json({ success: true });
+        } else {
+            res.json({ success: false, message: '삭제할 상품을 찾을 수 없습니다.' });
+        }
+    });
+});
+app.get('/cart-counts', (req, res) => {
+    const user_id = req.session.user_id;
+
+    if (!user_id) {
+        return res.status(401).json({ success: false, message: 'User not logged in.' });
+    }
+
+    const rentalQuery = `
+        SELECT COUNT(*) AS rentalCount
+        FROM rentalcart
+        WHERE user_id = ?;
+    `;
+
+    const purchaseQuery = `
+        SELECT COUNT(*) AS purchaseCount
+        FROM purchasecart
+        WHERE user_id = ?;
+    `;
+
+    db.query(rentalQuery, [user_id], (err, rentalResults) => {
+        if (err) {
+            console.error('Error fetching rental cart count:', err);
+            return res.status(500).json({ success: false, message: 'Database error.' });
+        }
+
+        db.query(purchaseQuery, [user_id], (err, purchaseResults) => {
+            if (err) {
+                console.error('Error fetching purchase cart count:', err);
+                return res.status(500).json({ success: false, message: 'Database error.' });
+            }
+
+            const rentalCount = rentalResults[0].rentalCount;
+            const purchaseCount = purchaseResults[0].purchaseCount;
+
+            res.json({ success: true, rentalCount, purchaseCount });
+        });
+    });
+});
+
+//구매카트 총금액및 개수 연산
+app.get('/purchase-cart-summary', (req, res) => {
+    const user_id = req.session.user_id;
+
+    if (!user_id) {
+        return res.status(401).json({ success: false, message: 'User not logged in.' });
+    }
+
+    const query = `
+        SELECT COUNT(*) AS totalItems, SUM(price) AS totalPrice
+        FROM purchasecart
+        WHERE user_id = ?;
+    `;
+
+    db.query(query, [user_id], (err, results) => {
+        if (err) {
+            console.error('Error fetching purchase cart summary:', err);
+            return res.status(500).json({ success: false, message: 'Database error.' });
+        }
+
+        const { totalItems, totalPrice } = results[0];
+        res.json({ success: true, totalItems, totalPrice: totalPrice || 0 });
+    });
+});
+//이미지 카트로 불러오기
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
+//마이페이지 구매렌탈목록 가져오기
+app.get('/rental-history', (req, res) => {
+    const user_id = req.session.user_id;
+
+    if (!user_id) {
+        return res.status(401).json({ success: false, message: 'User not logged in.' });
+    }
+
+    const query = `
+        SELECT 
+            DATE_FORMAT(created_at, '%Y-%m-%d') AS date, 
+            product_name AS title, 
+            DATE_FORMAT(DATE_ADD(created_at, INTERVAL 3 MONTH), '%Y-%m-%d') AS details, 
+            price, 
+            COALESCE(image_url, 'https://example.com/default-image.jpg') AS image_url
+        FROM rentalcart
+        WHERE user_id = ?;
+    `;
+
+    db.query(query, [user_id], (err, results) => {
+        if (err) {
+            console.error('Database error:', err);
+            return res.status(500).json({ success: false, message: 'Database error.' });
+        }
+
+        res.json({ success: true, rentals: results });
+    });
+});
+app.get('/purchase-history', (req, res) => {
+    const user_id = req.session.user_id;
+
+    if (!user_id) {
+        return res.status(401).json({ success: false, message: 'User not logged in.' });
+    }
+
+    const query = `
+        SELECT 
+            DATE_FORMAT(created_at, '%Y-%m-%d') AS date, 
+            product_name AS title, 
+            price, 
+            COALESCE(image_url, 'https://example.com/default-image.jpg') AS image_url
+        FROM purchasecart
+        WHERE user_id = ?;
+    `;
+
+    db.query(query, [user_id], (err, results) => {
+        if (err) {
+            console.error('Database error:', err);
+            return res.status(500).json({ success: false, message: 'Database error.' });
+        }
+
+        res.json({ success: true, purchases: results });
+    });
+});
+
+app.get('/sales-history', (req, res) => {
+    const user_id = req.session.user_id;
+
+    if (!user_id) {
+        return res.status(401).json({ success: false, message: 'User not logged in.' });
+    }
+
+    const query = `
+        SELECT 
+            DATE_FORMAT(created_at, '%Y-%m-%d') AS date, 
+            product_name AS title, 
+            price, 
+            COALESCE(image_url, 'https://example.com/default-image.jpg') AS image_url
+        FROM purchasecart
+        WHERE user_id = ?;
+    `;
+
+    db.query(query, [user_id], (err, results) => {
+        if (err) {
+            console.error('Database error:', err);
+            return res.status(500).json({ success: false, message: 'Database error.' });
+        }
+
+        res.json({ success: true, sales: results });
     });
 });
 

@@ -136,7 +136,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //장바구니 로그인시에만 허용
 document.addEventListener('DOMContentLoaded', function() {
-    const cartLinks = document.querySelectorAll('a[href="../cart/cart.html"], .icon-btn');
+
+    const cartLinks = document.querySelectorAll('a[href="../cart/rentalcart.html"], .icon-btn');
+
 
     cartLinks.forEach(cartLink => {
         cartLink.addEventListener('click', (event) => {
@@ -147,7 +149,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(data => {
                     if (data.userName) {
                         // User is logged in, navigate to the cart page
-                        window.location.href = '../cart/cart.html';
+                        window.location.href = '../cart/rentalcart.html';
+
                     } else {
                         // User is not logged in, show an alert and redirect to the login page
                         alert("로그인이 필요합니다.");

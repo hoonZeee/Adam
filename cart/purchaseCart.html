@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>장바구니</title>
+    <link rel="stylesheet" href="../Main/banner/banner.css">
+    <style>
+        .cart-product-image {
+        width: 100px !important;
+        height: auto !important;
+        margin-right: 10px !important;
+        display: inline-block !important;
+        vertical-align: middle !important;
+    }
+    
+    .cartList-tdInfo p {
+        display: inline-block !important;
+        vertical-align: middle !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }</style>
+</head>
+    <br>
+    <br><br><br>
+    <div class="container">
+        <h1 class="jemoc"></h1>
+    </div>
+<body>
+    <div class="art-rental-landing">
+        <header class="header">
+            <nav class="main-nav">
+                <div class="logo">
+                    <a href="/">
+    
+                        <img src="../images/logo.png" alt="ADAM Logo" width="110" height="44">
+                    </a>
+                </div>
+                <ul class="nav-items main-menu">
+                    <li class="nav-item"><a href="../artist/artist.html">작가</a></li>
+                    <li class="nav-item has-submenu"><a>구매,대여</a></li>
+                    <li class="nav-item has-submenu"><a href="../product/discover.html">작품보기</a></li>
+                    <li class="nav-item"><a id="mypage-link" href="#">마이페이지</a></li>
+                </ul>
+                <div class="icon-group">
+                    <a href="/cart/rentalcart.html" class="icon-btn">
+                        <svg xmlns="../images/cart.jpg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cart-icon">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div id="user-info" class="nav-utils">
+                    <a href="../login/login.html" class="login-btn">로그인</a>
+                    <a href="../login/signup.html" class="signup-btn">회원가입</a>
+                </div>
+            </nav>
+        </header>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Page with External CSS and JS</title>
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="https://og-data.s3.amazonaws.com/CACHE2/css/output.0182ddde3c57.css">
+    <link rel="stylesheet" href="https://og-data.s3.amazonaws.com/CACHE2/css/output.b23bfaa2a14d.css">
+</head>
+  
+    </div>
+   </div>
+   <div id="contents">
+    <section class="pageHead" id="checkout_head">
+     <div class="pageHead-bar">
+     </div>
+     <h2 class="pageHead-title">
+      카트
+     </h2>
+     <div class="pageHead-description">
+      Cart
+     </div>
+     <div id="checkoutSteps">
+      <span class="checkoutStep checkoutStep-bold">
+       1. 카트
+      </span>
+      <span class="checkoutStep">
+       2. 주문결제
+      </span>
+      <span class="checkoutStep">
+       3. 주문완료
+      </span>
+     </div>
+    </section>
+    <nav class="cf" id="cartNav">
+     <a class="cartNav-btn" href="/cart/rentalcart.html">
+      렌탈 (0)
+     </a>
+     <div class="cartNav-btn cartNav-btn-current">
+      구매 (0)
+     </div>
+     
+    </nav>
+    <section id="cartBody">
+     <form action="../checkout/checkout.html" id="cartForm" method="post">
+      <input name="csrfmiddlewaretoken" type="hidden" value="PPRn6Iz8Z1bGoWRgMeQqRnEbxxQHDnxs43CqLZkMhngTpx5D9pnpF5DhdNwftje3"/>
+      <input name="order_type" type="hidden" value="P"/>
+      <table id="cartList">
+       <thead>
+        <tr>
+         <th class="cartList-checkbox" scope="col">
+          <input class="cartList-checkAll" id="cartList-checkAll-1" type="checkbox"/>
+          <label for="cartList-checkAll-1">
+          </label>
+         </th>
+         <th class="cartList-thInfo" scope="col">
+          작품정보
+         </th>
+         <th class="cartList-thPrice" scope="col">
+          구매가격
+         </th>
+         <th class="cartList-thRemove" scope="col">
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td class="cartList-tdDummy">
+         </td>
+         <td class="cartList-tdEmpty" colspan="3">
+          구매 카트에 담겨있는 작품이 없습니다
+         </td>
+        </tr>
+       </tbody>
+       <tfoot>
+        <tr>
+         <td class="cartList-checkbox">
+          <input class="cartList-checkAll" id="cartList-checkAll-2" type="checkbox"/>
+          <label for="cartList-checkAll-2">
+          </label>
+         </td>
+         <td colspan="2">
+          <input class="cartList-function" id="cartList-function-remove" type="button" value="삭제"/>
+          <input class="cartList-function" id="cartList-function-collect" type="button" value="마이컬렉션에 추가"/>
+         </td>
+         <td class="cartList-tdDummy">
+         </td>
+        </tr>
+       </tfoot>
+      </table>
+      <div class="cf" id="cartBoard">
+       <ul id="cartBoard-ul">
+        <li class="cartBoard-li cf">
+         <span class="cartBoard-label">
+          총 작품수
+         </span>
+         <span class="cartBoard-value">
+          <span id="cartBoard-val-artworkCount">
+           0
+          </span>
+          점
+         </span>
+        </li>
+        <li class="cartBoard-li cf">
+         <span class="cartBoard-label">
+          총 구매가격
+         </span>
+         <span class="cartBoard-value">
+          ￦
+          <span id="cartBoard-val-amount">
+           0
+          </span>
+         </span>
+        </li>
+        <li class="cartBoard-li cf">
+         <span class="cartBoard-label">
+          배송비
+         </span>
+         <span class="cartBoard-value">
+          수령 방법, 지역 등에 따라 변동
+         </span>
+        </li>
+       </ul>
+      </div>
+      <div id="cartNotice">
+       <p>
+        배송비는 수령 방법, 지역, 작품 사이즈, 작품 수에 따라 변동됩니다.
+       </p>
+       <p>
+        작품의 액자 유무에 따라 추가 비용이 발생 할 수 있습니다.
+       </p>
+       <p>
+        수도권 일부 지역에 한하여 요청 시 오픈갤러리 전문인력을 통한 출장 및 설치가 가능하며, 추가 비용이 발생합니다.
+       </p>
+      </div>
+      <div id="cartBottom">
+       <a href="../product/discover.html">
+        <input class="cartBottom-btn" id="toDiscoverBtn" type="button" value="작품 더 고르기"/>
+       </a>
+       <a href="checkout.html?cart_type=purchase" id="toCheckoutLink">
+        <input class="cartBottom-btn" id="toCheckoutBtn" type="button" value="주문결제" />
+        </a>
+      </div>
+     </form>
+    </section>
+   </div>
+   <footer id="footer">
+    <div class="cf" id="footer-block">
+     <div class="footer-link">
+      <a href="/about/" onclick="gaFooterAction('footer_company_190208');">
+       <span>
+        회사소개
+       </span>
+      </a>
+      <a href="/contactus/" onclick="gaFooterAction('footer_cooperate_190208');">
+       <span>
+        제휴문의
+       </span>
+      </a>
+      <a href="/artist-registry/" onclick="gaFooterAction('footer_artist_register_190208');">
+       <span>
+        작가공모 지원
+       </span>
+      </a>
+      <a href="/inquire-certificate/">
+       <span>
+        진품보증서 조회
+       </span>
+      </a>
+     </div>
+     <div class="footer-contact">
+      <div class="footer-num">
+       <a href="tel:1668-1056" onclick="gaFooterAction('footer_contact_tel1668-1056');">
+        대표번호 1668-1056
+       </a>
+       <span class="footer-date">
+        평일
+       </span>
+       <span class="footer-on">
+        9:00 - 18:00
+       </span>
+      </div>
+      <div class="footer-contact-sns">
+       <div class="footer-cell-foot" id="footer-contact-items">
+        <a class="footer-contact-icon" href="https://pf.kakao.com/_xdWtxbl" id="footer-contact-kakaotalk" onclick="gaFooterAction('footer_icon_kakao_190208');" target="_blank">
+        </a>
+        <a class="footer-contact-icon" href="https://www.instagram.com/opengallery.co.kr/" id="footer-contact-instagram" onclick="gaFooterAction('footer_icon_insta_190208');" target="_blank">
+        </a>
+        <a class="footer-contact-icon" href="https://post.naver.com/open_gallery" id="footer-contact-naverpost" onclick="gaFooterAction('footer_icon_naverpost_190208');" target="_blank">
+        </a>
+       </div>
+      </div>
+     </div>
+     <div id="footer-company-info">
+      상호명 : 오픈갤러리
+      <span class="footer-bar">
+       I
+      </span>
+      대표 : 박의규
+      <span class="footer-bar footer-none3">
+       I
+      </span>
+      <br class="footer-visible"/>
+      사업자등록번호 : 206-86-83224
+      <span class="footer-bar footer-none">
+       I
+      </span>
+      <span class="footer-bar footer-visible">
+       I
+      </span>
+      <br class="footer-none2 footer-none3"/>
+      호스팅 제공자 : AWS
+      <span class="footer-bar footer-none2 footer-none3">
+       I
+      </span>
+      <br class="footer-none"/>
+      <br class="footer-visible"/>
+      통신판매신고번호 : 제2019-서울성동-01759호
+      <br class="footer-none2"/>
+      <span class="footer-bar footer-none">
+       I
+      </span>
+      주소 : 서울 성동구 성수동1가 656-75 헤이그라운드 서울숲점 8층
+      <br/>
+      E-mail: contact@opengallery.co.kr
+      <span class="footer-bar footer-none3">
+       I
+      </span>
+      <br class="footer-visible"/>
+      <span class="footer-inc">
+       © OPEN GALLERY, Inc.
+      </span>
+      <br class="footer-none2"/>
+      <div class="footer-policy">
+       <a href="/terms_and_policy/">
+        <span>
+         이용약관
+        </span>
+       </a>
+       <a href="/terms_and_policy/">
+        <span class="white">
+         개인정보처리방침
+        </span>
+       </a>
+       <a href="/faq/">
+        <span>
+         FAQ
+        </span>
+       </a>
+      </div>
+     </div>
+    </div>
+    <div id="footer-awards">
+     <div class="owl-carousel" id="footer-awards-inner">
+      <div class="footer-award-item award01">
+      </div>
+      <div class="footer-award-item award02">
+      </div>
+      <div class="footer-award-item award03">
+      </div>
+      <div class="footer-award-item award04">
+      </div>
+      <div class="footer-award-item award05">
+      </div>
+      <div class="footer-award-item award06">
+      </div>
+      <div class="footer-award-item award07">
+      </div>
+      <div class="footer-award-item award08">
+      </div>
+      <div class="footer-award-item award09">
+      </div>
+      <div class="footer-award-item award10">
+      </div>
+      <div class="footer-award-item award11">
+      </div>
+      <div class="footer-award-item award12">
+      </div>
+      <div class="footer-award-item award13">
+      </div>
+      <div class="footer-award-item award14">
+      </div>
+     </div>
+    </div>
+   </footer>
+   <div id="recentArtworksPopup">
+   </div>
+   <div id="basePage-recentArtworks" onclick="gaClickRecentViewed('layer_recently');">
+   </div>
+   <a href="https://pf.kakao.com/_xdWtxbl/chat?referer=https%3A//www.opengallery.co.kr/cart/purchase/" id="kakaoPlusBtn" target="_blank">
+    <img src="https://og-data.s3.amazonaws.com/static/common/img/web-kakao-chat%402x.png"/>
+   </a>
+   <div id="basePage-up">
+   </div>
+  </div>
+  <script src="https://og-data.s3.amazonaws.com/static/common/js/jquery-1.12.4.min.js">
+  </script>
+  <script src="https://og-data.s3.amazonaws.com/CACHE2/js/output.305063b03c50.js">
+  </script>
+  <!-- Facebook Pixel Code -->
+  <script>
+   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+            n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+            document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+            fbq('init', '396355217200403', {
+                em: 'tjsghkwlsgh@naver.com',
+                ge: 'm',
+                db: '20000320'
+            });
+            fbq('track', 'PageView', null, { eventID: '1732121495985-leky' });
+  </script>
+  <noscript>
+   <img height="1" src="https://www.facebook.com/tr?id=396355217200403&amp;ev=PageView&amp;noscript=1" style="display: none;" width="1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+  <!-- AppsFlyer in-app event tracking start -->
+  <script>
+   if ((deviceType === 1 || deviceType === 2) && window.ReactNativeWebView && window.ReactNativeWebView.postMessage) {
+                    appEventPush = function (container) {
+                        var key, obj, eventName, eventValues,
+                            result = {};
+
+                        if (typeof container !== 'object' || container === null) {
+                            return;
+                        }
+
+                        for (key in container) {
+                            if (container.hasOwnProperty(key) && (key === 'appsflyer' || key === 'firebase')) {
+                                obj = container[key];
+
+                                if (typeof obj !== 'object' || obj === null || !obj.hasOwnProperty('eventName')) {
+                                    break;
+                                }
+
+                                eventName = obj.eventName;
+                                if (typeof eventName !== 'string' || eventName === '') {
+                                    return;
+                                }
+
+                                eventValues = Object.assign({
+                                    url: (location.pathname + location.search).substring(0, 100)
+                                }, obj);
+                                delete eventValues.eventName;
+
+                                result[key] = {
+                                    eventName: eventName,
+                                    eventValues: eventValues,
+                                    userId: ogUserKey || null
+                                };
+                            }
+                        }
+
+                        if (Object.keys(result).length !== 0) {
+                            window.ReactNativeWebView.postMessage(JSON.stringify(result));
+                        }
+                    };
+                } else {
+                    appEventPush = function () {};
+                }
+            
+            appEventPush({
+                appsflyer: {
+                    eventName: 'af_page_view'
+                }
+            });
+  </script>
+  <!-- AppsFlyer in-app event tracking end -->
+  <script>
+   function gaHeaderAction(label) {
+                dataLayer.push({ event: 'header_action', eventLabel: label });
+            }
+
+            function gaFooterAction(label) {
+                dataLayer.push({ event: 'footer_action', eventLabel: label });
+            }
+
+            function gaClickRecentViewed(label, artworkCode) {
+                dataLayer.push({ event: 'click_in_RecentlyView', eventLabel: label, artworkCode: artworkCode });
+            }
+
+            function gaEventAction(label, eventRequestId) {
+                if (eventRequestId) {
+                    dataLayer.push({ event: 'event_action_with_id', eventLabel: label, eventRequestId: eventRequestId });
+                }
+                else {
+                    dataLayer.push({ event: 'event_action', eventLabel: label });
+                }
+            }
+
+            function gaEventLanding(label) {
+                dataLayer.push({ event: 'event_landing', eventLabel: label });
+            }
+  </script>
+  <script>
+   if (!djContext) var djContext = {};
+        djContext.checkout_error = '';
+  </script>
+  <script src="https://og-data.s3.amazonaws.com/CACHE2/js/output.d42fdbb22f8b.js">
+  </script>
+  <!-- Naver Analytics -->
+  <script src="https://wcs.naver.net/wcslog.js">
+  </script>
+  <script>
+   let wcsPageViewInitiated = false;
+            const _nasa = {};
+
+            function naverConversion(type, amount) {
+                if (!window.wcs) return;
+
+                // 1: 구매완료, 2: 회원가입, 3: 장바구니 담기, 4: 신청/예약, 5: 기타}
+                type = [1, 2, 3, 4].indexOf(type) > -1 ? type : 5;
+                amount = amount || 0;
+
+                _nasa.cnv = wcs.cnv(String(type), String(amount));
+
+                if (wcsPageViewInitiated) {
+                    wcs.inflow();
+                    wcs_do(_nasa);
+                }
+            }
+
+            window.wcs_add = window.wcs_add || {};
+            wcs_add.wa = 's_4c869ed9ab7b';
+
+            $(document).ready(function () {
+                if (!window.wcs) return;
+
+                wcs.inflow();
+                wcs_do(_nasa);
+                wcsPageViewInitiated = true;
+            });
+  </script>
+  <!-- End Naver Analytics -->
+  <script>
+   $(document).ready(function () {
+                
+                
+            });
+  </script>
+  <!-- Beusably Tracking Code for https://www.opengallery.co.kr -->
+  <script>
+   (function (w, d, a) {
+                    w.__beusablerumclient__ = {
+                        load: function (src) {
+                            var b = d.createElement('script');
+                            b.src = src;
+                            b.async = true;
+                            b.type = 'text/javascript';
+                            d.getElementsByTagName('head')[0].appendChild(b);
+                        }
+                    };
+                    w.__beusablerumclient__.load(a + '?url=' + encodeURIComponent(d.URL));
+                })(window, document, '//rum.beusable.net/load/b190103e130231u268');
+  </script>
+  <!-- END || Beusably Tracking Code for https://www.opengallery.co.kr-->
+  <!-- Daum Kakao Analytics -->
+  <script charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js">
+  </script>
+  <script>
+   kakaoPixel('1052010801340985911').pageView();
+  </script>
+  <!-- End Daum Kakao Analytics -->
+ <!--<script src="https://og-data.s3.amazonaws.com/static/common/js/jquery-1.12.4.min.js"></script>
+    <script src="https://og-data.s3.amazonaws.com/CACHE2/js/output.305063b03c50.js"></script>
+    <script src="https://og-data.s3.amazonaws.com/CACHE2/js/output.b5d65a1b1be6.js"></script>
+    <script src="https://wcs.naver.net/wcslog.js"></script>
+    <script src="//t1.daumcdn.net/adfit/static/kp.js"></script> -->
+ </body>
+</html>
+<footer>
+    <div class="container2">
+        <p>&copy; 2024 ADAM(아트를담다). All rights reserved.</p>
+    </div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="cart.js"></script>
+<script src="../Main/script.js"></script>
+
+<script>
+    fetch('/session-user')
+        .then(response => response.json())
+        .then(data => {
+            const userInfo = document.getElementById('user-info');
+            if (data.userName) {
+                userInfo.innerHTML = `
+                    <div class="user-info-container">
+                        <span class="username">${data.userName}</span>
+                        <form action="/logout" method="POST" class="logout-form">
+                            <button type="submit">로그아웃</button>
+                        </form>
+                    </div>`;
+            } else {
+                userInfo.innerHTML = `
+                    <a href="../login/login.html">로그인</a> 
+                    <a href="../login/signup.html">회원가입</a>`;
+            }
+        })
+        .catch(error => console.error('세션 정보를 가져오는 중 오류 발생:', error));
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Fetch purchase cart data
+        fetch('/purchase-cart')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const tbody = document.querySelector('#cartList tbody');
+                    tbody.innerHTML = ''; // Clear previous contents
+    
+                    // Render each item in the cart
+                    data.data.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td class="cartList-checkbox">
+                                <input type="checkbox" value="${item.product_id}">
+                            </td>
+                            <td class="cartList-tdInfo">
+                                <img src="${item.image_url}" alt="${item.product_name}" class="cart-product-image">
+                                <p>${item.product_name}</p>
+                            </td>
+                            <td class="cartList-tdPrice">￦${item.price}</td>
+                            <td class="cartList-tdRemove">
+                                <button onclick="removeFromCart('${item.product_id}')">X</button>
+                            </td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                } else {
+                    alert(data.message || '구매 카트 데이터를 불러오는 데 실패했습니다.');
+                }
+            })
+            .catch(error => console.error('구매 카트 데이터를 가져오는 중 오류 발생:', error));
+    });
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        // Fetch rental and purchase counts
+        fetch('/cart-counts')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Update rental count
+                    const rentalCountElement = document.querySelector('.cartNav-btn');
+                    rentalCountElement.innerHTML = `렌탈 (${data.rentalCount})`;
+    
+                    // Update purchase count
+                    const purchaseCountElement = document.querySelector('.cartNav-btn-current');
+                    purchaseCountElement.innerHTML = `구매 (${data.purchaseCount})`;
+                } else {
+                    console.error('Failed to fetch cart counts:', data.message);
+                }
+            })
+            .catch(error => console.error('Error fetching cart counts:', error));
+    });
+    // Function to remove an item from the purchase cart
+    function removeFromCart(productId) {
+        fetch('/remove-from-purchasecart', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ product_id: productId }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('상품이 장바구니에서 삭제되었습니다.');
+                    location.reload(); // 페이지를 새로고침하여 목록 갱신
+                } else {
+                    alert('삭제 실패: ' + data.message);
+                }
+            })
+            .catch(error => console.error('상품 삭제 중 오류 발생:', error));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Fetch purchase cart summary
+        fetch('/purchase-cart-summary')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Update total artwork count
+                    const artworkCountElement = document.getElementById('cartBoard-val-artworkCount');
+                    artworkCountElement.textContent = data.totalItems;
+    
+                    // Update total purchase price
+                    const totalAmountElement = document.getElementById('cartBoard-val-amount');
+                    totalAmountElement.textContent = data.totalPrice.toLocaleString(); // Format as currency
+                } else {
+                    console.error('Failed to fetch purchase cart summary:', data.message);
+                }
+            })
+            .catch(error => console.error('Error fetching purchase cart summary:', error));
+    });
+</script>
