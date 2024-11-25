@@ -1,4 +1,5 @@
 # Project Update
+###  npm install mysql,express,express-session,multer
 ---
 ### 2024년 11월 1일(21:53) 이지훈
 1. 서버 구축 및 메인 페이지 구현
@@ -83,3 +84,18 @@
 - 초안 생성.
 - 개인 프로필 설정, 지출 그래프 추가
 - 수정 및 보안 작업중.
+
+### 2024년 11월 1일(21:53) 이지훈
+1. **신인작가페이지**
+  - 피드형식으로 스크롤하여 감상하고 좋아요, 코멘트 기능 구현.
+  - 글작성시 프로필과, 날짜를 기본정보에서 불러오고 이미지 및 db연동 기능 구현
+2.  메인페이지 전체적인 백그라운드 개발 및 지출 그래프 구현
+3.  user , post db 구축 및 코드 리팩토링
+4. 전체적인 홈페이지 컨테이너css 재배치
+
+### 2024년 11월 19일(12:53) 정현성
+1. **서버**
+  - 데이터베이스 모델링
+  - db연동 기능 구현
+  - server.js db구축
+  - Get-ExecutionPolicy 정책확인 - RemoteSigned 으로 변경되어야함,Set-ExecutionPolicy RemoteSigned -Scope CurrentUser 설정 , Set-ExecutionPolicy Restricted -Scope CurrentUser 설정복원

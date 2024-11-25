@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이 페이지</title>
     <link rel="stylesheet" href="../mypage/mypage.css">
+    <link rel="stylesheet" href="../mypage/mypage2.css">
     <!-- 공통 스타일 및 외부 라이브러리 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../Main/banner/banner.css">
@@ -59,7 +60,7 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="mypage1.html"><span class="icon">🔒</span>알림</a></li>
+                    <li><a href="mypage.html"><span class="icon">🔒</span>알림</a></li>
                     <li><a href="mypage2.html"><span class="icon">💳</span>대여/구매/판매 내역</a></li>
                     <li><a href="#"><span class="icon">📄</span>대여 기간 확인</a></li>
                     <li><a href="#"><span class="icon">📄</span>개인 정보 관리</a></li>
@@ -93,44 +94,76 @@
         </aside>
         <main class="main-content">
             <header>
-                <h1>마이 페이지</h1>
-                <div class="point-info">
-                    <span>현재 포인트</span>
-                    <span id="currentPoints">5,000 포인트</span>
-                    <button id="chargeButton">포인트충전</button>
-                </div>
+                <h1>거래내역</h1>
             </header>
-
-            <div class="chart-container">
-                <h3>월별 사용 현황</h3>
-                <canvas id="monthlyChart"></canvas>
-            </div>
-
-            <div class="usage-history">
-                <h3>포인트 사용내역</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>날짜</th>
-                            <th>사용 서비스</th>
-                            <th>사용 내역</th>
-                            <th>잔여 포인트</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2022-12-01 16:37:06</td>
-                            <td>워터마크 제작</td>
-                            <td class="positive">+5,000</td>
-                            <td>5,000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        
+            <section id="transaction-history">
+                <nav class="history-nav">
+                    <button class="history-tab active" data-target="#rental-history">대여 내역</button>
+                    <button class="history-tab" data-target="#purchase-history">구매 내역</button>
+                    <button class="history-tab" data-target="#sales-history">판매 내역</button>
+                </nav>
+        
+                <div id="history-content">
+                    <!-- 대여 내역 -->
+                    <div class="history-section" id="rental-history">
+                        <h2>대여 내역</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>날짜</th>
+                                    <th>작품명</th>
+                                    <th>렌탈 기간</th>
+                                    <th>가격</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rental-table-body">
+                                <tr><td colspan="4">대여 내역이 없습니다.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+        
+                    <!-- 구매 내역 -->
+                    <div class="history-section hidden" id="purchase-history">
+                        <h2>구매 내역</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>날짜</th>
+                                    <th>작품명</th>
+                                    <th>상태</th>
+                                    <th>가격</th>
+                                </tr>
+                            </thead>
+                            <tbody id="purchase-table-body">
+                                <tr><td colspan="4">구매 내역이 없습니다.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+        
+                    <!-- 판매 내역 -->
+                    <div class="history-section hidden" id="sales-history">
+                        <h2>판매 내역</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>날짜</th>
+                                    <th>작품명</th>
+                                    <th>상태</th>
+                                    <th>판매 가격</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sales-table-body">
+                                <tr><td colspan="4">판매 내역이 없습니다.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
         </main>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../mypage/mypage.js"></script>
+    <script src="mapage2.js"></script>
     <script>
         fetch('/session-user')
             .then(response => response.json())

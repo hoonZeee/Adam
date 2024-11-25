@@ -133,3 +133,34 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     });
 });
+
+//장바구니 로그인시에만 허용
+document.addEventListener('DOMContentLoaded', function() {
+    const cartLinks = document.querySelectorAll('a[href="../cart/rentalcart.html"], .icon-btn');
+
+    cartLinks.forEach(cartLink => {
+        cartLink.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            fetch('/session-user')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.userName) {
+                        // User is logged in, navigate to the cart page
+                        window.location.href = '../cart/rentalcart.html';
+                    } else {
+                        // User is not logged in, show an alert and redirect to the login page
+                        alert("로그인이 필요합니다.");
+                        setTimeout(() => {
+                            window.location.href = '../login/login.html';
+                        }, 10);
+                    }
+                })
+                .catch(error => {
+                    console.error('Failed to check login status:', error);
+                    // Redirect to login page if an error occurs
+                    window.location.href = '../login/login.html';
+                });
+        });
+    });
+});
