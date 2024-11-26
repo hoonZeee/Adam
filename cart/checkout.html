@@ -12,7 +12,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.7); /* 어두운 배경으로 변경 */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -20,18 +20,75 @@
     }
     
     .modal-content {
-        background-color: white;
-        padding: 20px;
-        border-radius: 8px;
-        width: 400px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, #ffffff, #f4f4f4); /* 부드러운 색상 그라데이션 */
+        border-radius: 12px;
+        width: 450px;
+        padding: 30px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+        position: relative;
+    }
+    
+    .modal-content h2 {
+        font-size: 24px;
+        color: #333333; /* 제목 색상 */
+        margin-bottom: 20px;
+        text-align: center;
+        border-bottom: 2px solid #eeeeee; /* 아래쪽 경계선 */
+        padding-bottom: 10px;
+    }
+    
+    .modal-content form label {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 8px;
+        color: #555555; /* 라벨 색상 */
+    }
+    
+    .modal-content form input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #cccccc;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+    
+    .modal-content form input:focus {
+        outline: none;
+        border-color: #007BFF; /* 포커스 시 강조 */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* 포커스 시 그림자 */
+    }
+    
+    .modal-content form button {
+        width: 100%;
+        padding: 12px;
+        background-color: #000000; /* 버튼 색상 */
+        color: #ffffff;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .modal-content form button:hover {
+        background-color: #0056b3; /* 버튼 호버 색상 */
     }
     
     .close-button {
-        float: right;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 20px;
+        color: #888888;
         cursor: pointer;
-        font-size: 18px;
-    }</style>
+        transition: color 0.3s ease;
+    }
+    
+    .close-button:hover {
+        color: #555555; /* 닫기 버튼 호버 색상 */
+    }
+    </style>
 </head>  
 
 <div class="container">
@@ -1319,6 +1376,7 @@
             event.preventDefault();
             alert('결제가 진행되었습니다!');
             modal.style.display = 'none';
+            window.location.href = '../main.html';
         });
     });
     </script>
