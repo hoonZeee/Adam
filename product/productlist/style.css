@@ -260,3 +260,58 @@ footer {
     padding: 2rem 0;
     width: 100%;
 }
+
+/* 기존 스타일... */
+
+/* 리뷰 섹션 스타일 */
+.product-reviews {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.product-reviews h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.review-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.review-content {
+    flex: 1;
+}
+
+.review-rating {
+    color: #ffd700;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.review-text {
+    color: #333;
+    line-height: 1.6;
+}
+
+
+
