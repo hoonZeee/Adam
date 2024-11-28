@@ -133,8 +133,8 @@ db.connect((err) => {
             size,
             image_url
         ) VALUES
-        ('product2', '오키나와', 50000, NULL, NULL, 상, NULL, NULL, NULL, '../../images/name1_2.jpg'),
-        ('product1', '동그라미', 50000, NULL, NULL, 상, NULL, NULL, NULL, '../../images/name1_1.jpg')
+        ('product2', '오키나와', 50000, NULL, NULL, '상', NULL, NULL, NULL, '../../images/name1_2.jpg'),
+        ('product1', '동그라미', 50000, NULL, NULL, '상', NULL, NULL, NULL, '../../images/name1_1.jpg')
         ON DUPLICATE KEY UPDATE
             product_name = VALUES(product_name),
             product_price = VALUES(product_price),
