@@ -108,6 +108,7 @@
   - server.js, discvoer.html,css,js
   - npm install node.fetch
   - api key 보안 문제 유의.
+  - 작품 리뷰 페이지 추가 (동적 할당)
 
 ### 2024년 11월 26일(01:50) 권진호
 1. **장바구니페이지, 마이페이지 **
